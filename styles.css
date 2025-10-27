@@ -26,6 +26,14 @@
     --user-message-bg: #00263a;
     --user-text: #ffffff;
     --panel-border: #e2e8f0;
+    
+    /* 哈尔滨中央大街主题色彩 */
+    --harbin-ice: #e8f4f8;
+    --harbin-blue: #4a90a4;
+    --harbin-stone: #8b8680;
+    --harbin-gold: #c9a876;
+    --harbin-red: #a8312f;
+    --russian-green: #2d5016;
 }
 
 body {
@@ -1348,5 +1356,216 @@ body {
     
     .section-content {
         font-size: 14px;
+    }
+}
+
+/* ===== 哈尔滨中央大街主题样式 ===== */
+.harbin-theme {
+    background: linear-gradient(135deg, var(--harbin-ice) 0%, var(--bg-white) 100%);
+}
+
+.harbin-theme .theme-card {
+    border-left: 4px solid var(--harbin-blue);
+    background: linear-gradient(135deg, var(--harbin-ice) 0%, var(--bg-white) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.harbin-theme .theme-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, var(--harbin-stone) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, var(--harbin-stone) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.harbin-theme .theme-card:hover {
+    border-left-color: var(--harbin-gold);
+    box-shadow: 0 8px 32px rgba(74, 144, 164, 0.15);
+    transform: translateY(-2px);
+}
+
+.harbin-theme .theme-card.selected {
+    border-left-color: var(--harbin-red);
+    background: linear-gradient(135deg, var(--harbin-ice) 0%, rgba(168, 49, 47, 0.05) 100%);
+}
+
+.harbin-theme .theme-main-title {
+    color: var(--harbin-blue);
+    text-shadow: 0 1px 2px rgba(74, 144, 164, 0.1);
+    position: relative;
+}
+
+.harbin-theme .theme-main-title::after {
+    content: '❄';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    color: var(--harbin-blue);
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.harbin-theme .theme-element {
+    background: linear-gradient(90deg, var(--harbin-stone) 0%, var(--harbin-gold) 100%);
+    color: var(--bg-white);
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 4px 8px;
+    margin: 2px;
+}
+
+.harbin-theme .document-header {
+    background: linear-gradient(135deg, var(--harbin-blue) 0%, var(--primary-color) 100%);
+}
+
+.harbin-theme .section-title {
+    color: var(--harbin-blue);
+    border-left: 4px solid var(--harbin-gold);
+    padding-left: 12px;
+    position: relative;
+}
+
+.harbin-theme .section-title::before {
+    background: linear-gradient(90deg, var(--harbin-gold) 0%, var(--harbin-blue) 100%);
+}
+
+/* 冰雪效果动画 */
+.ice-effect {
+    background: linear-gradient(135deg, 
+        var(--harbin-ice) 0%, 
+        rgba(232, 244, 248, 0.8) 25%,
+        var(--bg-white) 50%,
+        rgba(232, 244, 248, 0.8) 75%,
+        var(--harbin-ice) 100%);
+    background-size: 200% 200%;
+    animation: iceShimmer 3s ease-in-out infinite;
+}
+
+@keyframes iceShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* 面包石路纹理效果 */
+.stone-texture {
+    position: relative;
+    background: var(--bg-white);
+}
+
+.stone-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            var(--harbin-stone) 10px,
+            var(--harbin-stone) 11px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            var(--harbin-stone) 10px,
+            var(--harbin-stone) 11px
+        );
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* 俄式建筑装饰 */
+.russian-ornament {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.russian-ornament::after {
+    content: '🏛️';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 16px;
+    opacity: 0.3;
+}
+
+/* 哈尔滨特色按钮样式 */
+.harbin-btn {
+    background: linear-gradient(135deg, var(--harbin-blue) 0%, var(--harbin-gold) 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.harbin-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.harbin-btn:hover::before {
+    left: 100%;
+}
+
+.harbin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 164, 0.3);
+}
+
+/* 文档内容的哈尔滨主题样式 */
+.harbin-theme .markdown-section {
+    border-left: 3px solid var(--harbin-blue);
+    background: linear-gradient(135deg, var(--harbin-ice) 0%, var(--bg-white) 100%);
+}
+
+.harbin-theme .markdown-section:hover {
+    border-left-color: var(--harbin-gold);
+    box-shadow: 0 4px 16px rgba(74, 144, 164, 0.1);
+}
+
+.harbin-theme .subsection-title {
+    color: var(--harbin-blue);
+    font-weight: 600;
+}
+
+.harbin-theme .paragraph strong {
+    color: var(--harbin-red);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .harbin-theme .theme-main-title::after {
+        right: -15px;
+        font-size: 12px;
+    }
+    
+    .russian-ornament::after {
+        font-size: 14px;
+        top: 6px;
+        right: 8px;
     }
 }
