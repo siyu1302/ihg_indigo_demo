@@ -935,6 +935,221 @@ body {
     color: var(--text-secondary);
 }
 
+/* ===== Markdown文档样式 ===== */
+.markdown-document {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.markdown-header {
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+}
+
+.document-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.document-summary {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+    border-left: 4px solid var(--accent-gold);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 16px;
+}
+
+.document-summary p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.markdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.markdown-section {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.markdown-section:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--bg-light);
+    position: relative;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+}
+
+.section-content {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.subsection-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 24px 0 16px 0;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent-gold);
+    background: var(--bg-light);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+}
+
+.paragraph {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    text-align: justify;
+}
+
+.paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding-left: 8px;
+}
+
+.bullet {
+    color: var(--accent-gold);
+    font-weight: bold;
+    margin-right: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 选定主题的markdown样式 ===== */
+.selected-themes-markdown {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.selected-theme-markdown {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+    border: 1px solid var(--accent-gold);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.selected-theme-markdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gold);
+}
+
+.theme-number-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.theme-subtitle-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.theme-elements-markdown {
+    background: var(--bg-light);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.theme-elements-markdown strong {
+    color: var(--text-primary);
+}
+
+.theme-description-markdown {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.theme-description-markdown p {
+    margin: 0;
+    text-align: justify;
+}
+
+/* ===== Markdown文本格式化样式 ===== */
+.markdown-document strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.markdown-document em {
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.markdown-document code {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 13px;
+    border: 1px solid var(--border-color);
+}
+
+/* ===== 移除旧的表格样式（保持向后兼容） ===== */
+.document-table {
+    display: none;
+}
+
 /* ===== 响应式设计 ===== */
 @media (max-width: 1024px) {
     .app-container {
@@ -1000,6 +1215,36 @@ body {
     .document-content {
         padding: 16px;
     }
+    
+    /* Markdown文档响应式样式 */
+    .document-title {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .subsection-title {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+    
+    .markdown-section {
+        padding: 20px;
+    }
+    
+    .markdown-content {
+        gap: 24px;
+    }
+    
+    .selected-theme-markdown {
+        padding: 16px;
+    }
+    
+    .theme-number-title {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1056,5 +1301,52 @@ body {
     
     .document-content {
         padding: 12px;
+    }
+    
+    /* 小屏幕Markdown文档样式 */
+    .document-title {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+    }
+    
+    .subsection-title {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    
+    .markdown-section {
+        padding: 16px;
+    }
+    
+    .markdown-content {
+        gap: 20px;
+    }
+    
+    .selected-theme-markdown {
+        padding: 12px;
+    }
+    
+    .theme-number-title {
+        font-size: 16px;
+    }
+    
+    .theme-subtitle-text {
+        font-size: 14px;
+    }
+    
+    .theme-elements-markdown {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .paragraph {
+        font-size: 14px;
+    }
+    
+    .section-content {
+        font-size: 14px;
     }
 }
