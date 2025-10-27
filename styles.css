@@ -1153,6 +1153,241 @@ body {
     border: 1px solid var(--border-color);
 }
 
+/* ===== 增强的内容格式化样式 ===== */
+
+/* 内容分隔符 */
+.content-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-gold) 50%, transparent 100%);
+    margin: 24px 0;
+    position: relative;
+}
+
+.content-divider::before {
+    content: '✦';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-white);
+    color: var(--accent-gold);
+    padding: 0 12px;
+    font-size: 16px;
+}
+
+/* 中文序号标题样式 */
+.chinese-section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 28px 0 20px 0;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+}
+
+.chinese-section-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+    border-radius: 0 8px 8px 0;
+}
+
+/* 数字子标题样式 */
+.numbered-subsection-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 20px 0 12px 0;
+    padding: 10px 16px;
+    background: var(--bg-light);
+    border-left: 3px solid var(--primary-color);
+    border-radius: 0 6px 6px 0;
+    position: relative;
+}
+
+.numbered-subsection-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* 列表组样式 */
+.list-group {
+    background: rgba(248, 250, 252, 0.6);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    border: 1px solid var(--border-color);
+}
+
+.list-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.list-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.list-content {
+    flex: 1;
+    line-height: 1.6;
+}
+
+.bullet {
+    color: var(--accent-gold);
+    font-weight: bold;
+    margin-right: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    font-size: 14px;
+}
+
+/* 特殊段落样式 */
+.reference-paragraph {
+    background: linear-gradient(135deg, rgba(116, 139, 164, 0.05) 0%, rgba(116, 139, 164, 0.02) 100%);
+    border-left: 3px solid #748ba4;
+    padding: 12px 16px;
+    margin: 12px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.timeline-paragraph {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+    border-left: 3px solid var(--accent-gold);
+    padding: 10px 16px;
+    margin: 12px 0;
+    border-radius: 0 6px 6px 0;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* 文本标记样式 */
+.time-marker {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 2px;
+    box-shadow: 0 1px 3px rgba(238, 90, 36, 0.3);
+}
+
+.dynasty-marker {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 2px;
+    box-shadow: 0 1px 3px rgba(108, 92, 231, 0.3);
+}
+
+.person-marker {
+    background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 2px;
+    box-shadow: 0 1px 3px rgba(0, 184, 148, 0.3);
+}
+
+.location-marker {
+    background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 2px;
+    box-shadow: 0 1px 3px rgba(253, 203, 110, 0.3);
+}
+
+.citation {
+    background: rgba(116, 139, 164, 0.1);
+    color: #748ba4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-style: italic;
+    margin: 0 2px;
+    border: 1px solid rgba(116, 139, 164, 0.2);
+}
+
+.concept-marker {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #e6c866 100%);
+    color: var(--primary-color);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 2px;
+    box-shadow: 0 1px 3px rgba(212, 175, 55, 0.3);
+}
+
+/* 段落间距优化 */
+.paragraph {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    text-align: justify;
+    line-height: 1.8;
+}
+
+.paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* 悬停效果 */
+.list-item:hover {
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 6px;
+    margin: 8px -8px;
+    padding: 8px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.reference-paragraph:hover,
+.timeline-paragraph:hover {
+    transform: translateX(4px);
+    transition: transform 0.2s ease;
+}
+
+/* 标记元素悬停效果 */
+.time-marker:hover,
+.dynasty-marker:hover,
+.person-marker:hover,
+.location-marker:hover,
+.concept-marker:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+    cursor: default;
+}
+
 /* ===== 移除旧的表格样式（保持向后兼容） ===== */
 .document-table {
     display: none;
@@ -1557,7 +1792,49 @@ body {
 }
 
 /* 响应式调整 */
+/* ===== 增强内容格式化的响应式设计 ===== */
 @media (max-width: 768px) {
+    .chinese-section-title {
+        font-size: 18px;
+        padding: 12px 16px;
+        margin: 20px 0 16px 0;
+    }
+    
+    .numbered-subsection-title {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+    
+    .list-group {
+        padding: 12px;
+        margin: 12px 0;
+    }
+    
+    .content-divider {
+        margin: 16px 0;
+    }
+    
+    .content-divider::before {
+        font-size: 14px;
+        padding: 0 8px;
+    }
+    
+    .reference-paragraph,
+    .timeline-paragraph {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    .time-marker,
+    .dynasty-marker,
+    .person-marker,
+    .location-marker,
+    .citation,
+    .concept-marker {
+        font-size: 11px;
+        padding: 1px 4px;
+    }
+    
     .harbin-theme .theme-main-title::after {
         right: -15px;
         font-size: 12px;
@@ -1567,5 +1844,69 @@ body {
         font-size: 14px;
         top: 6px;
         right: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chinese-section-title {
+        font-size: 16px;
+        padding: 10px 12px;
+        margin: 16px 0 12px 0;
+    }
+    
+    .chinese-section-title::before {
+        width: 40px;
+    }
+    
+    .numbered-subsection-title {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+    
+    .list-group {
+        padding: 8px;
+        margin: 8px 0;
+    }
+    
+    .list-item {
+        padding: 6px 0;
+        margin-bottom: 8px;
+    }
+    
+    .bullet {
+        margin-right: 8px;
+        font-size: 12px;
+    }
+    
+    .content-divider {
+        margin: 12px 0;
+    }
+    
+    .content-divider::before {
+        font-size: 12px;
+        padding: 0 6px;
+    }
+    
+    .reference-paragraph,
+    .timeline-paragraph {
+        padding: 6px 10px;
+        font-size: 12px;
+        margin: 8px 0;
+    }
+    
+    .time-marker,
+    .dynasty-marker,
+    .person-marker,
+    .location-marker,
+    .citation,
+    .concept-marker {
+        font-size: 10px;
+        padding: 1px 3px;
+        margin: 0 1px;
+    }
+    
+    .paragraph {
+        line-height: 1.7;
+        margin-bottom: 12px;
     }
 }
