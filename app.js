@@ -2056,19 +2056,19 @@ function showStoryDocumentContent() {
                         
                         <!-- 故事结构导航 -->
                         <div class="story-structure-nav">
-                            <button class="story-nav-btn active" data-section="main">主故事</button>
-                            <button class="story-nav-btn" data-section="substories">三个小故事</button>
+                            <button class="story-nav-btn active" data-section="main">主线故事</button>
+                            <button class="story-nav-btn" data-section="substories">延伸故事</button>
                             <button class="story-nav-btn" data-section="design">酒店设计灵感</button>
                         </div>
                         
-                        <!-- 主故事内容 -->
+                        <!-- 主线故事内容 -->
                         <div class="story-section active" data-section="main">
                             <div class="story-main-content">
                                 ${formatStoryMainContent(getDetailedStoryContent(userLocation, theme.mainTitle))}
                             </div>
                         </div>
                         
-                        <!-- 三个小故事内容 -->
+                        <!-- 延伸故事内容 -->
                         <div class="story-section" data-section="substories">
                             <div class="story-substories-content">
                                 ${formatStorySubstories(getDetailedStoryContent(userLocation, theme.mainTitle))}
@@ -2216,11 +2216,11 @@ document.addEventListener('DOMContentLoaded', () => {
     messageInput.focus();
 });
 
-// ===== 格式化主故事内容 =====
+// ===== 格式化主线故事内容 =====
 function formatStoryMainContent(fullContent) {
     if (!fullContent) return '<p>暂无内容</p>';
     
-    // 提取主故事部分（第一个 ## 之前的内容）
+    // 提取主线故事部分（第一个 ## 之前的内容）
     const lines = fullContent.split('\n');
     let mainContent = '';
     let foundFirstSection = false;
@@ -2238,18 +2238,18 @@ function formatStoryMainContent(fullContent) {
     return formatMarkdownContent(mainContent.trim());
 }
 
-// ===== 格式化小故事内容 =====
+// ===== 格式化延伸故事内容 =====
 function formatStorySubstories(fullContent) {
     if (!fullContent) return '<p>暂无内容</p>';
     
-    // 提取所有 ## 开头的小故事
+    // 提取所有 ## 开头的延伸故事
     const sections = fullContent.split(/^## /m).filter(section => section.trim());
     
     if (sections.length <= 1) {
-        return '<p>暂无小故事内容</p>';
+        return '<p>暂无延伸故事内容</p>';
     }
     
-    // 跳过第一个部分（主故事），处理后续的小故事
+    // 跳过第一个部分（主线故事），处理后续的延伸故事
     const substories = sections.slice(1);
     
     return substories.map((story, index) => {
