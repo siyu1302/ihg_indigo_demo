@@ -2016,81 +2016,81 @@ function showStoryDocumentContent() {
         detailedStories: detailedStories
     };
     
-    // 生成markdown格式的故事文档内容
+    // 生成新的故事文档结构
     let contentHTML = `
-        <div class="markdown-document">
-            <div class="markdown-header">
-                <h1 class="document-title">${storyDocument.title}</h1>
-                <div class="document-summary">
+        <div class="story-document-container">
+            <div class="story-document-header">
+                <h1 class="story-document-title">${storyDocument.title}</h1>
+                <div class="story-document-summary">
                     <p>${storyDocument.summary}</p>
                 </div>
             </div>
             
-            <div class="markdown-content">
-                <div class="markdown-section">
-                    <h2 class="section-title">选定主题</h2>
-                    <div class="section-content">
-                        <div class="selected-themes-markdown">
-                            ${selectedThemes.map((theme, index) => `
-                                <div class="selected-theme-markdown">
-                                    <h3 class="theme-number-title">${index + 1}. ${theme.mainTitle}</h3>
-                                    <p class="theme-subtitle-text"><em>${theme.subTitle}</em></p>
-                                    <div class="theme-elements-markdown">
-                                        <strong>核心元素：</strong>${theme.elements.join('、')}
-                                    </div>
-                                    <div class="theme-description-markdown">
-                                        <p>${theme.description}</p>
-                                    </div>
-                                </div>
-                            `).join('')}
+            <!-- 主题导航栏 -->
+            <div class="story-themes-nav">
+                <div class="themes-nav-title">选定主题</div>
+                <div class="themes-nav-tabs">
+                    ${selectedThemes.map((theme, index) => `
+                        <button class="theme-nav-tab ${index === 0 ? 'active' : ''}" data-theme-index="${index}">
+                            <div class="theme-nav-number">${index + 1}</div>
+                            <div class="theme-nav-content">
+                                <div class="theme-nav-title">${theme.mainTitle}</div>
+                                <div class="theme-nav-subtitle">${theme.subTitle}</div>
+                            </div>
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <!-- 故事内容区域 -->
+            <div class="story-content-area">
+                ${selectedThemes.map((theme, index) => `
+                    <div class="story-theme-panel ${index === 0 ? 'active' : ''}" data-theme-index="${index}">
+                        <div class="story-theme-header">
+                            <h2 class="story-theme-title">${theme.mainTitle}</h2>
+                            <p class="story-theme-subtitle">${theme.subTitle}</p>
+                            <div class="story-theme-elements">
+                                <strong>核心元素：</strong>${theme.elements.join('、')}
+                            </div>
+                        </div>
+                        
+                        <!-- 故事结构导航 -->
+                        <div class="story-structure-nav">
+                            <button class="story-nav-btn active" data-section="main">主故事</button>
+                            <button class="story-nav-btn" data-section="substories">三个小故事</button>
+                            <button class="story-nav-btn" data-section="design">酒店设计灵感</button>
+                        </div>
+                        
+                        <!-- 主故事内容 -->
+                        <div class="story-section active" data-section="main">
+                            <div class="story-main-content">
+                                ${formatStoryMainContent(getDetailedStoryContent(userLocation, theme.mainTitle))}
+                            </div>
+                        </div>
+                        
+                        <!-- 三个小故事内容 -->
+                        <div class="story-section" data-section="substories">
+                            <div class="story-substories-content">
+                                ${formatStorySubstories(getDetailedStoryContent(userLocation, theme.mainTitle))}
+                            </div>
+                        </div>
+                        
+                        <!-- 酒店设计灵感 -->
+                        <div class="story-section" data-section="design">
+                            <div class="story-design-content">
+                                ${generateDesignInspiration(theme)}
+                            </div>
                         </div>
                     </div>
-                </div>
-    `;
-    
-    // sections 部分已移除
-    
-    // 添加详细的邻间故事内容
-    contentHTML += `
-        <div class="markdown-section">
-            <h2 class="section-title">邻间故事详细内容</h2>
-            <div class="section-content">
-                <div class="detailed-stories-container">
-    `;
-    
-    // 为每个选中的主题添加详细故事内容
-    selectedThemes.forEach((theme, index) => {
-        const detailedContent = storyDocument.detailedStories[theme.mainTitle];
-        contentHTML += `
-            <div class="detailed-story-section">
-                <div class="story-header">
-                    <h3 class="story-title">${index + 1}. ${theme.mainTitle}</h3>
-                    <p class="story-subtitle">${theme.subTitle}</p>
-                </div>
-                <div class="story-content">
-                    ${formatMarkdownContent(detailedContent)}
-                </div>
-            </div>
-        `;
-        
-        // 如果不是最后一个主题，添加分隔符
-        if (index < selectedThemes.length - 1) {
-            contentHTML += `<div class="story-separator"></div>`;
-        }
-    });
-    
-    contentHTML += `
-                </div>
-            </div>
-        </div>
-    `;
-    
-    contentHTML += `
+                `).join('')}
             </div>
         </div>
     `;
     
     documentContent.innerHTML = contentHTML;
+    
+    // 添加交互事件监听器
+    addStoryDocumentInteractions();
     
     // 添加关闭按钮事件监听器
     addCloseButtonListener();
@@ -2215,3 +2215,250 @@ document.addEventListener('DOMContentLoaded', () => {
     // 输入框聚焦
     messageInput.focus();
 });
+
+// ===== 格式化主故事内容 =====
+function formatStoryMainContent(fullContent) {
+    if (!fullContent) return '<p>暂无内容</p>';
+    
+    // 提取主故事部分（第一个 ## 之前的内容）
+    const lines = fullContent.split('\n');
+    let mainContent = '';
+    let foundFirstSection = false;
+    
+    for (let line of lines) {
+        if (line.startsWith('## ') && !foundFirstSection) {
+            foundFirstSection = true;
+            break;
+        }
+        if (!foundFirstSection) {
+            mainContent += line + '\n';
+        }
+    }
+    
+    return formatMarkdownContent(mainContent.trim());
+}
+
+// ===== 格式化小故事内容 =====
+function formatStorySubstories(fullContent) {
+    if (!fullContent) return '<p>暂无内容</p>';
+    
+    // 提取所有 ## 开头的小故事
+    const sections = fullContent.split(/^## /m).filter(section => section.trim());
+    
+    if (sections.length <= 1) {
+        return '<p>暂无小故事内容</p>';
+    }
+    
+    // 跳过第一个部分（主故事），处理后续的小故事
+    const substories = sections.slice(1);
+    
+    return substories.map((story, index) => {
+        const lines = story.split('\n');
+        const title = lines[0];
+        const content = lines.slice(1).join('\n').trim();
+        
+        return `
+            <div class="substory-item">
+                <h4 class="substory-title">${index + 1}. ${title}</h4>
+                <div class="substory-content">
+                    ${formatMarkdownContent(content)}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// ===== 生成酒店设计灵感 =====
+function generateDesignInspiration(theme) {
+    const inspirations = {
+        '枫声夜语': {
+            colorPalette: ['深红枫叶色 #8B0000', '古铜金色 #CD7F32', '墨青色 #2F4F4F', '暖白色 #FFF8DC'],
+            materials: ['红木家具', '青石板地面', '铜质装饰', '丝绸软装'],
+            lighting: ['暖黄色调灯光', '仿古灯笼造型', '间接照明营造诗意氛围'],
+            spaces: [
+                '大堂：以爱晚亭为灵感的接待区，红木屏风分隔空间',
+                '客房：枫叶图案地毯，书桌配古典文房四宝',
+                '餐厅：湘江夜景主题壁画，诗词元素装饰'
+            ],
+            experience: [
+                '入住体验：提供毛笔书法体验，客人可书写《沁园春》',
+                '文化活动：定期举办诗词朗诵会',
+                '特色服务：房间内放置岳麓书院文化读物'
+            ]
+        },
+        '青砖呼吸录': {
+            colorPalette: ['青砖灰色 #708090', '书院白色 #F5F5DC', '墨黑色 #2F2F2F', '竹绿色 #228B22'],
+            materials: ['青砖墙面', '原木家具', '竹制装饰', '麻布软装'],
+            lighting: ['柔和自然光', '仿古书院灯具', '阅读专用台灯'],
+            spaces: [
+                '大堂：书院庭院风格，青砖铺地配竹林景观',
+                '客房：简约书房设计，配备茶具和古籍',
+                '会议室：古代讲堂布局，利于学术交流'
+            ],
+            experience: [
+                '文化体验：提供古代服饰试穿拍照',
+                '学习空间：设置安静的阅读角落',
+                '茶文化：每日茶艺表演和品茶活动'
+            ]
+        },
+        '雾江光书': {
+            colorPalette: ['雾蓝色 #B0C4DE', '荧光橙色 #FF6347', '江水绿色 #2E8B57', '石板灰色 #696969'],
+            materials: ['磨砂玻璃', 'LED灯带', '天然石材', '现代金属'],
+            lighting: ['动态LED灯光系统', '荧光装饰元素', '水波纹投影'],
+            spaces: [
+                '大堂：现代艺术装置，模拟湘江雾气效果',
+                '客房：智能灯光系统，可调节色温营造不同氛围',
+                '艺术走廊：展示当代与传统结合的光影艺术'
+            ],
+            experience: [
+                '科技体验：AR技术展示湘江历史变迁',
+                '艺术互动：客人可参与光影诗词创作',
+                '夜景观赏：顶层观景台欣赏湘江夜景'
+            ]
+        },
+        '舟语茶韵': {
+            colorPalette: ['茶汤琥珀色 #FFBF00', '竹青色 #7CB342', '船木棕色 #8B4513', '瓷白色 #F8F8FF'],
+            materials: ['船木家具', '竹制装饰', '陶瓷器皿', '丝绸织物'],
+            lighting: ['温馨茶室灯光', '仿古船舱照明', '水面反射光效'],
+            spaces: [
+                '茶室：仿古渡船设计，可俯瞰水景',
+                '客房：船舱风格布局，配备精美茶具',
+                '餐厅：湘江渔船主题，提供地道湘菜'
+            ],
+            experience: [
+                '茶文化：专业茶艺师现场表演',
+                '渡船体验：提供湘江游船服务',
+                '美食文化：品尝传统湘菜和茶点'
+            ]
+        },
+        '声墙迷径': {
+            colorPalette: ['麻石灰色 #A9A9A9', '古铜色 #B87333', '深棕色 #654321', '象牙白 #FFFFF0'],
+            materials: ['天然麻石', '古铜装饰', '木质隔音板', '传统织物'],
+            lighting: ['隐藏式音响灯光', '复古工业照明', '声控智能系统'],
+            spaces: [
+                '声景体验区：重现历史声音的互动空间',
+                '客房：隔音设计优良，配备高品质音响',
+                '文化展示廊：展示长沙历史声音档案'
+            ],
+            experience: [
+                '声音体验：聆听不同历史时期的长沙声景',
+                '互动展览：触摸式声音历史时间轴',
+                '静谧空间：提供完全安静的冥想休息区'
+            ]
+        }
+    };
+    
+    const inspiration = inspirations[theme.mainTitle] || {
+        colorPalette: ['主题色彩待定'],
+        materials: ['装饰材料待定'],
+        lighting: ['照明设计待定'],
+        spaces: ['空间设计待定'],
+        experience: ['体验设计待定']
+    };
+    
+    return `
+        <div class="design-inspiration-content">
+            <div class="inspiration-intro">
+                <p>基于"${theme.mainTitle}"主题，为英迪格酒店${userLocation}项目提供以下设计建议：</p>
+            </div>
+            
+            <div class="inspiration-section">
+                <h4 class="inspiration-title">🎨 色彩搭配</h4>
+                <div class="color-palette">
+                    ${inspiration.colorPalette.map(color => `
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: ${color.split(' ')[1] || '#ccc'}"></div>
+                            <span class="color-name">${color}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div class="inspiration-section">
+                <h4 class="inspiration-title">🏗️ 材质选择</h4>
+                <ul class="inspiration-list">
+                    ${inspiration.materials.map(material => `<li>${material}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="inspiration-section">
+                <h4 class="inspiration-title">💡 照明设计</h4>
+                <ul class="inspiration-list">
+                    ${inspiration.lighting.map(light => `<li>${light}</li>`).join('')}
+                </ul>
+            </div>
+            
+            <div class="inspiration-section">
+                <h4 class="inspiration-title">🏨 空间设计</h4>
+                <div class="space-designs">
+                    ${inspiration.spaces.map(space => `
+                        <div class="space-item">
+                            <p>${space}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            
+            <div class="inspiration-section">
+                <h4 class="inspiration-title">✨ 体验设计</h4>
+                <div class="experience-designs">
+                    ${inspiration.experience.map(exp => `
+                        <div class="experience-item">
+                            <p>${exp}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// ===== 添加故事文档交互事件 =====
+function addStoryDocumentInteractions() {
+    // 主题切换事件
+    const themeNavTabs = document.querySelectorAll('.theme-nav-tab');
+    const themePanels = document.querySelectorAll('.story-theme-panel');
+    
+    themeNavTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const themeIndex = tab.getAttribute('data-theme-index');
+            
+            // 更新导航标签状态
+            themeNavTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // 更新内容面板状态
+            themePanels.forEach(panel => {
+                panel.classList.remove('active');
+                if (panel.getAttribute('data-theme-index') === themeIndex) {
+                    panel.classList.add('active');
+                }
+            });
+        });
+    });
+    
+    // 故事结构导航事件
+    const storyNavBtns = document.querySelectorAll('.story-nav-btn');
+    const storySections = document.querySelectorAll('.story-section');
+    
+    storyNavBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const section = btn.getAttribute('data-section');
+            const parentPanel = btn.closest('.story-theme-panel');
+            
+            // 更新同一面板内的导航按钮状态
+            const siblingBtns = parentPanel.querySelectorAll('.story-nav-btn');
+            siblingBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // 更新同一面板内的内容区域状态
+            const siblingSections = parentPanel.querySelectorAll('.story-section');
+            siblingSections.forEach(s => {
+                s.classList.remove('active');
+                if (s.getAttribute('data-section') === section) {
+                    s.classList.add('active');
+                }
+            });
+        });
+    });
+}
