@@ -2590,3 +2590,138 @@ body {
         padding: 16px;
     }
 }
+
+/* ===== 详细设计灵感样式 ===== */
+.detailed-design-inspiration {
+    width: 100%;
+    max-width: 100%;
+}
+
+.design-content {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.markdown-content {
+    font-family: 'Noto Sans SC', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-white);
+    padding: 24px;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.markdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.markdown-content::-webkit-scrollbar-track {
+    background: var(--bg-light);
+    border-radius: 4px;
+}
+
+.markdown-content::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.markdown-content::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+
+.design-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.copy-design-btn,
+.download-design-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.copy-design-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.copy-design-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+.download-design-btn {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.download-design-btn:hover {
+    background: var(--bg-light);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+.btn-icon {
+    font-size: 16px;
+}
+
+/* ===== 通知样式 ===== */
+.notification {
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.notification-icon {
+    font-size: 16px;
+}
+
+.notification-message {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===== 详细设计灵感响应式样式 ===== */
+@media (max-width: 768px) {
+    .design-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .copy-design-btn,
+    .download-design-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .markdown-content {
+        font-size: 13px;
+        padding: 16px;
+        max-height: 400px;
+    }
+}
