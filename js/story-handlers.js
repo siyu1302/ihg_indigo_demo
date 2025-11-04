@@ -378,57 +378,9 @@ document.addEventListener('DOMContentLoaded', () => {
     messageInput.focus();
 });
 
-// ===== 格式化主线故事内容 =====
-function formatStoryMainContent(fullContent) {
-    if (!fullContent) return '<p>暂无内容</p>';
-    
-    // 提取主线故事部分（第一个 ## 之前的内容）
-    const lines = fullContent.split('\n');
-    let mainContent = '';
-    let foundFirstSection = false;
-    
-    for (let line of lines) {
-        if (line.startsWith('## ') && !foundFirstSection) {
-            foundFirstSection = true;
-            break;
-        }
-        if (!foundFirstSection) {
-            mainContent += line + '\n';
-        }
-    }
-    
-    return formatMarkdownContent(mainContent.trim());
-}
-
-// ===== 格式化延伸故事内容 =====
-function formatStorySubstories(fullContent) {
-    if (!fullContent) return '<p>暂无内容</p>';
-    
-    // 提取所有 ## 开头的延伸故事
-    const sections = fullContent.split(/^## /m).filter(section => section.trim());
-    
-    if (sections.length <= 1) {
-        return '<p>暂无延伸故事内容</p>';
-    }
-    
-    // 跳过第一个部分（主线故事），处理后续的延伸故事
-    const substories = sections.slice(1);
-    
-    return substories.map((story, index) => {
-        const lines = story.split('\n');
-        const title = lines[0];
-        const content = lines.slice(1).join('\n').trim();
-        
-        return `
-            <div class="substory-item">
-                <h4 class="substory-title">${index + 1}. ${title}</h4>
-                <div class="substory-content">
-                    ${formatMarkdownContent(content)}
-                </div>
-            </div>
-        `;
-    }).join('');
-}
+// ===== 注意：上面的DOMContentLoaded事件监听器是重复的 =====
+// TODO: 应该删除story-handlers.js中的DOMContentLoaded监听器
+// 事件监听器统一在 main.js 中设置
 
 // ===== 添加故事结构导航交互功能 =====
 function addStoryStructureInteractions() {
@@ -457,5 +409,13 @@ function addStoryStructureInteractions() {
             }
         });
     });
+}
+
+// ===== 添加关闭按钮事件监听器 =====
+function addCloseButtonListener() {
+    const closeBtn = document.getElementById('document-close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeDocumentPanel);
+    }
 }
 
