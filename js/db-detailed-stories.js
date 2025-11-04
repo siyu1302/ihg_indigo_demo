@@ -918,8 +918,715 @@ const detailedStoriesDB = {
     }
 };
 
-// ===== 注意：数据访问函数(getAnalysisDocument, getStoryThemes等)在 data-access.js 中定义 =====
-// 本文件只负责存储数据，不负责数据访问逻辑
+// ===== 获取分析文档 =====
+function getAnalysisDocument(location) {
+    for (const key in analysisDocumentsDB) {
+        if (location.includes(key)) {
+            return analysisDocumentsDB[key];
+        }
+    }
+    
+    // 默认文档
+    return {
+        title: `${location}区域分析报告`,
+        summary: `基于${location}的深度分析，涵盖历史背景、文化特色、经济环境、人文氛围及酒店市场分析`,
+        sections: {
+            '历史背景': '该地区历史悠久，承载着深厚的文化底蕴。从古至今，这里见证了历史的变迁，留下了丰富的文化遗产。',
+            '文化特色': '该地区文化特色鲜明，包括传统工艺、民俗文化、艺术形式等，体现了独特的地方文化魅力。',
+            '经济环境': '该地区经济发展良好，商业设施完善，交通便利，为酒店业发展提供了良好的基础条件。',
+            '人文氛围': '该地区人文氛围浓厚，居民文化素质较高，文化包容性强，为酒店营造了良好的文化环境。',
+            '酒店市场': '该地区酒店市场发展潜力大，现有酒店以中端为主，高端酒店市场存在空白，为品牌酒店提供了发展机会。',
+            '竞品分析': '该地区主要竞品酒店以本地品牌为主，缺乏国际品牌，为英迪格酒店提供了差异化竞争的机会。'
+        }
+    };
+}
+
+// ===== 获取故事主题 =====
+function getStoryThemes(location) {
+    for (const key in storyThemesDB) {
+        if (location.includes(key)) {
+            return storyThemesDB[key];
+        }
+    }
+    
+    // 默认主题
+    return [
+        {
+            mainTitle: '文化传承·现代演绎',
+            subTitle: '传统文化与现代设计的完美结合',
+            elements: ['历史文化', '传统工艺', '现代设计', '文化传承', '创新表达'],
+            description: '以当地深厚的历史文化为基础，融入现代设计理念，打造既传承文化又符合现代审美的酒店空间。'
+        },
+        {
+            mainTitle: '人文精神·诗意栖居',
+            subTitle: '人文精神的现代诠释',
+            elements: ['人文精神', '诗意栖居', '文化内涵', '精神追求', '生活美学'],
+            description: '以人文精神为核心，营造诗意栖居的酒店环境，让客人在现代生活中体验传统文化的魅力。'
+        },
+        {
+            mainTitle: '地方特色·独特体验',
+            subTitle: '地方文化的独特表达',
+            elements: ['地方特色', '独特体验', '文化差异', '地方魅力', '体验设计'],
+            description: '以地方特色为设计灵感，打造独特的酒店体验，让客人感受当地文化的独特魅力。'
+        }
+    ];
+}
+
+// ===== 添加消息到聊天区域 =====
+function addMessage(content, isUser = false, type = 'text') {
+    const chatMessages = document.getElementById('chat-messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+    
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('zh-CN', { 
+        hour: '2-digit', 
+        minute: '2-digit' 
+    });
+    
+    if (type === 'text') {
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <div class="avatar-icon">${isUser ? '您' : 'AI'}</div>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <p>${content}</p>
+                </div>
+                <div class="message-time">${timeString}</div>
+            </div>
+        `;
+    } else if (type === 'document') {
+        const now = new Date();
+        const dateString = now.toLocaleDateString('zh-CN', { 
+            month: 'numeric', 
+            day: 'numeric' 
+        });
+        const timeStringShort = now.toLocaleTimeString('zh-CN', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <div class="avatar-icon">AI</div>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <p>我已经为您生成了详细的分析文档，请点击查看：</p>
+                    <div class="document-card" data-document="analysis">
+                        <div class="document-icon">📄</div>
+                        <div class="document-info">
+                            <div class="document-title">${content.title}</div>
+                            <div class="document-time">${dateString} ${timeStringShort}</div>
+                        </div>
+                        <button class="document-open-btn">打开</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-primary confirm-analysis-btn">
+                            <span>确认通过此文档提炼故事主题</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="message-time">${timeString}</div>
+            </div>
+        `;
+    } else if (type === 'themes') {
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <div class="avatar-icon">AI</div>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <p>基于分析文档，我为您提炼了以下8个故事主题，请选择您最感兴趣的3个主题：</p>
+                    <div class="theme-selection-counter">
+                        <span class="counter-text">已选择 <span class="selected-count">0</span>/3 个主题</span>
+                    </div>
+                    <div class="theme-cards">
+                        ${content.map((theme, index) => `
+                            <div class="theme-card" data-theme="${index}">
+                                <div class="theme-main-title">${theme.mainTitle}</div>
+                                <div class="theme-sub-title">${theme.subTitle}</div>
+                                <div class="theme-elements">
+                                    <div class="theme-elements-title">提炼灵感来源的元素：</div>
+                                    <div class="theme-elements-list">
+                                        ${theme.elements.map(element => `<span class="theme-element">${element}</span>`).join('')}
+                                    </div>
+                                </div>
+                                <div class="theme-description">${theme.description}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="message-time">${timeString}</div>
+            </div>
+        `;
+    } else if (type === 'story-document') {
+        const now = new Date();
+        const dateString = now.toLocaleDateString('zh-CN', { 
+            month: 'numeric', 
+            day: 'numeric' 
+        });
+        const timeStringShort = now.toLocaleTimeString('zh-CN', { 
+            hour: '2-digit', 
+            minute: '2-digit' 
+        });
+        
+        messageDiv.innerHTML = `
+            <div class="message-avatar">
+                <div class="avatar-icon">AI</div>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <p>我已经为您生成了邻间故事设计文档，请点击查看：</p>
+                    <div class="document-card" data-document="story">
+                        <div class="document-icon">📖</div>
+                        <div class="document-info">
+                            <div class="document-title">${content.title}</div>
+                            <div class="document-time">${dateString} ${timeStringShort}</div>
+                        </div>
+                        <button class="document-open-btn">打开</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn-primary confirm-story-btn">
+                            <span>确认通过此文档</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="message-time">${timeString}</div>
+            </div>
+        `;
+    }
+    
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // 添加事件监听器
+    if (type === 'document') {
+        addDocumentListeners(messageDiv);
+    } else if (type === 'themes') {
+        addThemeListeners(messageDiv);
+    } else if (type === 'story') {
+        addStoryListeners(messageDiv);
+    } else if (type === 'story-document') {
+        addStoryDocumentListeners(messageDiv);
+    }
+}
+
+// ===== 显示文档内容 =====
+function showDocumentContent(documentData) {
+    const documentPanel = document.getElementById('document-panel');
+    const documentContent = document.getElementById('document-content');
+    const documentStatus = document.getElementById('document-status');
+    const chatPanel = document.querySelector('.chat-panel');
+    
+    // 显示右侧文档面板
+    documentPanel.style.display = 'flex';
+    chatPanel.classList.add('with-document');
+    
+    documentStatus.innerHTML = '<span class="status-text">分析完成</span>';
+    
+    // 生成markdown格式的文档内容
+    let contentHTML = `
+        <div class="markdown-document">
+            <div class="markdown-header">
+                <h1 class="document-title">${documentData.title}</h1>
+                <div class="document-summary">
+                    <p>${documentData.summary}</p>
+                </div>
+            </div>
+            
+            <div class="markdown-content">
+    `;
+    
+    // 为每个分析维度创建markdown格式的内容
+    for (const [sectionTitle, sectionContent] of Object.entries(documentData.sections)) {
+        contentHTML += `
+            <div class="markdown-section">
+                <h2 class="section-title">${sectionTitle}</h2>
+                <div class="section-content">
+                    ${formatMarkdownContent(sectionContent)}
+                </div>
+            </div>
+        `;
+    }
+    
+    contentHTML += `
+            </div>
+        </div>
+    `;
+    
+    documentContent.innerHTML = contentHTML;
+    
+    // 添加关闭按钮事件监听器
+    addCloseButtonListener();
+}
+
+// ===== 格式化markdown内容 =====
+function formatMarkdownContent(content) {
+    // 将内容按行分割并处理
+    const lines = content.split('\n');
+    let formattedHTML = '';
+    let inListGroup = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        
+        // 跳过空行，但保留作为段落分隔
+        if (line.length === 0) {
+            if (inListGroup) {
+                formattedHTML += '</div>';
+                inListGroup = false;
+            }
+            continue;
+        }
+        
+        // 处理分隔符
+        if (line === '---' || line === '——' || line.match(/^-{3,}$/)) {
+            if (inListGroup) {
+                formattedHTML += '</div>';
+                inListGroup = false;
+            }
+            formattedHTML += '<div class="content-divider"></div>';
+            continue;
+        }
+        
+        // 处理中文序号标题（一、二、三、四、五）
+        if (/^[一二三四五六七八九十]+、/.test(line)) {
+            if (inListGroup) {
+                formattedHTML += '</div>';
+                inListGroup = false;
+            }
+            formattedHTML += `<h3 class="chinese-section-title">${line}</h3>`;
+            continue;
+        }
+        
+        // 处理数字标题（1. 2. 3.）
+        if (/^\d+\./.test(line)) {
+            if (inListGroup) {
+                formattedHTML += '</div>';
+                inListGroup = false;
+            }
+            formattedHTML += `<h4 class="numbered-subsection-title">${line}</h4>`;
+            continue;
+        }
+        
+        // 处理列表项（以-或•开头的行）
+        if (/^[-•]/.test(line)) {
+            if (!inListGroup) {
+                formattedHTML += '<div class="list-group">';
+                inListGroup = true;
+            }
+            const listItem = line.replace(/^[-•]\s*/, '');
+            const processedItem = processTextFormatting(listItem);
+            formattedHTML += `<div class="list-item"><span class="bullet">•</span><span class="list-content">${processedItem}</span></div>`;
+            continue;
+        }
+        
+        // 处理普通段落
+        if (line.length > 0) {
+            if (inListGroup) {
+                formattedHTML += '</div>';
+                inListGroup = false;
+            }
+            
+            const processedLine = processTextFormatting(line);
+            
+            // 检查是否是引用或注释段落
+            if (line.includes('（') && line.includes('）') && (line.includes('载') || line.includes('佐证') || line.includes('印证'))) {
+                formattedHTML += `<p class="reference-paragraph">${processedLine}</p>`;
+            }
+            // 检查是否是时间或地点信息
+            else if (/\d{4}年|\d+世纪|清|宋|唐|明/.test(line) && line.length < 100) {
+                formattedHTML += `<p class="timeline-paragraph">${processedLine}</p>`;
+            }
+            // 普通段落
+            else {
+                formattedHTML += `<p class="paragraph">${processedLine}</p>`;
+            }
+        }
+    }
+    
+    // 关闭可能未关闭的列表组
+    if (inListGroup) {
+        formattedHTML += '</div>';
+    }
+    
+    return formattedHTML;
+}
+
+// ===== 处理文本格式化 =====
+function processTextFormatting(text) {
+    let processedText = text;
+    
+    // 处理粗体文本（**text** 或 __text__）
+    processedText = processedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    processedText = processedText.replace(/__(.*?)__/g, '<strong>$1</strong>');
+    
+    // 处理斜体文本（*text* 或 _text_）
+    processedText = processedText.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    processedText = processedText.replace(/_(.*?)_/g, '<em>$1</em>');
+    
+    // 处理代码片段（`code`）
+    processedText = processedText.replace(/`(.*?)`/g, '<code>$1</code>');
+    
+    // 处理引用文献标记（优先处理，避免被其他标记干扰）
+    processedText = processedText.replace(/（《([^》]+)》([^）]*)）/g, '<span class="citation">（《$1》$2）</span>');
+    
+    // 处理重要概念标记（双引号内容）
+    processedText = processedText.replace(/"([^"]+)"/g, '<span class="concept-marker">"$1"</span>');
+    
+    // 处理重要概念标记（中文引号内容）
+    processedText = processedText.replace(/「([^」]+)」/g, '<span class="concept-marker">「$1」</span>');
+    
+    // 使用安全的标记替换函数，避免重复标记
+    processedText = safeReplace(processedText, /(\d{4}年)/g, '<span class="time-marker">$1</span>');
+    processedText = safeReplace(processedText, /(南宋|北宋|唐代|清代|明代|民国)/g, '<span class="dynasty-marker">$1</span>');
+    
+    // 处理具体人名标记（使用具体人名列表，避免过度匹配）
+    const specificNames = [
+        '朱熹', '张栻', '左宗棠', '林则徐', '杜甫', '毛泽东', '王夫之', '魏源', 
+        '曾国藩', '蔡和森', '黄兴', '陈云章', '金九', '贾谊', '屈原',
+        '约瑟夫·卡斯普', '亚历山大·列昂季耶夫', '阿·科姆特拉肖克'
+    ];
+    
+    specificNames.forEach(name => {
+        const regex = new RegExp(`(${escapeRegExp(name)})`, 'g');
+        processedText = safeReplace(processedText, regex, '<span class="person-marker">$1</span>');
+    });
+    
+    // 处理地名标记
+    const locations = ['湘江', '岳麓山', '橘子洲', '长沙', '哈尔滨', '中央大街', '松花江', '岳麓书院', '马迭尔宾馆', '朱张渡', '杜甫江阁', '太平老街', '潮宗街'];
+    locations.forEach(location => {
+        const regex = new RegExp(`(${escapeRegExp(location)})`, 'g');
+        processedText = safeReplace(processedText, regex, '<span class="location-marker">$1</span>');
+    });
+    
+    return processedText;
+}
+
+// ===== 安全替换函数：避免在HTML标签内部进行替换 =====
+function safeReplace(text, regex, replacement) {
+    // 将文本分割为HTML标签和普通文本部分
+    const parts = text.split(/(<[^>]*>)/);
+    
+    for (let i = 0; i < parts.length; i++) {
+        // 只对非HTML标签部分进行替换
+        if (i % 2 === 0) { // 偶数索引是普通文本
+            parts[i] = parts[i].replace(regex, replacement);
+        }
+    }
+    
+    return parts.join('');
+}
+
+// ===== 辅助函数：转义正则表达式特殊字符 =====
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// ===== 关闭文档面板 =====
+function closeDocumentPanel() {
+    const documentPanel = document.getElementById('document-panel');
+    const chatPanel = document.querySelector('.chat-panel');
+    
+    // 添加关闭动画
+    documentPanel.classList.add('closing');
+    
+    // 动画完成后隐藏面板
+    setTimeout(() => {
+        documentPanel.style.display = 'none';
+        documentPanel.classList.remove('closing');
+        chatPanel.classList.remove('with-document');
+    }, 300);
+}
+
+// ===== 添加关闭按钮事件监听器 =====
+function addCloseButtonListener() {
+    const closeBtn = document.getElementById('document-close-btn');
+    
+    // 移除之前的事件监听器（如果有的话）
+    closeBtn.replaceWith(closeBtn.cloneNode(true));
+    
+    // 添加新的事件监听器
+    document.getElementById('document-close-btn').addEventListener('click', closeDocumentPanel);
+}
+
+// ===== 显示打字指示器 =====
+function showTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    typingIndicator.style.display = 'flex';
+    
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+// ===== 隐藏打字指示器 =====
+function hideTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    typingIndicator.style.display = 'none';
+}
+
+// ===== 添加文档相关事件监听器 =====
+function addDocumentListeners(messageDiv) {
+    const documentCard = messageDiv.querySelector('.document-card');
+    const openBtn = messageDiv.querySelector('.document-open-btn');
+    const confirmBtn = messageDiv.querySelector('.confirm-analysis-btn');
+    
+    // 文档卡片点击事件
+    documentCard.addEventListener('click', () => {
+        showDocumentContent(analysisDocument);
+        documentCard.classList.add('selected');
+    });
+    
+    // 打开按钮点击事件
+    openBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showDocumentContent(analysisDocument);
+        documentCard.classList.add('selected');
+    });
+    
+    // 确认按钮事件
+    confirmBtn.addEventListener('click', () => {
+        showTypingIndicator();
+        
+        setTimeout(() => {
+            hideTypingIndicator();
+            
+            generatedThemes = getStoryThemes(userLocation);
+            addMessage(generatedThemes, false, 'themes');
+            
+            currentStep = 'themes';
+        }, 2000);
+    });
+}
+
+// ===== 添加主题相关事件监听器 =====
+function addThemeListeners(messageDiv) {
+    const themeCards = messageDiv.querySelectorAll('.theme-card');
+    const counterElement = messageDiv.querySelector('.selected-count');
+    
+    // 更新选择计数
+    function updateCounter() {
+        const count = selectedThemes.length;
+        counterElement.textContent = count;
+        
+        // 更新按钮状态
+        const generateBtn = messageDiv.querySelector('.generate-story-btn');
+        if (generateBtn) {
+            if (count === 3) {
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('disabled');
+                generateBtn.innerHTML = `
+                    <span>生成邻间故事文档</span>
+                    <span class="btn-icon">→</span>
+                `;
+            } else {
+                generateBtn.disabled = true;
+                generateBtn.classList.add('disabled');
+                generateBtn.innerHTML = `
+                    <span>请选择3个主题</span>
+                    <span class="btn-icon">→</span>
+                `;
+            }
+        }
+    }
+    
+    themeCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const themeIndex = parseInt(card.dataset.theme);
+            const theme = generatedThemes[themeIndex];
+            
+            if (card.classList.contains('selected')) {
+                // 取消选择
+                card.classList.remove('selected');
+                selectedThemes = selectedThemes.filter(t => t !== theme);
+            } else {
+                // 选择主题
+                if (selectedThemes.length < 3) {
+                    card.classList.add('selected');
+                    selectedThemes.push(theme);
+                } else {
+                    // 已达到最大选择数量，提示用户
+                    alert('最多只能选择3个主题');
+                    return;
+                }
+            }
+            
+            updateCounter();
+            
+            // 显示生成故事按钮（如果还没有的话）
+            if (!messageDiv.querySelector('.generate-story-btn')) {
+                const actionButtons = messageDiv.querySelector('.action-buttons');
+                if (!actionButtons) {
+                    const actionButtonsDiv = document.createElement('div');
+                    actionButtonsDiv.className = 'action-buttons';
+                    messageDiv.querySelector('.message-bubble').appendChild(actionButtonsDiv);
+                }
+                
+                const generateBtn = document.createElement('button');
+                generateBtn.className = 'btn-primary generate-story-btn disabled';
+                generateBtn.disabled = true;
+                generateBtn.innerHTML = `
+                    <span>请选择3个主题</span>
+                    <span class="btn-icon">→</span>
+                `;
+                messageDiv.querySelector('.action-buttons').appendChild(generateBtn);
+                
+                generateBtn.addEventListener('click', () => {
+                    if (selectedThemes.length === 3) {
+                        showTypingIndicator();
+                        
+                        setTimeout(() => {
+                            hideTypingIndicator();
+                            generateStoryDocument(selectedThemes);
+                            currentStep = 'story';
+                        }, 2000);
+                    }
+                });
+            }
+        });
+    });
+}
+
+
+// ===== 生成邻间故事文档 =====
+function generateStoryDocument(themes) {
+    // 直接显示故事文档消息（实际内容在showStoryDocumentContent中生成）
+    const storyDocument = {
+        title: `${userLocation}邻间故事设计文档`,
+        summary: `基于选定的3个故事主题，为英迪格酒店${userLocation}项目量身定制的邻间故事设计文档`,
+        themes: themes
+    };
+    
+    // 显示故事文档
+    addMessage(storyDocument, false, 'story-document');
+}
+
+// ===== 注意：addStoryDocumentListeners 和 showStoryDocumentContent 函数已移至 story-handlers.js =====
+// 这些函数不在此文件中定义，避免重复定义导致覆盖问题
+
+// ===== 重置应用程序 =====
+function resetApplication() {
+    // 重置状态
+    selectedThemes = [];
+    analysisDocument = null;
+    generatedThemes = [];
+    userLocation = null;
+    currentStep = 'location';
+    
+    // 清空聊天记录
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = `
+        <div class="message ai-message">
+            <div class="message-avatar">
+                <div class="avatar-icon">AI</div>
+            </div>
+            <div class="message-content">
+                <div class="message-bubble">
+                    <p>您好！我是邻间故事AI顾问，专门为英迪格酒店提供文化主题定制服务。</p>
+                    <p>请告诉我您希望开设酒店的具体位置，我将为您分析当地的历史、文化、经济、人文等信息，并生成详细的分析文档。</p>
+                </div>
+                <div class="message-time">刚刚</div>
+            </div>
+        </div>
+    `;
+    
+    // 隐藏右侧文档面板
+    const documentPanel = document.getElementById('document-panel');
+    const chatPanel = document.querySelector('.chat-panel');
+    
+    if (documentPanel.style.display !== 'none') {
+        closeDocumentPanel();
+    } else {
+        chatPanel.classList.remove('with-document');
+    }
+    
+    // 重置文档区域
+    const documentContent = document.getElementById('document-content');
+    const documentStatus = document.getElementById('document-status');
+    
+    documentContent.innerHTML = `
+        <div class="empty-state">
+            <div class="empty-icon">📄</div>
+            <h3>暂无文档</h3>
+            <p>请在左侧输入酒店地址，AI将为您生成详细的分析文档</p>
+        </div>
+    `;
+    
+    documentStatus.innerHTML = '<span class="status-text">等待分析...</span>';
+    
+    // 清空输入框
+    document.getElementById('message-input').value = '';
+}
+
+// ===== 处理用户输入 =====
+function handleUserInput(message) {
+    if (currentStep === 'location') {
+        // 保存用户输入的位置信息
+        userLocation = message;
+        
+        // 用户输入了位置信息
+        addMessage(message, true);
+        
+        showTypingIndicator();
+        
+        setTimeout(() => {
+            hideTypingIndicator();
+            
+            // 获取分析文档
+            analysisDocument = getAnalysisDocument(message);
+            
+            // 显示文档
+            addMessage(analysisDocument, false, 'document');
+            
+            currentStep = 'document';
+        }, 3000);
+    }
+}
+
+// ===== 事件监听 =====
+document.addEventListener('DOMContentLoaded', () => {
+    const messageInput = document.getElementById('message-input');
+    const sendBtn = document.getElementById('send-btn');
+    const quickBtns = document.querySelectorAll('.quick-btn');
+    
+    // 发送按钮事件
+    sendBtn.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if (message) {
+            handleUserInput(message);
+            messageInput.value = '';
+        }
+    });
+    
+    // 回车键发送
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            const message = messageInput.value.trim();
+            if (message) {
+                handleUserInput(message);
+                messageInput.value = '';
+            }
+        }
+    });
+    
+    // 快捷按钮事件
+    quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const location = btn.dataset.location;
+            messageInput.value = location;
+            handleUserInput(location);
+            messageInput.value = '';
+        });
+    });
+    
+    // 输入框聚焦
+    messageInput.focus();
+});
 
 // ===== 获取综合主线故事（融合3个主题） =====
 function getCombinedMainStory(location, themes) {
