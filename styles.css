@@ -1000,25 +1000,76 @@ body {
     transform: translateY(-2px);
 }
 
+/* 一级标题：历史文化调研、商业经济历史发展调研等 */
 .section-title {
     font-family: 'Noto Serif SC', serif;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--bg-light);
+    margin: 32px 0 24px 0;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(0, 38, 58, 0.05) 0%, rgba(0, 38, 58, 0.02) 100%);
+    border-left: 6px solid var(--accent-gold);
+    border-radius: 0 12px 12px 0;
     position: relative;
+    box-shadow: 0 2px 8px rgba(0, 38, 58, 0.06);
 }
 
 .section-title::before {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 60px;
-    height: 2px;
-    background: var(--accent-gold);
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.08) 100%);
+    border-radius: 0 12px 12px 0;
+    pointer-events: none;
+}
+
+/* 可折叠标题样式 */
+.collapsible-title {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.collapsible-title:hover {
+    background: linear-gradient(135deg, rgba(0, 38, 58, 0.08) 0%, rgba(0, 38, 58, 0.04) 100%);
+    transform: translateX(2px);
+}
+
+.collapsible-title:active {
+    transform: translateX(4px);
+}
+
+.collapse-icon {
+    font-size: 18px;
+    color: var(--accent-gold);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+}
+
+.title-text {
+    flex: 1;
+}
+
+/* 折叠状态的section */
+.collapsible-section.collapsed .section-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+}
+
+.collapsible-section .section-content {
+    overflow: visible;
+    max-height: none;
+    transition: max-height 0.3s ease-in;
 }
 
 .section-content {
@@ -1175,15 +1226,15 @@ body {
     font-size: 16px;
 }
 
-/* 中文序号标题样式 */
+/* 二级标题：一、二、三...... */
 .chinese-section-title {
     font-family: 'Noto Serif SC', serif;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 600;
-    color: var(--primary-color);
-    margin: 28px 0 20px 0;
-    padding: 16px 20px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+    color: var(--text-primary);
+    margin: 24px 0 16px 0;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(212, 175, 55, 0.02) 100%);
     border-left: 4px solid var(--accent-gold);
     border-radius: 0 8px 8px 0;
     position: relative;
@@ -1194,19 +1245,20 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 60px;
+    width: 50px;
     height: 100%;
-    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.08) 100%);
     border-radius: 0 8px 8px 0;
+    pointer-events: none;
 }
 
-/* 数字子标题样式 */
+/* 三级标题：1、2、3...... */
 .numbered-subsection-title {
     font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 20px 0 12px 0;
-    padding: 10px 16px;
+    margin: 16px 0 12px 0;
+    padding: 10px 16px 10px 20px;
     background: var(--bg-light);
     border-left: 3px solid var(--primary-color);
     border-radius: 0 6px 6px 0;
@@ -1219,9 +1271,9 @@ body {
     top: 50%;
     right: 12px;
     transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    background: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    background: var(--accent-gold);
     border-radius: 50%;
 }
 
@@ -1465,12 +1517,32 @@ body {
     }
     
     .section-title {
-        font-size: 20px;
+        font-size: 21px;
+        padding: 16px 20px;
+    }
+    
+    .collapse-icon {
+        font-size: 16px;
+        width: 18px;
+    }
+    
+    .collapsible-title {
+        gap: 10px;
     }
     
     .subsection-title {
         font-size: 16px;
         padding: 10px 14px;
+    }
+    
+    .chinese-section-title {
+        font-size: 18px;
+        padding: 12px 16px;
+    }
+    
+    .numbered-subsection-title {
+        font-size: 15px;
+        padding: 8px 14px 8px 18px;
     }
     
     .markdown-section {
@@ -1552,12 +1624,32 @@ body {
     }
     
     .section-title {
-        font-size: 18px;
+        font-size: 19px;
+        padding: 14px 16px;
+    }
+    
+    .collapse-icon {
+        font-size: 14px;
+        width: 16px;
+    }
+    
+    .collapsible-title {
+        gap: 8px;
     }
     
     .subsection-title {
         font-size: 14px;
         padding: 8px 12px;
+    }
+    
+    .chinese-section-title {
+        font-size: 17px;
+        padding: 10px 14px;
+    }
+    
+    .numbered-subsection-title {
+        font-size: 14px;
+        padding: 8px 12px 8px 16px;
     }
     
     .markdown-section {
@@ -1794,15 +1886,30 @@ body {
 /* 响应式调整 */
 /* ===== 增强内容格式化的响应式设计 ===== */
 @media (max-width: 768px) {
+    .section-title {
+        font-size: 21px;
+        padding: 16px 20px;
+        margin: 24px 0 20px 0;
+    }
+    
+    .collapse-icon {
+        font-size: 16px;
+        width: 18px;
+    }
+    
+    .collapsible-title {
+        gap: 10px;
+    }
+    
     .chinese-section-title {
         font-size: 18px;
         padding: 12px 16px;
-        margin: 20px 0 16px 0;
+        margin: 20px 0 14px 0;
     }
     
     .numbered-subsection-title {
-        font-size: 14px;
-        padding: 8px 12px;
+        font-size: 15px;
+        padding: 8px 14px 8px 18px;
     }
     
     .list-group {
@@ -1848,9 +1955,28 @@ body {
 }
 
 @media (max-width: 480px) {
+    .section-title {
+        font-size: 19px;
+        padding: 14px 16px;
+        margin: 20px 0 16px 0;
+    }
+    
+    .section-title::before {
+        width: 60px;
+    }
+    
+    .collapse-icon {
+        font-size: 14px;
+        width: 16px;
+    }
+    
+    .collapsible-title {
+        gap: 8px;
+    }
+    
     .chinese-section-title {
-        font-size: 16px;
-        padding: 10px 12px;
+        font-size: 17px;
+        padding: 10px 14px;
         margin: 16px 0 12px 0;
     }
     
@@ -1859,8 +1985,8 @@ body {
     }
     
     .numbered-subsection-title {
-        font-size: 13px;
-        padding: 6px 10px;
+        font-size: 14px;
+        padding: 8px 12px 8px 16px;
     }
     
     .list-group {
