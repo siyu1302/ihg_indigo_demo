@@ -104,7 +104,39 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- 按顺序加载所有JavaScript模块 -->
+    <!-- 1. 首先加载配置和全局变量 -->
+    <script src="js/config.js"></script>
+    
+    <!-- 2. 加载数据库（拆分成4个文件，便于管理） -->
+    <script src="js/db-analysis-documents.js"></script>  <!-- 城市分析文档 -->
+    <script src="js/db-story-themes.js"></script>         <!-- 故事主题 -->
+    <script src="js/db-detailed-stories.js"></script>     <!-- 详细故事内容 -->
+    <script src="js/db-design-inspirations.js"></script>  <!-- 设计灵感方案 -->
+    
+    <!-- 3. 加载工具函数 -->
+    <script src="js/utils.js"></script>
+    
+    <!-- 4. 加载格式化函数 -->
+    <script src="js/formatters.js"></script>
+    
+    <!-- 5. 加载数据访问函数 -->
+    <script src="js/data-access.js"></script>
+    
+    <!-- 6. 加载UI界面函数 -->
+    <script src="js/ui.js"></script>
+    
+    <!-- 7. 加载故事处理函数 -->
+    <script src="js/story-handlers.js"></script>
+    
+    <!-- 8. 加载主要业务逻辑 -->
+    <script src="js/main-handler.js"></script>
+    
+    <!-- 9. 加载设计灵感相关功能 -->
+    <script src="js/design-inspiration.js"></script>
+    
+    <!-- 10. 最后加载初始化代码 -->
+    <script src="js/main.js"></script>
 </body>
 </html>
 
