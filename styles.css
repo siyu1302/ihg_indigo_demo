@@ -1226,7 +1226,34 @@ body {
     font-size: 16px;
 }
 
-/* 二级标题：一、二、三...... */
+/* 一级标题：# 主要章节标题 */
+.main-section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 32px 0 20px 0;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.04) 100%);
+    border-left: 6px solid var(--accent-gold);
+    border-radius: 0 12px 12px 0;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.main-section-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.15) 100%);
+    border-radius: 0 12px 12px 0;
+    pointer-events: none;
+}
+
+/* 二级标题：## 或 一、二、三...... */
 .chinese-section-title {
     font-family: 'Noto Serif SC', serif;
     font-size: 19px;
@@ -1252,7 +1279,7 @@ body {
     pointer-events: none;
 }
 
-/* 三级标题：1、2、3...... */
+/* 三级标题：### 或 1、2、3...... */
 .numbered-subsection-title {
     font-size: 16px;
     font-weight: 600;
@@ -1535,6 +1562,12 @@ body {
         padding: 10px 14px;
     }
     
+    .main-section-title {
+        font-size: 22px;
+        padding: 16px 20px;
+        margin: 28px 0 18px 0;
+    }
+    
     .chinese-section-title {
         font-size: 18px;
         padding: 12px 16px;
@@ -1640,6 +1673,12 @@ body {
     .subsection-title {
         font-size: 14px;
         padding: 8px 12px;
+    }
+    
+    .main-section-title {
+        font-size: 20px;
+        padding: 14px 16px;
+        margin: 24px 0 16px 0;
     }
     
     .chinese-section-title {
@@ -1972,6 +2011,12 @@ body {
     
     .collapsible-title {
         gap: 8px;
+    }
+    
+    .main-section-title {
+        font-size: 20px;
+        padding: 14px 16px;
+        margin: 24px 0 16px 0;
     }
     
     .chinese-section-title {
