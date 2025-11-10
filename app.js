@@ -22,6 +22,10 @@ const translations = {
         // 输入框
         'input-placeholder': '请输入酒店选址地址，例如：哈尔滨中央大街、长沙湘江中路...',
         
+        // 快速按钮
+        'quick-btn-changsha': '长沙湘江中路',
+        'quick-btn-harbin': '哈尔滨中央大街',
+        
         // 加载状态
         'ai-analyzing': 'AI正在分析...',
         
@@ -92,6 +96,10 @@ const translations = {
         
         // Input box
         'input-placeholder': 'Please enter hotel location, e.g.: Harbin Central Street, Changsha Xiangjiang Middle Road...',
+        
+        // Quick buttons
+        'quick-btn-changsha': 'Changsha Xiangjiang Middle Road',
+        'quick-btn-harbin': 'Harbin Central Street',
         
         // Loading status
         'ai-analyzing': 'AI is analyzing...',
@@ -1601,6 +1609,64 @@ const storyThemesDB = {
     ]
 };
 
+// 英文版故事主题数据库
+const storyThemesDB_EN = {
+    'Changsha': [
+        // 长沙主题暂不处理
+    ],
+    
+    'Harbin Central Street': [
+        {
+            mainTitle: 'Dome Resonance Chronicles',
+            subTitle: 'Cast Iron Notes Flowing Through Baroque Folds',
+            elements: ['Modern Hotel Cast Iron Balcony', 'Musical Tradition', 'Architectural Acoustics', 'Art Nouveau Movement', 'Baroque Pediment'],
+            description: 'When Art Nouveau wrought iron vines entwine Baroque pediments, every scroll ornament becomes a sound wave resonance chamber. Russian émigré musicians once performed impromptu on these balconies, violin sounds climbing Corinthian colonnades, refracting reverb effects between Renaissance arches. The pause of passersby at this moment is a cross-temporal harmony with salon audiences from a century ago.'
+        },
+        {
+            mainTitle: 'Craftsmanship Like Stone',
+            subTitle: 'Cold-Region Survival Philosophy in Vertical Stone Patterns',
+            elements: ['Bread Stone Vertical Insertion Technique', 'Immigrant Craftsman Spirit', 'Granite', 'Cold-Region Technology', 'Permafrost Engineering'],
+            description: '870,000 granite blocks inserted at 90-degree angles into frozen soil, Russian engineers using vertical grain texture to combat minus 40-degree ground vapor rising. Each stone gap is a micro flood discharge channel, condensing the fingerprints of Chuang Guandong stonemasons and the sighs of Siberian exiles. When heels strike out crisp echoes, it\'s as if hearing the primitive rhythm of ice picks chiseling stone in 1901.'
+        },
+        {
+            mainTitle: 'Code Reformation',
+            subTitle: 'Intelligence Storms in Window Frame Scratches',
+            elements: ['No. 33 West 15th Street', 'Window Frame Revolutionary Code', 'Underground Party Members', 'Morse Code', 'Encrypted Poetry'],
+            description: 'On the third grain of the oak window frame, coin scratches deeper than 1.2 millimeters — this is the Morse code of underground party members in 1946. When moonlight projects, the cross scratches extend into guiding arrows on the bread stone pavement. Today QR codes cover it, but viewed from a specific angle, one can still decipher the encrypted poetry written with life by passionate youth.'
+        },
+        {
+            mainTitle: 'Ice Blade Blooming',
+            subTitle: 'Survival Aesthetics Carved by Frost Blades on Window Frames',
+            elements: ['Ice and Snow Window Paper-cutting Technique', 'Cold-Region Architectural Wisdom', 'Russian Double-Layer Windows', 'Manchu Spring Talisman Cutting', 'Hexagonal Crystal Clusters'],
+            description: 'At minus 35 degrees, breath condenses on Russian double-layer windows, ice crystals growing along wooden lattices into the contour of St. Sophia Cathedral. Manchu spring talisman cutting technique evolves here: using wind and frost as blades instead of scissors, peonies on red paper transform into hexagonal crystal clusters of ice domes. Each ice flower window is a conspiracy of nature and craftsmanship, witnessing humanity\'s art of surviving through aesthetics.'
+        },
+        {
+            mainTitle: 'Railway Emblem',
+            subTitle: 'International Port Codes in Railroad Tie Annual Rings',
+            elements: ['Chinese Eastern Railway Remnants', 'Architectural Decoration Fusion', 'Steam Locomotive Connecting Rod', 'Rail Cross-Section Relief', 'City on Rails'],
+            description: 'The copper door knocker of Songpu Foreign Firm is cast with steam locomotive connecting rod patterns, Education Bookstore eaves hide rail cross-section reliefs. These hidden symbols constitute the architectural world\'s "Da Vinci Code," telling how the first international train in 1903 forged Harbin into a "city on rails." Touching these metal emblems, one can sense the pulse of the Far East\'s first land port.'
+        },
+        {
+            mainTitle: 'Dome Light Chronicles',
+            subTitle: 'Immigrant Epic in Stained Glass',
+            elements: ['St. Sophia Cathedral Dome', 'Immigrant Cultural Fusion', 'Byzantine Dome', 'Colorful Light Spots', 'Oriental Moscow'],
+            description: 'Inspiration source: St. Sophia Cathedral dome and immigrant cultural fusion. When the Byzantine dome projects colorful light spots, the sound of Jewish merchants\' abacuses, Polish musicians\' sheet music, and Shandong porters\' chants interweave in this spectrum. Each piece of colored glass is a cultural slice, assembling into the spiritual map of "Oriental Moscow." During rainy seasons, moisture halos between lead strips outline the contours of exiles\' nostalgia.'
+        },
+        {
+            mainTitle: 'Mortar Chronicles',
+            subTitle: 'Century-Long Microbial Atlas in Joint Mortar',
+            elements: ['Historical Building Mortar Joints', 'Material Cultural Heritage', 'Russian Masonry Mortar', 'Microbial Symbiont', 'Urban Chronology'],
+            description: 'Under the microscope, Russian masonry mortar reveals 1901 rye grass seeds, 1932 newspaper press lead dust, 1957 river fog salt crystals. These symbionts of microorganisms and minerals write an alternative urban chronology between bricks and stones. A certain crack even preserves wall powder shaken off during Zhu Ziqing\'s lecture, awaiting gene sequencing to resurrect historical sound waves.'
+        },
+        {
+            mainTitle: 'Permafrost Tattoo',
+            subTitle: 'Ice and Snow Carving Time Rings on Building Bodies',
+            elements: ['Cold-Region Climate', 'Building Facade Carving', 'Baroque Gable', 'Permafrost Relief', 'Siberian Cold Current'],
+            description: 'At -25°C, river wind etches ice patterns on Baroque gables, forming unique "permafrost reliefs." When spring melts, ice crystals carry away brick powder, leaving wind erosion maps unique to snow country on wall surfaces. These fleeting natural patterns interpret "architecture is frozen music" more profoundly than any artificial carving — except the composer is the Siberian cold current.'
+        }
+    ]
+};
+
 // ===== 主线故事数据库（融合3个主题）=====
 const mainStoriesDB = {
     '长沙': {
@@ -1670,6 +1736,49 @@ const mainStoriesDB = {
 最震撼的，是冻土在建筑表面留下的"纹身"。由于极端的冻融循环，建筑的外墙会形成独特的裂纹和色彩变化。这些"冻土纹身"不是建筑的缺陷，而是时间与自然共同创作的艺术品。它们记录着每一个冬季的严寒、每一个春季的消融，将哈尔滨的气候特征以最直观的方式刻画在城市的肌体上。
 
 这三个主题的融合，揭示了哈尔滨文化中最独特的维度：将严酷转化为美学的创造力，在微观世界中发现历史的洞察力，与自然和谐共生的生存智慧。它们为英迪格酒店提供了最具自然诗意的文化叙事，讲述着一个关于生命、时间与自然的北国哲学。`
+        }
+    }
+};
+
+// 英文版主线故事数据库
+const mainStoriesDB_EN = {
+    'Changsha': {
+        // 长沙主线故事暂不处理
+    },
+    
+    'Harbin Central Street': {
+        // 主题组合的key格式：主题1|主题2|主题3（按JavaScript sort()排序）
+        'Craftsmanship Like Stone|Dome Resonance Chronicles|Ice Blade Blooming': {
+            title: 'Cold-Region Baroque: When Frost Flowers Carve Stone Craftsmanship in Dome Resonances',
+            story: `On Central Street's stone pavement, every step echoes with history. Musical notes reverberating under Baroque domes, craftsman spirit crystallized in vertical stone patterns, ice and snow art blooming on window frame frost blades—together they compose the cultural symphony of this "Oriental Moscow."
+
+A century ago, Russian craftsmen brought Baroque architectural art to this black soil land. The domes they meticulously carved are not merely architectural decoration, but containers of music. In those wrought iron ornament folds, sound reverberates and resonates in unique ways, forming Central Street's distinctive soundscape. Supporting these magnificent buildings are square stones laid vertically. This unconventional laying method embodies cold-region craftsmen's profound understanding of extreme climate—vertical patterns better drain water and prevent slipping, a perfect combination of survival wisdom and craftsman spirit.
+
+When the long winter arrives, Harbin reveals its most unique aesthetic character. Frost flowers condensed on window frames sparkle like diamonds in sunlight. These patterns naturally grown from ice crystals are each unique works of art. Like nature's engraving knife, they carve exquisite patterns on glass, transforming harsh cold into poetic aesthetics. Dome resonances, stone resilience, frost flower delicacy—all three together interpret Harbin people's cultural spirit of creating and pursuing beauty in extreme cold environments.
+
+The fusion of these three themes reveals Harbin culture's core characteristics: craftsman spirit persevering in extreme environments, unique aesthetics formed in multicultural contexts, and vitality blooming in harsh nature. They provide Hotel Indigo with the most distinctive cultural narrative, telling a northern story about resilience, aesthetics, and creation.`
+        },
+        
+        'Code Reformation|Dome Light Chronicles|Railway Emblem': {
+            title: 'Window Frame Whispers: Deciphering Far East Codes Between Railway Rings and Stained Glass',
+            story: `Every building on Central Street carries a magnificent history. Scratches on wooden window frames are revolutionaries' codes, annual rings in railroad ties record international port prosperity, stained glass reflects immigrant epics.
+
+In early 20th century, this was the frontline of intelligence and revolution. On those seemingly ordinary wooden window frames, revolutionaries carved codes only comrades could recognize. These subtle scratches only appear under specific lighting, recording that turbulent era, witnessing countless secret meetings and intelligence transmissions. Outside the windows, Chinese Eastern Railway steel rails were connecting this city with the world. Every railroad tie's annual rings are a commercial history, recording the complex history of Russia, Japan, China and other nations converging here, witnessing Harbin's glorious days as an international port.
+
+Best embodying this city's multicultural characteristics are those exquisite stained glass windows. In St. Sophia Cathedral and various Central Street buildings, these colorful glass windows tell different ethnic stories: Russian Orthodox patterns, Jewish Star of David, Chinese traditional designs—they coexist harmoniously, projecting colorful light and shadows under sunlight. These shadows are like historical projections, casting different cultural memories onto the same land, forming Harbin's unique cultural landscape.
+
+The interweaving of these three themes displays Harbin's complex history as an international city: interweaving of revolution and commerce, collision of Eastern and Western cultures, multicultural fusion and symbiosis. They provide Hotel Indigo with the most historically profound cultural narrative, telling an urban legend about transformation, fusion, and heritage.`
+        },
+        
+        'Ice Blade Blooming|Mortar Chronicles|Permafrost Tattoo': {
+            title: 'Permafrost Chronicles: Frost Blades Draw History, Mortar Joints Hide Microcosmic Universe',
+            story: `In Harbin, severe cold is not life's enemy, but art's catalyst. Frost flowers on window frames are nature's carvings, microorganisms in mortar joints are time's witnesses, cracks on permafrost are age's engravings.
+
+Every winter, when temperatures plunge to minus thirty degrees, Harbin's windows become nature's canvas. Ice crystals grow along glass surfaces, forming exquisitely beautiful frost flower patterns. These "ice blade blooming" wonders display life's tenacity and beauty in extreme environments. In the brick joints of century-old buildings lives a microscopic ecosystem. Scientists discovered that these mortar joint microbial communities record Harbin's century-long climate changes and environmental evolution—they're like living historical archives, preserving the city's memories biologically.
+
+Most stunning are the "tattoos" permafrost leaves on building surfaces. Due to extreme freeze-thaw cycles, building exteriors form unique cracks and color changes. These "permafrost tattoos" aren't architectural defects, but artworks co-created by time and nature. They record every winter's severity, every spring's thaw, engraving Harbin's climatic characteristics most intuitively on the city's body.
+
+The fusion of these three themes reveals Harbin culture's most unique dimension: creativity transforming harshness into aesthetics, insight discovering history in the microscopic world, survival wisdom harmoniously coexisting with nature. They provide Hotel Indigo with the most naturally poetic cultural narrative, telling a northern philosophy about life, time, and nature.`
         }
     }
 };
@@ -2708,6 +2817,186 @@ const fusedDesignInspirationsDB = {
     }
 };
 
+// 英文版融合的酒店设计灵感数据库
+const fusedDesignInspirationsDB_EN = {
+    'Changsha': {
+        // 长沙融合设计灵感暂不处理
+    },
+    
+    'Harbin Central Street': {
+        'Craftsmanship Like Stone|Dome Resonance Chronicles|Ice Blade Blooming': `# Core and Secondary Elements Analysis
+Based on the Harbin Central Street regional analysis report and the three major theme design documents, I have distilled the core and secondary core elements for the hotel design. The core elements prioritize Central Street's architectural art heritage and cold-region cultural characteristics, followed by historical and cultural heritage (immigrant history, port economy, etc.). Element selection is based on the cultural essence summary, unique story elements, and competitive market gaps identified in the materials.
+
+## Core Element: Fusion of Baroque Architecture and Musical Arts
+- Elements include: Baroque dome architectural complex, Modern Hotel balcony concerts, cast iron decorative arts, Corinthian columns, stained glass windows, "Music City" spiritual heritage.
+- Primary focal spaces: Arrival area, lobby/reception, public areas (such as Neighborhood Café), multi-function hall, bar.
+- Rationale: The materials summarize Central Street's culture centered on "International Architecture Exposition," with 71 protected buildings encompassing 15 styles. Modern Hotel balcony concerts gave birth to the "Music City" reputation, embodying the fusion of European continental art and cold-region life. Competitive analysis shows the market lacks art-themed hotels combining "cultural depth + youthful experience."
+
+### Secondary Core Element 1: Cold-Region Craftsmanship Spirit and Stone Legend
+- Elements include: Granite square stone pavement (vertical insertion laying technique), Chinese Eastern Railway construction history, Russian engineer wisdom, "silver yuan paving" legend, cold-region frost-resistance technology.
+- Primary focal spaces: Corridors, floor paving, accessory display areas, cultural exhibition walls.
+- Rationale: Materials emphasize the 1928 bread stone paving project created the world's first cold-region stone paving technical paradigm, with each square stone valued at one silver yuan. Community humanistic stories like "Bread Stone Road's Light and Shadow Code" demonstrate craftsmanship spirit. Competitive analysis indicates historic hotels (like Modern Hotel) have outdated facilities; new hotels need to innovate experience while preserving historical elements.
+
+### Secondary Core Element 2: Ice and Snow Natural Poetry and Cold-Region Aesthetics
+- Elements include: Window frame frost flower art, ice crystal textures, ice and snow window paper-cutting, winter ice icicle landscapes, life philosophy in extreme cold climate.
+- Primary focal spaces: Guest rooms, window design, wellness areas, rooftop spaces, seasonal decorations.
+- Rationale: Materials describe ice and snow window paper-cutting as "crystallization of cold-region survival wisdom," embodying the life philosophy of "resisting cold with beauty." Community stories like "Ice Flower Window Frames" showcase the art of nature-human symbiosis. Competitive analysis shows that except Aoluogu Ya, other hotels lack innovative indoor ice and snow experiences, with a market gap in "winter indoor experience homogenization."
+
+## Story Flow and Space Connection
+Using Central Street as the axis, connecting Baroque art, craftsman legends, and ice-snow poetry to create an immersive cold-region cultural journey.
+
+### Baroque Resonance · Artistic Departure
+- Area: Arrival area (drop-off/hotel lobby)
+- Text: Stepping into the hotel, Baroque music flows down from the dome, cast iron chandeliers project warm halos. Corinthian columns stand quietly on both sides, stained glass windows refract brilliant colors. The Modern Hotel's musical tradition continues here; guests step into a European continental salon from a century ago, feeling the artistic foundation of "Oriental Moscow."
+- Elements applied: Baroque dome, cast iron decorative arts, balcony concert tradition, stained glass.
+
+### Craftsman Legend · Stone Memory
+- Area: Corridors/cultural exhibition area
+- Text: Underfoot are vertically laid granite square stones; every step treads on history's pulse. Walls display precious photos from the 1928 paving project; Russian engineers' wisdom is frozen in "Craftsman's Hands" sculptures. The "silver yuan paving" legend revives in light and shadow; guests touch stone textures, feeling cold-region craftsmen's resilience and creativity.
+- Elements applied: Granite square stones, Chinese Eastern Railway history, craftsman oral history, paving technology exhibition.
+
+### Ice-Snow Poetry · Natural Return
+- Area: Guest rooms/rooftop space
+- Text: Guest room windows automatically fog on winter mornings, presenting natural frost flower patterns. Ice crystal texture curtains sway gently in the breeze; bedding is embroidered with microscopic frost flower art. The rooftop observation deck overlooks the frozen Songhua River landscape; ice sculpture display area (winter limited) allows guests to appreciate ice and snow beauty in warm spaces. This is the poetic return of cold-region aesthetics, transforming harsh climate into unique artistic experience.
+- Elements applied: Frost flower art, ice crystal textures, ice and snow window paper-cutting, winter ice icicles, cold-region life philosophy.
+
+---
+
+# Dome Resonance Chronicles × Craftsmanship Like Stone × Ice Blade Blooming Fusion Design Inspiration
+
+## Design Concept
+Based on the cultural essence of Harbin Central Street regional analysis—"International Architecture Exposition" and the cold-region wisdom of "resisting cold with beauty"—creating a triple aesthetic narrative space for Hotel Indigo. **Core element** uses Baroque dome architectural complex as architectural soul, showcasing "Oriental Moscow's" European continental art tradition; **Secondary core element 1** uses granite square stone vertical patterns as craftsman's bones, inheriting "silver yuan paving's" cold-region engineering wisdom; **Secondary core element 2** uses window frame frost flower art as nature's beauty, interpreting the life philosophy of "resisting cold with beauty." Three major theme stories—Dome Resonance Chronicles' music salon, Craftsmanship Like Stone's paving legend, Ice Blade Blooming's frost flower poetry—jointly construct "Art × Resilience × Poetry" cold-region aesthetic space.
+
+---
+
+## External Architecture
+**Core Element (Dome Resonance Chronicles):** Building facade strictly references Central Street Baroque architectural complex (Modern Hotel, St. Sophia Cathedral, etc.), adopting modern interpretation of neoclassical style. Main facade cast iron decorative framework (replicating Corinthian columns, column height 12 meters, capital carved with exquisite leaf patterns) + three-layer insulated glass curtain wall (U-value ≤0.8W/㎡·K, resisting -40°C extreme cold). Top features Baroque dome-shaped skylight (diameter 8 meters, copper frame + stained glass, built-in acoustic device simulating cathedral bell resonance). Entrance adopts Baroque arch form (span 6 meters, height 8 meters), cast iron door hand-carved with musical symbols (staff, eighth notes, etc., taken from Modern Hotel balcony concert poster patterns).
+**Secondary Element 1 (Craftsmanship Like Stone):** Ground paved with vertical granite square stones (referencing 1928 Central Street paving technique, each block 10×10×20cm, vertically inserted into foundation to enhance frost resistance), gaps filled with special frost-resistant mortar. Entrance plaza features "Silver Yuan Paving" memorial installation: glass floor with embedded replica silver yuans (diameter 3.8cm, copper-plated silver, engraved with 1928), LED strip lighting, recreating "each square stone valued at one silver yuan" legend.
+**Secondary Element 2 (Ice Blade Blooming):** Building exterior wall partially (15% of facade) embedded with "Frost Flower Glass" art wall (size 8×3 meters, using special etching technique simulating real frost flower microscopic patterns, taken from Harbin winter window flower photography). Night LED backlighting (color temperature 6500K cold white), presenting diamond-like brilliance. Winter eave naturally forms ice icicles (not removed, becoming seasonal decoration), combined with warm light strips (color temperature 2700K) creating ice-fire dual aesthetics.
+
+## Interior Architecture
+**Core Element (Dome Resonance Chronicles):** Lobby 15 meters high, strictly referencing St. Sophia Cathedral dome structural proportions (diameter 10 meters, height 15 meters), adopting plaster carving + gold leaf gilding to replicate Baroque style, dome interior painted with "Oriental Moscow Prosperity Map" (commissioned from Harbin Normal University Art Academy, depicting 1920s Central Street scenes). Built-in acoustic system (speaker system hidden in dome fold recesses, 24 speakers surrounding layout), scheduled Baroque music playback (hourly playing Bach's "Air on G String" etc., duration 5 minutes). Central hanging large cast iron chandelier (diameter 2 meters, height 3 meters, replicating 1920s Central Street historical fixtures, 50 candle-shaped LED bulbs). Surrounding columns use Corinthian style (8 columns, diameter 0.8 meters, height 12 meters), capitals hand-carved with acanthus patterns.
+**Secondary Element 1 (Craftsmanship Like Stone):** Corridor floors use vertical granite square stone laying (demonstrating craftsmanship wisdom, each block 10×10×20cm, preserving original chisel mark textures), walls feature "Craftsman's Road" historical photo exhibition (40 photos, size 40×60cm, showing 1928 Central Street paving project, Russian engineer construction scenes). Photo wall equipped with touchscreen (32-inch, accessible for detailed historical archives, engineering drawings).
+**Secondary Element 2 (Ice Blade Blooming):** Guest room windows feature double-layer electrically controlled frosting glass (inner layer adjustable transparency 0-100%, simulating frost flower effect), winter mornings 6:00-8:00 automatically start fogging program, presenting natural frost flower pattern growth animation (duration 3 minutes). Corridor corners feature "Frost Flower Viewing Windows" (size 2×3 meters, vacuum double-layer glass, inner layer maintained at -5°C, winter naturally forms real frost flowers, guests can observe closely).
+
+## Materials and Finishes
+**Core Element (Craftsmanship Like Stone):** Main color palette strictly taken from Central Street building site color cards: ice-snow silver white (#F0F4F8, winter snow color) as base color, matched with stone deep gray (#4A5568, granite original color), Baroque gold-copper (#B8860B, cast iron oxidation color). Floor 80% uses vertically laid granite square stones (sourced from Heilongjiang local stone factories, hand-polished preserving natural textures and chisel marks), walls use cast iron decorative panels (5mm thick, surface replicating Baroque acanthus patterns, using lost-wax casting technique) + insulated plasterboard (10cm thick, R-value ≥3.5 insulation performance). Wood selects Siberian pine (imported from Russia, exposed natural wood color, coated with environmental wood wax oil).
+**Secondary Element 1 (Dome Resonance Chronicles):** Dome uses high-strength fiber plaster carving (15cm thick, load-bearing structure) + gold leaf gilding (24K real gold leaf, 0.15μm thick, hand-applied), ceiling embedded LED strips (color temperature 3000K, dimmable) simulating starry sky effect. Columns use concrete casting + plaster carving exterior, surface coated with faux stone paint (off-white #F5F5DC).
+**Secondary Element 2 (Ice Blade Blooming):** Frost flower area uses special etched glass (12mm tempered glass, laser-etched frost flower patterns depth 0.5mm) + LED backlighting (color temperature 6500K, brightness adjustable). Guest room curtains use ice crystal texture jacquard fabric (polyester + cotton blend, pattern from real frost flower macro photography, silver thread embroidery), light blocking rate 95%. All materials prioritize local supplier procurement, supporting Heilongjiang regional industries.
+
+## Artworks
+**Core Element (Dome Resonance Chronicles):** Lobby main wall commissioned Harbin Normal University Art Academy artists to create "Baroque Resonance · Oriental Moscow" large relief mural (size 10×4 meters), using cast iron casting (8mm thick) + plaster carving technique, presenting Central Street architectural complex panorama (St. Sophia Cathedral, Modern Hotel, Huamei Western Restaurant, etc., 71 buildings). Combined with hidden speaker system (24 speakers), hourly playing Baroque music (Bach's "Suite No. 3 in D Major" etc.) with architectural history narration (Chinese-Russian bilingual, duration 5 minutes). Guest rooms hang "Central Street Four Seasons" photography works (size 60×80cm, limited numbered editions), showcasing different seasonal architectural aesthetics (Spring-thaw, Summer-green shade, Autumn-golden, Winter-ice-snow).
+**Secondary Element 1 (Craftsmanship Like Stone):** Corridors display "Craftsman's Hands" themed sculpture group (bronze material, height 1.8 meters, total 5 pieces), showing Russian engineer images laying square stones, each sculpture base engraved with 1928 paving project chronicle. Walls feature "Silver Yuan Paving" memorial exhibition (20 historical photos, size 40×60cm, showing construction scenes, engineering drawings).
+**Secondary Element 2 (Ice Blade Blooming):** Winter special exhibition "Frost Flower Art Gallery" (November-March): 30 macro photography works (real frost flower patterns magnified 100×, size 50×70cm), backlit light boxes presenting crystalline transparent effect. Each equipped with QR code; scan to learn frost crystal scientific knowledge (formation conditions, structure classification, physical principles).
+
+## Sculptures and Installation Art
+**Core Element (Dome Resonance Chronicles):** Lobby center features "Cold-Region Trio" dynamic comprehensive installation (footprint 15㎡, height 4 meters): bottom layer granite square stone base (authentic Central Street 1928 stones, 50 blocks total, each 10×10×20cm), middle layer cast iron framework (Baroque acanthus patterns, lost-wax casting), top layer ice crystal glass dome (diameter 2 meters, built-in 256 LED strips, simulating frost flower growth animation). Interactive function: touching different base areas plays corresponding historical recordings (①1928 paving engineer oral history, ②Modern Hotel concert live, ③St. Sophia Cathedral bells, each 2-3 minutes). During hourly Baroque music playback, dome lights pulse with rhythm (98% synchronization).
+**Secondary Element 1 (Craftsmanship Like Stone):** Corridor features "Time Tunnel" installation (length 20 meters): floor embedded transparent glass (20mm tempered), below displays 1928-2025 Central Street square stone evolution (100-year weathering process), LED strip lighting. Walls feature "Craftsman Tool Wall": displaying historical paving tool replicas (chisels, hammers, levels, etc., cast iron material).
+**Secondary Element 2 (Ice Blade Blooming):** Rooftop features "Ice-Snow Observation Deck" installation (area 80㎡): panoramic three-layer insulated glass + electric heating floor (power 5kW, surface temperature 15°C) + ice sculpture display area (winter limited December-February, monthly theme changes). Corridor features "Acoustic Gallery": wall cast iron decorative panels specially designed (concave-convex shapes, producing 5-second delayed echo effect), guests can experience "dome resonance."
+
+## Accessories
+**Core Element (Dome Resonance Chronicles):** Reception desk displays Central Street miniature architectural models (1:200 scale, 3 meters long, includes 71 buildings, handmade), Baroque music CD selection (10 albums), stone bookends (authentic stone cut and polished, pair weighs 5kg). Guest rooms equipped with "Central Street Architecture Guide" deluxe book (200 pages, Chinese-English-Russian trilingual), cast iron bookmarks (Baroque patterns, engravable), frost flower postcard sets (10 pieces, mailable, stamps included). Desk displays vintage music box (wood + copper mechanism, plays Bach's "Minuet" etc., 5 pieces).
+**Secondary Element 1 (Craftsmanship Like Stone):** Craftsman-themed accessories: silver yuan replicas (1928 version, copper-plated silver), paving engineering drawing replicas (framed, size 40×30cm), stone texture rubbings. Cultural exhibition area equipped with old measurement tools (levels, plumb bobs, tape measures, etc., functionally restored for experience).
+**Secondary Element 2 (Ice Blade Blooming):** Winter limited accessories (November-March): frost flower specimens (vacuum glass preserving real frost flowers, size 15×10cm), snowflake snow globes (LED lights + music box), ice sculpture art ornaments (acrylic material, simulating ice sculpture effect). Greenery selects cold-resistant needle-leaf varieties: fir potted plants (height 1.2 meters), spruce potted plants (height 1 meter). Windowsills display temperature-humidity meters decorations (vintage brass style, showing indoor-outdoor temperature difference -40°C→+20°C).
+
+## Furniture
+**Core Element (Dome Resonance Chronicles):** Public areas adopt "Baroque Neoclassical" style (vintage styling + modern comfort + cold-region warmth). Main furniture: ①Baroque sofas (velvet fabric deep blue, cast iron decorative legs hand-carved, built-in electric heating function 50W, length 2 meters), ②Craftsman benches (granite base 20kg + heating cushion + wool soft pad 8cm thick, length 1.5 meters), ③Cast iron coffee tables (Baroque pattern legs + tempered glass tabletop 15mm, diameter 0.8 meters). Lobby equipped with "Music Salon Seats" (high-back chairs, velvet + solid wood frame, arranged in circle facilitating socializing).
+**Secondary Element 1 (Craftsmanship Like Stone):** Restaurant equipped with "Craftsman Dining Tables" (stone tabletop mosaic + cast iron supports, length 2 meters width 1 meter), chairs in industrial vintage style (ironwork + leather cushions + heating function). Reading area equipped with "Stone Bookshelves" (steel frame + wood panels, bottom layer embedded stone decoration, height 2.5 meters).
+**Secondary Element 2 (Ice Blade Blooming):** Guest rooms equipped with "Warm Bed" system (thick latex mattress 25cm + three-setting electric blanket + goose down comforter 3kg + frost flower pattern bedding 600 thread count), "Frost Flower Desk" (tempered glass tabletop printed frost flower patterns + Siberian pine supports + LED eye-care table lamp), "Craftsman Wardrobe" (solid wood + hand-carved Baroque patterns + built-in dehumidification system). Lounge area equipped with "Viewing Heated Recliners" (electric heating function 100W, adjustable angle 0-160 degrees, for ice-snow landscape viewing).
+
+## Lighting
+**Core Element (Dome Resonance Chronicles):** Featured lighting is "Baroque Chandelier" series: strictly replicating 1920s Central Street historical fixtures (referencing Modern Hotel prototype, cast iron framework + 72 crystal pendants + LED light source dimmable 500-2000 lumens), color temperature 3000-3500K (warm resisting cold). Lobby main light diameter 2.5 meters height 3 meters, corridor wall sconces spacing 5 meters. Dome area uses uplights (power 50W×8 fixtures) highlighting architectural details, creating acoustic spatial sense. Lobby hourly Baroque music playback, lights intelligently change intensity with rhythm (music climax 200%, valley 50%).
+**Secondary Element 1 (Craftsmanship Like Stone):** Corridors use floor light strips (LED flexible strips, embedded in stone gaps width 2cm, color temperature 4000K), upward illumination emphasizing vertical grain textures and chisel mark textures. Craftsman exhibition area uses track spotlights (adjustable angles, focused lighting on historical photos and tools).
+**Secondary Element 2 (Ice Blade Blooming):** Frost flower area uses ice-blue ambient lights (color temperature 6500K cold white, night 18:00-23:00 creating ice-snow world dreamlike effect) + frost flower projectors (wall dynamic display frost flower growth process, 3-minute loop). Guest rooms use smart adjustable color temperature lights (daytime 6000K refreshing work, night 2700K sleep assistance, transition time 30 minutes). Winter adds warm lighting (resisting seasonal emotional decline).
+
+## Soft Furnishings
+**Core Element (Dome Resonance Chronicles):** Textile main color palette: ice-snow silver white #F0F4F8, stone deep gray #4A5568, Baroque gold-copper #B8860B. Curtains three-layer design (resisting -40°C severe cold): ①Outer layer insulated blackout curtain (deep gray wool blend, 8mm thick, light blocking rate 98%), ②Middle layer soundproof curtain (high-density polyester, noise reduction 30 decibels), ③Inner layer frost flower sheer curtain (silk, printed ice crystal patterns, light transmission 40%). Bedding uses goose down comforter (fill weight 3kg, loft 800) + flannel sheets (weight 250g/㎡) + frost flower embroidered pillows (Xiang embroidery craft, patterns microscopic frost flowers). Carpets hand-woven (wool material, pattern Central Street map + Baroque patterns, size 3×2 meters).
+**Secondary Element 1 (Craftsmanship Like Stone):** Tea seating area paved with Russian traditional carpets (geometric patterns Uzbek style, good warmth performance). Cushions embroidered with "Craftsmanship Spirit" Russian motto (Мастерство Духа, velvet fabric). Table runners use velvet (gold-copper #B8860B, luxurious feel), edges hand-tasseled. Curtain tiebacks cast iron material (Baroque decoration, each 200g). Seasonal changes: winter thick fabrics (November-March), summer lightweight (June-August).
+**Secondary Element 2 (Ice Blade Blooming):** Bedding secondary patterns "Frost Flower Evolution" series (showing frost flowers from formation to melting 12 stages), pillowcases printed macro frost flower photography. Window sheers use ice crystal texture jacquard (silver thread, shimmering effect under light). Bathroom equipped with thick bathrobes (wool blend, weight 600g/㎡, embroidered snowflake patterns), heated floor mats (electric heating power 80W, non-slip).
+
+## Dining Services
+**Core Element (Dome Resonance Chronicles):** Bar introduces "Central Street Trilogy" signature cocktails: ①Dome Resonance (golden, whiskey 50ml + Russian honey 15ml + cinnamon powder + orange peel, alcohol 18%, ¥88), ②Craftsmanship Like Stone (dark, vodka 45ml + espresso 30ml + cocoa liqueur 20ml, alcohol 20%, ¥98), ③Ice Blade Blooming (transparent, brandy 40ml + mint liqueur 15ml + ice crystal sugar decoration, alcohol 15%, ¥78). Light meal platters use cast iron trays (Baroque patterns, size 40×30cm), offering Russian classics: borscht Борщ (hot served, with sour cream), rye bread (supplied by Qiulin Company), caviar (10g, with toast), Russian pickles (per person ¥128).
+**Secondary Element 1 (Craftsmanship Like Stone):** All-day restaurant "Cold-Region Feast" (per person ¥168): Harbin red sausage (Qiulin Lidos) + Russian stew Жаркое (beef + potatoes + carrots) + Ice City sweet and sour pork + kvass beverage (Qiulin kvass). Menu attached with 1928 Central Street construction story cards. Cooperates with Huamei Western Restaurant, offering authentic Russian full set (soup + main course + dessert, ¥298).
+**Secondary Element 2 (Ice Blade Blooming):** Winter special "Warming Set Meal" (November-March, per person ¥158): mulled wine Глинтвейн (cinnamon + cloves + orange slices, 60°C) + roasted lamb chops + potato cream soup + rye bread. 24-hour hot beverage station (lobby): provides hot chocolate, Russian tea + jam, American coffee (free self-service, all-day supply). Cooperates with Modern Hotel Ice Cream Hall, offering authentic popsicle experience (outdoor tasting at -20°C, winter limited ¥10/piece).
+
+## Service Items
+**Core Element (Dome Resonance Chronicles):** Daily porcelain adopts Russian imperial style (blue-white porcelain base + gold trim decoration 3mm width), elegant shapes referencing Catherine Palace court porcelain. Featured tableware: ①Cast iron teapot (capacity 800ml, insulation performance maintains above 60°C for 3 hours), ②Baroque pattern plates (diameter 28cm, edge relief acanthus patterns), ③Stone texture coasters (ceramic material, surface restoring granite tactile feel). High-quality tableware selected from Jingdezhen custom (cooperating with Jingdezhen Ceramic University design), bottom stamped with "Central Street 1898" logo + architectural silhouette.
+**Secondary Element 1 (Craftsmanship Like Stone):** Tea set ensemble: Russian samovar Самовар shaped teapot (stainless steel, capacity 1.5L, electric heating insulation) + 6 glass teacups (double-layer insulated, capacity 200ml), paired with Russian jam Варенье small dishes. Chopstick rests granite square stone shape (miniature version, length 5cm). Napkins use linen (printed Central Street map).
+**Secondary Element 2 (Ice Blade Blooming):** Frost flower themed tableware: ①Glass cups (etched frost flower patterns, capacity 350ml), ②Ice crystal texture trays (acrylic material, size 30×20cm), ③Snowflake napkin rings (silver material, diameter 5cm). Chopstick rests small stone shapes. Disposable items use insulated materials (paper cups double-layer insulated, preventing hand frostbite), printed architectural silhouette patterns. Winter provides heated plates (ceramic + bottom heating pad, maintaining food temperature 45°C, power 15W).
+
+## Fragrance
+
+**Three-Tier Fragrance System** (for -40°C extreme cold environment)
+
+**Base Note (Pine Forest)**
+- Main components: Siberian pine 40% (imported from Russia) + cedar 30% + fir 20% + amber 5% + musk 5%
+- Application spaces: Lobby, corridors, public areas
+- Effects: Warm, steady, anti-depressant (resisting winter emotional decline)
+- Inspiration: Clear fragrance of Siberian forest after snow at -40°C
+
+**Middle Note (Warm Spices)**
+- Main components: Cinnamon 35% (increasing warmth) + cloves 25% + orange peel 20% + ginger 10% + vanilla 10%
+- Application spaces: Guest rooms, lounges, restaurants
+- Effects: Cozy, soothing, appetite-promoting
+- Inspiration: Spice aroma of Russian mulled wine Глинтвейн
+
+**Top Note (Ice-Snow Clarity)**
+- Main components: Mint 30% + eucalyptus 25% + borneol 15% (natural camphor) + lemon 15% + tea tree 10%
+- Application spaces: SPA area, gym, yoga studio
+- Effects: Refreshing, invigorating, respiratory purification
+- Inspiration: Fresh breath of frost flower melting on winter mornings
+
+**Seasonal Customization:** "Four Seasons Harbin" fragrance series, changing quarterly (Spring-melting snow + soil, Summer-forest + floral, Autumn-fallen leaves + fruity, Winter-ice-snow + pine). Fragrance diffusers use cast iron decorative shells (Baroque style, hand-carved), ultrasonic atomization technology, coverage radius 10 meters.
+
+## Sound
+
+**Environmental Soundscape System** (creating immersive historical atmosphere)
+
+**Daytime Soundscape (8:00-18:00)**
+- Base layer: Baroque classical music (Bach's "Air on G String", Vivaldi's "Four Seasons · Winter" etc., low volume 30 decibels loop)
+- Accent layer: Distant carriage sounds, snowy footstep sounds, ice crystal collision sounds (random playback every 30 minutes)
+- Music layer: Russian classical music (Tchaikovsky, Rachmaninoff piano pieces)
+- Featured: Hourly playback St. Sophia Cathedral bells (recorded on-site, resonance duration 15 seconds) + Central Street historical narration (Chinese-Russian bilingual, every 2 hours, duration 5 minutes)
+
+**Night Soundscape (18:00-23:00)**
+- Base layer: Russian folk songs ("Moscow Nights", "Katyusha" etc., warm nostalgic)
+- Accent layer: Fireplace crackling sounds, hot tea pouring sounds, page-turning sounds
+- Music layer: Jazz + Russian new folk music (modern interpretation traditional melodies)
+- Featured: Night 21:00 playback Modern Hotel balcony concert historical recording (1930s live restoration, duration 8 minutes)
+
+**Special Time Periods**
+- Breakfast period (7:00-10:00): Cheerful Russian folk music, birdsong (spring-summer), snow falling sounds (winter)
+- Afternoon tea period (15:00-17:00): Baroque chamber music, piano solo (Chopin's "Winter Wind Etude" etc.)
+- Night bar (20:00-24:00): Modern electronic music mixed with Russian classics (DJ remix version), live singing (Friday-Saturday, Russian songs)
+- Late night sleep aid (23:00-7:00): Provides white noise options (fireplace sound 60 decibels, blizzard sound 40 decibels, extreme quiet mode <10 decibels)
+
+**Interactive Experience:** Corridor "Acoustic Gallery" uses cast iron decorative panels producing 5-second delayed echo, guests can experience "dome resonance" effect. Dome area hosts small classical concerts on weekends (Baroque trio, violin + cello + harpsichord, using architectural acoustics natural amplification).
+
+**Cooperation Projects:** Cooperates with Harbin Concert Hall, providing concert ticket discounts. Cooperates with St. Sophia Cathedral, recording cathedral pipe organ music (for guest room smart system playback).
+
+---
+
+## Design Summary
+
+This fusion design proposal strictly based on Harbin Central Street regional analysis report, organically integrating three major cultural themes: **Dome Resonance Chronicles** establishes European continental art foundation, through Baroque dome architecture, Modern Hotel balcony concert tradition, Corinthian column decoration, showcasing "Oriental Moscow's" artistic bloodline; **Craftsmanship Like Stone** inherits cold-region engineering wisdom, through vertical granite square stone paving, "silver yuan paving" legend, 1928 Chinese Eastern Railway engineering history, interpreting "resisting cold with wisdom" craftsmanship spirit; **Ice Blade Blooming** creates natural poetic experience, through window frame frost flower art, ice crystal texture decoration, winter ice icicle landscapes, showcasing "resisting cold with beauty" cold-region life philosophy.
+
+Through 13 design dimension systematic implementation, all elements traceable to specific chapters of regional analysis documents:
+- **Historical and Cultural Research**: Central Street architectural complex (dome structure, column styles), 1928 paving project (stone craft), Modern Hotel (musical tradition)
+- **Cultural Heritage Research**: "International Architecture Exposition" (Baroque elements), "Music City" (acoustic devices), cold-region engineering technology (frost-resistant materials)
+- **Community Humanistic Stories Research**: "Silver Yuan Paving" legend (memorial installation), Russian engineer wisdom (photo exhibition), window frame frost flower paper-cutting (ice crystal art)
+- **Nearby Attractions Research**: St. Sophia Cathedral (dome proportions), Central Street square stone road (paving craft), Songhua River frozen landscape (observation deck)
+
+**Core Values:**
+- **Cultural Authenticity**: All elements sourced from Central Street field research, dome referencing St. Sophia Cathedral measured data, stones using 1928 original craft
+- **Localization Depth**: Prioritizing Heilongjiang local materials (granite, Siberian pine) and craftsman works procurement, supporting regional industrial development
+- **Experience Innovation**: Electrically controlled frosting frost flower windows, acoustic dome concerts, silver yuan paving interactive installations etc. enhancing participation, filling competitive "historical depth + technology experience" gap
+- **Cold-Region Adaptability**: Three-layer insulated glass (U-value ≤0.8), heated furniture systems, frost-resistant material applications, ensuring comfort in -40°C extreme cold environment
+
+**Market Positioning:**
+Based on competitive analysis, this proposal fills three gaps in Harbin hotel market: ①Mid-to-high-end price range (¥900-1200) cold-region aesthetic experience; ②Deep architectural cultural immersion (differentiating from Modern Hotel outdated facilities); ③Young customer artistic social scenarios (dome concerts, frost flower photography, craftsman story sessions). Through "European Continental Art × Cold-Region Wisdom × Natural Poetry" triple narrative, creating Hotel Indigo with both historical depth, cold-region characteristics, and warm comfort—not just accommodation space, but a cold-region culture display window, a warm bridge connecting Eastern and Western cultures.`
+    }
+};
+
 // ===== 详细邻间故事数据库 =====
 // 注意：此部分暂时简化以确保代码可执行
 const detailedStoriesDB = {
@@ -2901,6 +3190,134 @@ const detailedStoriesDB = {
     }
 };
 
+// 英文版详细邻间故事数据库
+const detailedStoryContentDB_EN = {
+    'Changsha': {
+        // 长沙详细故事暂不处理
+    },
+    'Harbin Central Street': {
+        'Dome Resonance Chronicles': {
+            mainTitle: 'Dome Resonance Chronicles',
+            subTitle: 'Cast Iron Notes Flowing Through Baroque Folds',
+            fullContent: `# Dome Resonance Chronicles
+—Cast Iron Notes Flowing Through Baroque Folds
+
+Between Central Street's domes and arcades, time has never truly passed but has settled in the form of sound waves. When morning light glides across the copper gilt trim of Modern Hotel's stained glass dome, or when twilight saturates the acanthus ornaments of Education Bookstore's Baroque pediment, those architectural folds composed of cast iron balconies, painted domes, and granite facades quietly transform into a massive natural instrument. Art Nouveau wrought iron vines are not static decorations—they are five-line staffs forged in metal, each scroll pattern a sound wave conduit; Renaissance arch curves are as precise as violin resonance boxes, while Byzantine dome interiors resemble double bass cavities. Physical construction and artistic soul coexist here, forming a unique architectural acoustics: when Songhua River wind penetrates colonnade rows, when tourists' footsteps strike bread stone pavements, even when ice crystals condense and shatter on window frames, all these sounds are absorbed, transformed, and amplified by architectural texture, ultimately merging into a wordless urban symphony. This street itself is a movement composed in space.
+
+When Russian architect Leontiev designed Songpu Foreign Firm in 1903, he perhaps never anticipated that his Corinthian colonnades would become optimal sound reflectors; when Jewish merchant Kaspe created Modern Hotel's cast iron balconies in 1906, perhaps merely chasing Parisian fashion, he accidentally created an open-air music hall. Acoustics here displays its philosophical metaphor: violin bow friction vibrations transmit through wrought iron railings to the entire building structure, like cultural gene penetration—Russian émigrés' violins, Jewish waltzes, Chinese vendors' calls all fuse and mutate in brick and stone pores.
+
+At noon, when sunlight falls vertically on Central Street, buildings cast sharp shadows cutting out light and dark sound zones: cheerful strings in brightness and deep accordions in shadow interweave into polyphony on stone pavements. The most exquisite resonance occurs at the boundary between material and spirit. Those artistic details embedded in building facades—Education Bookstore dome's copper weather vane, Women & Children Store window lintel's grape carvings, Modern Hotel balcony's iris patterns—they are not only visual feasts but also auditory media. When snowflakes fall on cast iron balcony vine patterns, ice crystal shattering crisp sounds conduct along wrought iron veins, forming subtle dialogue with century-old wall brick and stone thermal expansion and contraction sounds.
+
+This sound dialogue transcends physical space, becoming a chord of history and present: tourists today hearing some improvised "Jasmine Flower" performance under balconies, its sound wave frequency perhaps overlapping with residual vibrations from Chopin nocturnes Xiao Hong heard pausing here in 1934. Architecture thus is no longer a silent witness but an eternal echo device, using stone, metal, and glass to compose an auditory epic about cultural fusion.`
+        },
+        
+        'Craftsmanship Like Stone': {
+            mainTitle: 'Craftsmanship Like Stone',
+            subTitle: 'Cold-Region Survival Philosophy in Vertical Stone Patterns',
+            fullContent: `# Craftsmanship Like Stone
+—Cold-Region Survival Philosophy in Vertical Stone Patterns
+
+In minus forty-degree extreme cold, Central Street's bread stone pavement is a cold-region survival epic written in granite. On that snow-swept winter night in 1898, when Chinese Eastern Railway's Russian engineer Komtrashok drew the first stone-laying line by the Songhua River, he faced not only permafrost's physical challenge but also a philosophical meditation on civilization's survival. Exiles from Siberia brought Ural Mountain stone-cutting techniques, while Chuang Guandong Shandong stonemasons contributed mortise and tenon wisdom from Mount Tai's foot. Two completely different survival experiences collided and fused on permafrost, finally crystallizing into 870,000 granite square stones inserted at 90-degree angles into the earth.
+
+These stones, each valued at one silver yuan, their vertical grain texture is both engineering technology resisting frost heave and a symbol of immigrant groups establishing presence in harsh environments—like Euphrates poplars in deserts extending root systems deep underground, these vertical square stones are vertical root systems of urban civilization growing in cold-region permafrost.
+
+Every detail of the paving project shines with cold-region craftsmen's survival wisdom. Raw granite from Acheng border town quarries required natural freezing treatment during the coldest winter days, allowing moisture inside stones to complete hardness strengthening during crystallization; when laying, each square stone maintains precisely 2 centimeters spacing, both leaving room for thermal expansion and contraction and forming natural snow-melting drainage systems. Most ingenious is the capillary phenomenon created by vertical insertion technique: when winter ground气 rises, stone gaps become cold air diversion channels; during spring-summer return-moisture periods, these crevices transform into vertical chimneys for moisture evaporation.
+
+This dynamic regulation mechanism keeps pavement in microclimate balance. Even in minus forty-degree extreme cold, stone gaps still show wisps of white mist formed by snow water sublimation. Paving craftsmen transmitted this experience through body memory—master craftsmen could judge stone block insertion angles solely through foot-bottom perception; that subtle tactile sensation transmitted to shin bones through tamped earth vibration interprets human-land relationship mysteries more precisely than any measuring instrument.
+
+When today's tourists' heels strike out crisp echoes, sound wave physical characteristics conducting in vertical stone arrays accidentally become acoustic keys decoding historical memory. Each square stone's unique resonance frequency originates from the precise ratio of its underground burial depth to above-ground exposure height. This 1:0.618 golden ratio not only brings pleasing tones but also proves craftsmen's fusion of aesthetics into utilitarianism. When sunset shines diagonally, uneven stone surfaces cast fish-scale light and shadow matrices—this is precisely the optical continuation of anti-slip patterns stonemasons chiseled with chisels. Those edges polished to glaze by century-long years, ice blade scratches and carriage iron rut marks blurred into stone annual rings, still preserve in material form the primitive rhythm of 1901 ice pick stone chiseling.`
+        },
+        
+        'Ice Blade Blooming': {
+            mainTitle: 'Ice Blade Blooming',
+            subTitle: 'Survival Aesthetics Carved by Frost Blades on Window Frames',
+            fullContent: `# Ice Blade Blooming
+—Survival Aesthetics Carved by Frost Blades on Window Frames
+
+At minus thirty-five degrees dawn, breath condenses on Russian double-layer windows, ice crystals growing along wooden lattices into St. Sophia Cathedral's contour. This is Harbin's winter-unique "ice window painting" wonder—Manchu spring talisman cutting technique evolves here: using wind and frost as blades instead of scissors, peonies on red paper transform into ice dome hexagonal crystal clusters. Each ice flower window is nature and craftsmanship's conspiracy, witnessing humanity's survival art of resisting cold with aesthetics.
+
+Russian émigré architects designing double-layer windows inadvertently created perfect ice crystal petri dishes. The air layer between inner and outer glass panes, temperature differences forming subtle convection, water vapor slowly crystallizing in the precise -20°C to -35°C range. Physics' precise calculations here transform into poetic natural writing: Baroque pediment scroll patterns reappear in frost flowers, as if building facades cast soul silhouettes on glass. Old residents deeply understand the mystery within, placing bowls of hot water on windowsills, using water vapor flow direction to "guide" ice flower growth—like Song Dynasty literati cultivating stones, patiently nurturing transient beauty.
+
+When first sunlight penetrates ice flowers, entire windows transform into light kaleidoscopes. Ice crystals' hexagonal structure decomposes dawn into rainbow spectrums, projecting colorful mottled light and shadows indoors. This brief "aurora" exists only for three minutes after sunrise. As indoor temperature rises, ice flowers begin melting from edges, exquisite patterns sliding down like tears. In Manchu tradition, this symbolizes spring's approaching omen.
+
+Today Central Street cafes spray mist on windows, artificially creating ice flowers for tourist photography, but old Harbin residents disdain this—true ice blade blooming is dialogue between severe cold and life will, tolerating no affectation. Those crystal roses that can still bloom at -40°C are cold-region spirit's most poetic embodiment.`
+        },
+        
+        'Mortar Chronicles': {
+            mainTitle: 'Mortar Chronicles',
+            subTitle: 'Century-Long Microbial Atlas in Joint Mortar',
+            fullContent: `# Mortar Chronicles
+—Century-Long Microbial Atlas in Joint Mortar
+
+Under the microscope, Russian masonry mortar reveals 1901 rye grass seeds, 1932 newspaper press lead dust, 1957 river fog salt crystals. These symbionts of microorganisms and minerals write an alternative urban chronology between bricks and stones. Central Street historical buildings' joint mortar is not only construction material but also time's fossils—every millimeter thickness corresponds to specific era's climate, vegetation, industrial pollution levels, precisely recording the city's metabolism like tree rings.
+
+A certain crack even preserves wall powder shaken off during Zhu Ziqing's 1931 Harbin lecture, awaiting gene sequencing technology to resurrect historical sound waves. Material cultural heritage researchers extracted mortar samples containing Russian bread yeast bacteria from Modern Hotel walls—these microorganisms dormant for a century actually reactivated in laboratory petri dishes; the baked bread carried 1906's ancient flavor. Brick joint life archives are thus not only historical records but also revivable cultural gene banks.
+
+During spring thaw, wall crevices seep water droplets with salty taste; old residents call this "walls crying." Geologists explain this is salt from Songhua River fog accumulated in brick joints over centuries then released. Folk legends add poetry: this is buildings weeping exiles' nostalgia—Jewish merchants', Polish craftsmen's, Russian aristocrats' tears all solidified in this mortar.
+
+Contemporary restoration projects face ethical dilemmas: traditional craftsmanship requires removing old mortar, but this means erasing century-long life records. The final compromise solution: preserve core brick joints as "biological archives," only repair structural cracks. Thus these walls become living museums, microorganisms continuing to reproduce in crevices, leaving contemporary codes for next century's archaeologists.`
+        },
+        
+        'Code Reformation': {
+            mainTitle: 'Code Reformation',
+            subTitle: 'Intelligence Storms in Window Frame Scratches',
+            fullContent: `# Code Reformation
+—Intelligence Storms in Window Frame Scratches
+
+On the oak window frame's third grain, coin scratches deeper than 1.2 millimeters—this is 1946 underground party members' Morse code. When moonlight projects, cross scratches extend into guiding arrows on bread stone pavement. Today QR codes cover it, but viewed from a specific angle, one can still decipher the encrypted poetry written with life by passionate youth. No. 33 West 15th Street's inconspicuous window witnessed Harbin's secret years as a red underground transit station.
+
+Window frame secret language's code system is extremely ingenious: horizontal scratches represent short sounds, vertical scratches represent long sounds, scratch depth indicates urgency level. Every midnight, contact persons would knock window frames with specific rhythms, making scratches produce subtle resonance echoes—this sound transmission distance limits to three meters, precisely covering the window-below alley without alerting patrolling Japanese puppet police. Wood fiber structure here becomes natural secrecy device: scratches are inconspicuous at room temperature; only when moonlight enters at 27-degree angle do wood fibers' optical properties make codes emerge.
+
+Physics and revolutionary ideals converge here: underground party members with engineering backgrounds utilized light diffraction principles, precisely calculating optimal carving angles; comrades with architectural backgrounds used Russian old residence structural characteristics, transforming window frame wall-embedding methods into detachable secret document transmission ports. During contemporary cultural relic restoration, experts discovered oil paper thin as cicada wings hidden in window frame interlayers, with Northeast Bureau instructions written using rice soup development technique.
+
+These national treasure-level revolutionary remains make Central Street not only an architectural art museum but also a red code history written with bricks, wood, light and shadow. Now when night falls, young research learners use strong flashlight beams to recreate codes from that era. Those scratches flicker in light beams, as if saying: "Faith's scratches never fade."`
+        },
+        
+        'Railway Emblem': {
+            mainTitle: 'Railway Emblem',
+            subTitle: 'International Port Codes in Railroad Tie Annual Rings',
+            fullContent: `# Railway Emblem
+—International Port Codes in Railroad Tie Annual Rings
+
+Songpu Foreign Firm's copper door knocker is cast with steam locomotive connecting rod patterns; Education Bookstore eaves hide rail cross-section reliefs. These hidden symbols constitute the architectural world's "Da Vinci Code," telling how the first international train in 1903 forged Harbin into a "city on rails." Touching these metal emblems, one can sense the Far East's first land port's pulse—Chinese Eastern Railway not only transported goods but also conveyed different civilizations' architectural vocabulary, lifestyles, and ideological concepts.
+
+Railway elements in architectural decoration form a complete symbol system. Women & Children Store window lintel's grape vine ornaments, upon close inspection the vine trunk is actually rail side elevation contours; Huamei Western Restaurant ceiling's plaster relief, its scroll patterns originate from train head steam pressure release valves. Most ingenious is Modern Hotel basement heating pipe layout, completely replicating Chinese Eastern Railway Harbin section's route alignment—architects inscribed the city's lifeline into building circulation systems through this secret method.
+
+Railway remnants' cultural translation gains new life in contemporary times. After Songhua River Railway Bridge transformed into a pedestrian observation bridge, original railroad tie sleepers were sliced and inlaid into bridge deck; tourists walking upon it actually tread over 1898 to 2014 time slices. Each sleeper's annual ring density differs, reflecting different eras' climates: 1932's rings abnormally dense, that was famine year; 1945's wood porous and loose, post-war freedom air made trees grow wildly.
+
+Central Street cultural creative shops make waste sleepers into bookends, rust-mottled steel nails becoming most moving decorations. This "industrial heritage poetic transformation" gives cold steel warmth—when contemporary people browse books in cafes, sleeper texture's coal smoke smell can still evoke that steam-roaring golden age.`
+        },
+        
+        'Dome Light Chronicles': {
+            mainTitle: 'Dome Light Chronicles',
+            subTitle: 'Immigrant Epic in Stained Glass',
+            fullContent: `# Dome Light Chronicles
+—Immigrant Epic in Stained Glass
+
+When Byzantine domes project colorful light spots, Jewish merchants' abacus bead sounds, Polish musicians' sheet music rustling, Shandong porters' chants interweave in this spectrum. St. Sophia Cathedral dome's every piece of colored glass is a cultural slice, assembling into "Oriental Moscow's" spiritual map. During rainy seasons, moisture halos between lead strips outline exiles' nostalgia contours—these stained glass windows not only separate interior and exterior spaces but also are immigrant memory prisms, refracting heterogeneous cultures into harmoniously coexisting spectrums.
+
+Dome glass color configuration contains profound meaning. East side's cobalt blue symbolizes Siberia's ice seal; west side's amber yellow represents Chinese Eastern Railway's golden dream; south window's rouge red taken from Guandong rouge workshop mineral pigments; north side's emerald green is Jewish-brought Ural malachite powder. Four-direction colors converge in the dome, harmonizing into Harbin's unique "immigrant light"—a complex tone containing displacement, hope, resilience, and reconciliation. When noon sunlight shines vertically in, ground surfaces reveal a world map assembled from light spots, marking immigrants' departure points: Moscow, Warsaw, Jerusalem, Shandong Dengzhou...
+
+Most moving scene appears on winter solstice afternoon 2 PM. At this time sunlight penetrates stained windows at the lowest angle, projecting eighteen-meter-long light and shadow colonnades on cathedral ground. Different colored light columns arrange like piano keys; when believers walk among them, body-blocked light produces brightness changes, precisely like performing a silent light symphony. Physicists explain this is architects' precise calculation of celestial motion results; while theologians prefer believing this is God composing blessings for Harbin this "immigrant ark." When colorful light scatters, everyone becomes a note in the immigrant epic, together playing this city's multicultural coexistence eternal movement.`
+        },
+        
+        'Permafrost Tattoo': {
+            mainTitle: 'Permafrost Tattoo',
+            subTitle: 'Ice and Snow Carving Time Rings on Building Bodies',
+            fullContent: `# Permafrost Tattoo
+—Ice and Snow Carving Time Rings on Building Bodies
+
+At -25°C, river wind etches ice patterns on Baroque gables, forming unique "permafrost reliefs." When spring melts, ice crystals carry away brick powder, leaving wind erosion maps unique to snow country on wall surfaces. These fleeting natural patterns interpret "architecture is frozen music" more profoundly than any artificial carving—except the composer is the Siberian cold current, the score is a century's freeze-thaw cycles.
+
+Building facade microscopic worlds undergo silent warfare every winter. Moisture penetrates brick and stone pores, solidifying and expanding at -30°C, producing internal stress exceeding rock compressive strength. Century-long repeated offense and defense carve unique textures on walls: Education Bookstore north facade forms radial cracks, precisely like aurora light beams; Modern Hotel west wall's erosion patterns remarkably resemble Byzantine mosaics. Architectural pathologists view these as "diseases" requiring repair, but art historians discovered these natural etchings to some extent complete architects' unfinished expressions—severe cold uses century time to "sign" buildings.
+
+Most peculiar is the "ice icicle history book" phenomenon. Every early spring, eave dripping water condenses into icicles whose growth patterns record entire winter's temperature changes: warm winter icicles transparent as glass, harsh winter's layered like agate. Old residents can judge that year's harvest from icicle forms—this is Chuang Guandong immigrant generations-transmitted meteorological wisdom.
+
+When March warm sun illuminates Central Street, icicles fall and shatter, emitting wind-chime-like crisp sounds—this is cold-region spring's first declaration. Those water stain dark patterns left on walls become next year ice and snow artists' inspiration sources—nature has already completed the initial draft; humans need only sculpt along. This human-nature co-creation relationship is precisely Harbin urban spirit's essence: in harsh environments not conquest, but listening, understanding, symbiosis.`
+        }
+    }
+};
+
 // ===== 设计灵感数据库 =====
 const designInspirationsDB = {
     '长沙': {},
@@ -2961,33 +3378,70 @@ function getAnalysisDocument(location) {
 
 // ===== 获取故事主题 =====
 function getStoryThemes(location) {
-    for (const key in storyThemesDB) {
-        if (location.includes(key)) {
-            return storyThemesDB[key];
+    // 根据当前语言选择对应的数据库
+    const db = currentLanguage === 'zh' ? storyThemesDB : storyThemesDB_EN;
+    
+    // 如果是英文，需要转换地名
+    let searchKey = location;
+    if (currentLanguage === 'en') {
+        if (location.includes('长沙') || location.toLowerCase().includes('changsha')) {
+            searchKey = 'Changsha';
+        } else if (location.includes('哈尔滨') || location.toLowerCase().includes('harbin')) {
+            searchKey = 'Harbin Central Street';
         }
     }
     
-    // 默认主题
-    return [
-        {
-            mainTitle: '文化传承·现代演绎',
-            subTitle: '传统文化与现代设计的完美结合',
-            elements: ['历史文化', '传统工艺', '现代设计', '文化传承', '创新表达'],
-            description: '以当地深厚的历史文化为基础，融入现代设计理念，打造既传承文化又符合现代审美的酒店空间。'
-        },
-        {
-            mainTitle: '人文精神·诗意栖居',
-            subTitle: '人文精神的现代诠释',
-            elements: ['人文精神', '诗意栖居', '文化内涵', '精神追求', '生活美学'],
-            description: '以人文精神为核心，营造诗意栖居的酒店环境，让客人在现代生活中体验传统文化的魅力。'
-        },
-        {
-            mainTitle: '地方特色·独特体验',
-            subTitle: '地方文化的独特表达',
-            elements: ['地方特色', '独特体验', '文化差异', '地方魅力', '体验设计'],
-            description: '以地方特色为设计灵感，打造独特的酒店体验，让客人感受当地文化的独特魅力。'
+    // 搜索匹配的主题
+    for (const key in db) {
+        if (searchKey.includes(key) || key.includes(searchKey)) {
+            return db[key];
         }
-    ];
+    }
+    
+    // 默认主题（根据语言）
+    if (currentLanguage === 'zh') {
+        return [
+            {
+                mainTitle: '文化传承·现代演绎',
+                subTitle: '传统文化与现代设计的完美结合',
+                elements: ['历史文化', '传统工艺', '现代设计', '文化传承', '创新表达'],
+                description: '以当地深厚的历史文化为基础，融入现代设计理念，打造既传承文化又符合现代审美的酒店空间。'
+            },
+            {
+                mainTitle: '人文精神·诗意栖居',
+                subTitle: '人文精神的现代诠释',
+                elements: ['人文精神', '诗意栖居', '文化内涵', '精神追求', '生活美学'],
+                description: '以人文精神为核心，营造诗意栖居的酒店环境，让客人在现代生活中体验传统文化的魅力。'
+            },
+            {
+                mainTitle: '地方特色·独特体验',
+                subTitle: '地方文化的独特表达',
+                elements: ['地方特色', '独特体验', '文化差异', '地方魅力', '体验设计'],
+                description: '以地方特色为设计灵感，打造独特的酒店体验，让客人感受当地文化的独特魅力。'
+            }
+        ];
+    } else {
+        return [
+            {
+                mainTitle: 'Cultural Heritage · Modern Interpretation',
+                subTitle: 'Perfect Fusion of Traditional Culture and Modern Design',
+                elements: ['Historical Culture', 'Traditional Crafts', 'Modern Design', 'Cultural Heritage', 'Innovative Expression'],
+                description: 'Based on the profound local historical culture, integrating modern design concepts to create hotel spaces that both inherit culture and meet modern aesthetics.'
+            },
+            {
+                mainTitle: 'Humanistic Spirit · Poetic Dwelling',
+                subTitle: 'Modern Interpretation of Humanistic Spirit',
+                elements: ['Humanistic Spirit', 'Poetic Dwelling', 'Cultural Connotation', 'Spiritual Pursuit', 'Life Aesthetics'],
+                description: 'With humanistic spirit as the core, creating a poetic dwelling hotel environment, allowing guests to experience the charm of traditional culture in modern life.'
+            },
+            {
+                mainTitle: 'Local Characteristics · Unique Experience',
+                subTitle: 'Unique Expression of Local Culture',
+                elements: ['Local Characteristics', 'Unique Experience', 'Cultural Differences', 'Local Charm', 'Experience Design'],
+                description: 'Using local characteristics as design inspiration to create unique hotel experiences, allowing guests to feel the unique charm of local culture.'
+            }
+        ];
+    }
 }
 
 // ===== 添加消息到聊天区域 =====
@@ -3590,35 +4044,71 @@ function addThemeListeners(messageDiv) {
 
 // ===== 获取详细邻间故事内容 =====
 function getDetailedStoryContent(location, themeTitle) {
+    // 根据当前语言选择对应的数据库
+    const db = currentLanguage === 'zh' ? detailedStoriesDB : detailedStoryContentDB_EN;
+    
+    // 如果是英文，需要转换地名
+    let searchKey = location;
+    if (currentLanguage === 'en') {
+        if (location.includes('长沙') || location.toLowerCase().includes('changsha')) {
+            searchKey = 'Changsha';
+        } else if (location.includes('哈尔滨') || location.toLowerCase().includes('harbin')) {
+            searchKey = 'Harbin Central Street';
+        }
+    }
+    
     // 查找对应城市的详细故事数据库
-    for (const key in detailedStoriesDB) {
-        if (location.includes(key)) {
-            const cityStories = detailedStoriesDB[key];
+    for (const key in db) {
+        if (searchKey.includes(key) || key.includes(searchKey)) {
+            const cityStories = db[key];
             if (cityStories[themeTitle]) {
                 return cityStories[themeTitle].fullContent;
             }
         }
     }
     
-    // 如果没有找到详细内容，返回默认内容
-    return `## ${themeTitle}
+    // 如果没有找到详细内容，返回默认内容（根据语言）
+    if (currentLanguage === 'zh') {
+        return `## ${themeTitle}
 
 这是一个充满文化底蕴的邻间故事主题。通过深入挖掘当地的历史文化和人文特色，我们为这个主题注入了丰富的内涵和独特的表达方式。
 
 每个细节都经过精心设计，确保既保持传统文化的精髓，又符合现代生活方式和审美需求。这个主题将成为酒店文化体验的重要组成部分，为客人带来难忘的邻间故事体验。
 
 通过现代设计手法的重新诠释，传统文化元素在这里焕发新的生命力，与当代生活方式完美融合，创造出独特而富有诗意的空间氛围。`;
+    } else {
+        return `## ${themeTitle}
+
+This is a neighborhood story theme rich in cultural heritage. Through in-depth exploration of local history, culture, and humanistic characteristics, we have infused this theme with rich connotations and unique expressions.
+
+Every detail has been carefully designed to ensure it maintains the essence of traditional culture while meeting modern lifestyle and aesthetic needs. This theme will become an important component of the hotel's cultural experience, bringing guests unforgettable neighborhood story experiences.
+
+Through modern design techniques' reinterpretation, traditional cultural elements gain new vitality here, perfectly integrating with contemporary lifestyles, creating unique and poetic spatial atmospheres.`;
+    }
 }
 
 // ===== 获取主线故事内容（融合3个主题）=====
 function getMainStoryContent(location, themes) {
+    // 根据当前语言选择对应的数据库
+    const db = currentLanguage === 'zh' ? mainStoriesDB : mainStoriesDB_EN;
+    
     // 提取主题标题
     const themeKeys = themes.map(t => t.mainTitle).sort().join('|');
     
+    // 如果是英文，需要转换地名
+    let searchKey = location;
+    if (currentLanguage === 'en') {
+        if (location.includes('长沙') || location.toLowerCase().includes('changsha')) {
+            searchKey = 'Changsha';
+        } else if (location.includes('哈尔滨') || location.toLowerCase().includes('harbin')) {
+            searchKey = 'Harbin Central Street';
+        }
+    }
+    
     // 查找对应城市的主线故事数据库
-    for (const key in mainStoriesDB) {
-        if (location.includes(key)) {
-            const cityMainStories = mainStoriesDB[key];
+    for (const key in db) {
+        if (searchKey.includes(key) || key.includes(searchKey)) {
+            const cityMainStories = db[key];
             // 尝试匹配主题组合
             if (cityMainStories[themeKeys]) {
                 return cityMainStories[themeKeys];
@@ -3626,25 +4116,49 @@ function getMainStoryContent(location, themes) {
         }
     }
     
-    // 如果没有找到，返回默认内容
-    return `## 主线故事：${themes.map(t => t.mainTitle).join('、')}的交织
+    // 如果没有找到，返回默认内容（根据语言）
+    if (currentLanguage === 'zh') {
+        return `## 主线故事：${themes.map(t => t.mainTitle).join('、')}的交织
 
 在${location}的文化脉络中，${themes.map(t => t.mainTitle).join('、')}三个主题如同三条交织的丝线，共同编织出这片土地独特的文化图景。
 
 这里的每一处细节，都承载着历史的记忆与当代的活力。传统与现代在此交融，静谧与喧嚣在此共生，形成了独特的城市韵律。
 
 通过对这三个主题的深度挖掘与融合，我们希望为英迪格酒店打造一个既根植于本地文化，又充满现代气息的独特空间，让每一位宾客都能感受到这座城市深厚的文化底蕴与蓬勃的生命力。`;
+    } else {
+        const themeNames = themes.map(t => t.mainTitle).join(', ');
+        return `## Main Story: Interweaving of ${themeNames}
+
+In ${location}'s cultural context, the three themes of ${themeNames} are like three intertwining threads, together weaving this land's unique cultural landscape.
+
+Every detail here carries historical memories and contemporary vitality. Tradition and modernity blend here, tranquility and bustle coexist, forming a unique urban rhythm.
+
+Through in-depth exploration and fusion of these three themes, we hope to create a unique space for Hotel Indigo that is both rooted in local culture and full of modern atmosphere, allowing every guest to feel this city's profound cultural heritage and vibrant vitality.`;
+    }
 }
 
 // ===== 获取融合的酒店设计灵感 =====
 function getFusedDesignInspiration(location, themes) {
+    // 根据当前语言选择对应的数据库
+    const db = currentLanguage === 'zh' ? fusedDesignInspirationsDB : fusedDesignInspirationsDB_EN;
+    
     // 提取主题标题
     const themeKeys = themes.map(t => t.mainTitle).sort().join('|');
     
+    // 如果是英文，需要转换地名
+    let searchKey = location;
+    if (currentLanguage === 'en') {
+        if (location.includes('长沙') || location.toLowerCase().includes('changsha')) {
+            searchKey = 'Changsha';
+        } else if (location.includes('哈尔滨') || location.toLowerCase().includes('harbin')) {
+            searchKey = 'Harbin Central Street';
+        }
+    }
+    
     // 查找对应城市的融合设计灵感数据库
-    for (const key in fusedDesignInspirationsDB) {
-        if (location.includes(key)) {
-            const cityDesigns = fusedDesignInspirationsDB[key];
+    for (const key in db) {
+        if (searchKey.includes(key) || key.includes(searchKey)) {
+            const cityDesigns = db[key];
             // 尝试匹配主题组合
             if (cityDesigns[themeKeys]) {
                 return cityDesigns[themeKeys];
@@ -3652,8 +4166,9 @@ function getFusedDesignInspiration(location, themes) {
         }
     }
     
-    // 如果没有找到，返回默认内容
-    return `# ${themes.map(t => t.mainTitle).join(' × ')} 融合设计灵感
+    // 如果没有找到，返回默认内容（根据语言）
+    if (currentLanguage === 'zh') {
+        return `# ${themes.map(t => t.mainTitle).join(' × ')} 融合设计灵感
 
 ## 设计理念
 
@@ -3673,6 +4188,29 @@ function getFusedDesignInspiration(location, themes) {
 
 ### 体验设计
 设计多层次的文化体验触点，让宾客能够深度感受本地文化的魅力。`;
+    } else {
+        const themeNames = themes.map(t => t.mainTitle).join(', ');
+        return `# ${themes.map(t => t.mainTitle).join(' × ')} Fusion Design Inspiration
+
+## Design Concept
+
+Based on the fusion of ${themeNames} three themes, we provide the following design inspiration for Hotel Indigo ${location} project:
+
+### Core Design Elements
+Organically fuse core elements of three themes, creating unified yet layered spatial experience.
+
+### Color Palette
+Integrate representative colors of each theme, forming harmonious yet varied color system.
+
+### Material Selection
+Carefully select materials that embody each theme's characteristics, creating unique spatial texture through clever pairing.
+
+### Spatial Design
+Connect functional spaces with story flow, allowing guests to experience complete cultural narrative through changing scenes.
+
+### Experience Design
+Design multi-layered cultural experience touchpoints, enabling guests to deeply feel local culture's charm.`;
+    }
 }
 
 // ===== 生成邻间故事文档 =====
@@ -3690,8 +4228,12 @@ function generateStoryDocument(themes) {
     const fusedDesignInspiration = getFusedDesignInspiration(userLocation, themes);
     
     const storyDocument = {
-        title: `${userLocation}邻间故事设计文档`,
-        summary: `基于选定的3个故事主题，为英迪格酒店${userLocation}项目量身定制的邻间故事设计文档`,
+        title: currentLanguage === 'zh' 
+            ? `${userLocation}邻间故事设计文档`
+            : `${userLocation} Neighborhood Story Design Document`,
+        summary: currentLanguage === 'zh'
+            ? `基于选定的3个故事主题，为英迪格酒店${userLocation}项目量身定制的邻间故事设计文档`
+            : `A customized neighborhood story design document for Hotel Indigo ${userLocation} project, based on the selected 3 story themes`,
         themes: themes,
         mainStory: mainStory,  // 新增：主线故事
         detailedStories: detailedStories,
@@ -3758,7 +4300,9 @@ function showStoryDocumentContent() {
     documentPanel.style.display = 'flex';
     chatPanel.classList.add('with-document');
     
-    documentStatus.innerHTML = '<span class="status-text">故事文档生成完成</span>';
+    documentStatus.innerHTML = currentLanguage === 'zh'
+        ? '<span class="status-text">故事文档生成完成</span>'
+        : '<span class="status-text">Story Document Generated</span>';
     
     // 获取每个主题的详细故事内容
     const detailedStories = {};
@@ -3773,8 +4317,12 @@ function showStoryDocumentContent() {
     const fusedDesignInspiration = getFusedDesignInspiration(userLocation, selectedThemes);
     
     const storyDocument = {
-        title: `${userLocation}邻间故事设计文档`,
-        summary: `基于选定的3个故事主题，为英迪格酒店${userLocation}项目量身定制的邻间故事设计文档`,
+        title: currentLanguage === 'zh'
+            ? `${userLocation}邻间故事设计文档`
+            : `${userLocation} Neighborhood Story Design Document`,
+        summary: currentLanguage === 'zh'
+            ? `基于选定的3个故事主题，为英迪格酒店${userLocation}项目量身定制的邻间故事设计文档`
+            : `A customized neighborhood story design document for Hotel Indigo ${userLocation} project, based on the selected 3 story themes`,
         themes: selectedThemes,
         mainStory: mainStory,
         detailedStories: detailedStories,
@@ -3793,15 +4341,15 @@ function showStoryDocumentContent() {
             
             <!-- 主题导航栏 -->
             <div class="story-themes-nav">
-                <div class="themes-nav-title">文档结构</div>
+                <div class="themes-nav-title">${currentLanguage === 'zh' ? '文档结构' : 'Document Structure'}</div>
                 
                 <!-- 第一行：主线故事 -->
                 <div class="themes-nav-row">
                     <button class="theme-nav-tab active" data-theme-index="main">
                         <div class="theme-nav-number">1</div>
                         <div class="theme-nav-content">
-                            <div class="theme-nav-title">${mainStory.title || '主线故事'}</div>
-                            <div class="theme-nav-subtitle">${mainStory.title ? '融合三个主题的核心叙事' : '三个主题融合'}</div>
+                            <div class="theme-nav-title">${mainStory.title || (currentLanguage === 'zh' ? '主线故事' : 'Main Story')}</div>
+                            <div class="theme-nav-subtitle">${mainStory.title ? (currentLanguage === 'zh' ? '融合三个主题的核心叙事' : 'Core narrative fusing three themes') : (currentLanguage === 'zh' ? '三个主题融合' : 'Three themes fusion')}</div>
                         </div>
                     </button>
                 </div>
@@ -3824,8 +4372,8 @@ function showStoryDocumentContent() {
                     <button class="theme-nav-tab" data-theme-index="design">
                         <div class="theme-nav-number">${selectedThemes.length + 2}</div>
                         <div class="theme-nav-content">
-                            <div class="theme-nav-title">酒店设计灵感</div>
-                            <div class="theme-nav-subtitle">融合设计方案</div>
+                            <div class="theme-nav-title">${currentLanguage === 'zh' ? '酒店设计灵感' : 'Hotel Design Inspiration'}</div>
+                            <div class="theme-nav-subtitle">${currentLanguage === 'zh' ? '融合设计方案' : 'Fusion design proposal'}</div>
                         </div>
                     </button>
                 </div>
@@ -3836,10 +4384,10 @@ function showStoryDocumentContent() {
                 <!-- 主线故事面板 -->
                 <div class="story-theme-panel active" data-theme-index="main">
                     <div class="story-theme-header">
-                        <h2 class="story-theme-title">${mainStory.title || '主线故事'}</h2>
-                        <p class="story-theme-subtitle">融合三个主题的核心叙事</p>
+                        <h2 class="story-theme-title">${mainStory.title || (currentLanguage === 'zh' ? '主线故事' : 'Main Story')}</h2>
+                        <p class="story-theme-subtitle">${currentLanguage === 'zh' ? '融合三个主题的核心叙事' : 'Core narrative fusing three themes'}</p>
                         <div class="story-theme-elements">
-                            <strong>包含主题：</strong>${selectedThemes.map(t => t.mainTitle).join('、')}
+                            <strong>${currentLanguage === 'zh' ? '包含主题：' : 'Themes Included: '}</strong>${selectedThemes.map(t => t.mainTitle).join(currentLanguage === 'zh' ? '、' : ', ')}
                         </div>
                     </div>
                     
@@ -3855,7 +4403,7 @@ function showStoryDocumentContent() {
                             <h2 class="story-theme-title">${theme.mainTitle}</h2>
                             <p class="story-theme-subtitle">${theme.subTitle}</p>
                             <div class="story-theme-elements">
-                                <strong>核心元素：</strong>${theme.elements.join('、')}
+                                <strong>${currentLanguage === 'zh' ? '核心元素：' : 'Core Elements: '}</strong>${theme.elements.join(currentLanguage === 'zh' ? '、' : ', ')}
                             </div>
                         </div>
                         
@@ -3868,10 +4416,10 @@ function showStoryDocumentContent() {
                 <!-- 融合的酒店设计灵感面板 -->
                 <div class="story-theme-panel" data-theme-index="design">
                     <div class="story-theme-header">
-                        <h2 class="story-theme-title">酒店设计灵感</h2>
-                        <p class="story-theme-subtitle">基于三个主题的融合设计方案</p>
+                        <h2 class="story-theme-title">${currentLanguage === 'zh' ? '酒店设计灵感' : 'Hotel Design Inspiration'}</h2>
+                        <p class="story-theme-subtitle">${currentLanguage === 'zh' ? '基于三个主题的融合设计方案' : 'Fusion design proposal based on three themes'}</p>
                         <div class="story-theme-elements">
-                            <strong>设计主题：</strong>${selectedThemes.map(t => t.mainTitle).join(' × ')}
+                            <strong>${currentLanguage === 'zh' ? '设计主题：' : 'Design Themes: '}</strong>${selectedThemes.map(t => t.mainTitle).join(' × ')}
                         </div>
                     </div>
                     
@@ -4001,7 +4549,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 快捷按钮事件
     quickBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            const location = btn.dataset.location;
+            // 根据当前语言选择对应的地点名称
+            const location = currentLanguage === 'zh' 
+                ? btn.dataset.location 
+                : btn.dataset.locationEn;
             messageInput.value = location;
             handleUserInput(location);
             messageInput.value = '';
