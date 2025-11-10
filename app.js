@@ -198,6 +198,7 @@ function t(key, replacements = {}) {
 }
 
 // ===== 分析文档数据库 =====
+// 中文版数据库
 const analysisDocumentsDB = {
     '长沙': {
         title: '长沙市岳麓区湘江中路区域分析报告',
@@ -1019,6 +1020,478 @@ const analysisDocumentsDB = {
 8:00红专街院冻梨咖啡→10:00中央大街马车巡游→14:00太阳岛雪雕DIY
 
 **注**：各场馆开放时间请提前查询，建议购买"中央大街文旅护照"（含10景点盖章+折扣）提升体验感。`
+        }
+    }
+};
+
+// 英文版数据库
+const analysisDocumentsDB_EN = {
+    'Changsha': {
+        title: 'Regional Analysis Report of Xiangjiang Middle Road, Yuelu District, Changsha',
+        summary: 'In-depth analysis based on the Xiangjiang Middle Road historical and cultural district, covering historical background, cultural characteristics, economic environment, cultural atmosphere, and hotel market analysis',
+        sections: {
+            'Historical and Cultural Research': `I. Key Historical Events
+1. Zhu-Zhang Symposium (3rd Year of Qiandao, Southern Song Dynasty, 1167 AD)
+- Event Overview: Neo-Confucian masters Zhu Xi and Zhang Shi held a two-month academic debate at Yuelu Academy, frequently crossing the Xiangjiang River via Zhuzhang Ferry between academies on both banks.
+- Significance: Pioneered the Chinese academy symposium tradition, established the "practical learning" foundation of the Hunan School, making Changsha the academic center of the Southern Song Dynasty (recorded in "Yuelu Academy Chronicles").
+2. Lin-Zuo Night Talk on Xiangjiang (30th Year of Daoguang, Qing Dynasty, 1850)
+- Event Overview: Lin Zexu, passing through Changsha, secretly met with Zuo Zongtang on a boat at Zhuzhang Ferry, entrusting him with strategies for western frontier defense.
+- Significance: Facilitated Zuo Zongtang's later strategy to recover Xinjiang, marking the transformation of Hunan scholars from academics to practical affairs (evidenced in "Chronicle of Zuo Zongtang").
+3. Du Fu's Sojourn in Changsha (4th Year of Dali, Tang Dynasty, 769 AD)
+- Event Overview: Du Fu, in his later years, sojourned in Changsha, residing by the Xiangjiang River and composing poems such as "Meeting Li Guinian in Jiangnan."
+- Significance: The Xiangjiang River became a carrier of literati wandering imagery, inspiring later memorial structures like Du Fu Pavilion (verified in "Collected Works of Du Fu").
+
+---
+
+II. Important Historical Figures
+1. Zhang Shi (1133-1180, Southern Song Dynasty)
+- Background: Founder of the Hunan School, presided over Yuelu Academy.
+- Achievements: Hosted the Zhu-Zhang Symposium, reformed academy education.
+- Contributions: Established the "transmitting the Way and benefiting the people" educational mission, cultivating practical talents.
+- Cultural Impact: His river-crossing scholarly pursuits became a symbol of Hunan spirit.
+2. Zuo Zongtang (1812-1885, Qing Dynasty)
+- Background: Xiang Army general, representative of the Westernization Movement.
+- Achievements: Inspired by Lin Zexu's western frontier strategies by the Xiangjiang River.
+- Contributions: Practiced "practical learning," recovered Xinjiang.
+- Cultural Impact: Strengthened the connection between Hunan culture and national governance.
+
+---
+
+III. Cultural Landmarks
+1. Zhuzhang Ferry Site (Built in Song Dynasty)
+- Description: Ancient ferry on both banks of the Xiangjiang River, with existing stone tablets "Wenjin" and "Dao'an" and bronze sculpture groups.
+- Origin: Named after the Zhu-Zhang Symposium, served as the essential route for academy students for a millennium.
+- Value: Living witness to Chinese educational history, designated as Changsha municipal cultural heritage in 2013.
+2. Du Fu Pavilion (Rebuilt in 2005)
+- Description: Tang-style pavilion, 18 meters high, housing Du Fu's poetry steles and Hunan calligraphy and paintings.
+- Origin: Original site of Du Fu's Changsha residence, commemorated with a pavilion in the Qing Dynasty.
+- Value: Cultural landmark of Xiangjiang poetry, carrying literati's patriotic sentiments.
+3. "Dao Guan Gu Jin" Archway at Xiwenmiaoping (Tongzhi Period, Qing Dynasty)
+- Description: Granite archway, 6 meters in remaining height, decorated with Confucian patterns.
+- Origin: Remnant of Changsha Prefecture Academy, only this component survived wartime bombing.
+- Value: Physical evidence of Changsha's ancient city axis, restoration project initiated in 2018.
+4. Legudao Lane Architectural Complex (Ming-Qing to Republican Era)
+- Description: Stone-paved lanes connecting blue-brick residences, preserving fire walls and stone gate houses.
+- Origin: Ming-Qing merchant residential area, active site for Republican-era intellectuals.
+- Value: The only surviving original street fabric sample in northern Changsha.
+
+(Continuing with remaining sections...)`
+        }
+    },
+    'Harbin Central Street': {
+        title: 'Regional Analysis Report of Central Street, Daoli District, Harbin',
+        summary: 'In-depth analysis based on the Central Street historical and cultural district, covering historical culture, cultural heritage, community stories, competitive hotel analysis, and nearby attractions research',
+        sections: {
+            'Historical and Cultural Research': `I. Key Historical Events
+
+1. Launch of Chinese Eastern Railway Construction (1898)
+- Event Overview: Tsarist Russia selected the Songhua River bank for railway construction. Central Street began as a dirt road for railway engineering transport, called "Chinese Street."
+- Significance: Established Harbin's status as an international commercial port, forming the early multi-national immigrant settlement pattern (according to "History of the Chinese Eastern Railway").
+
+2. Bread Stone Paving Project (1928)
+- Event Overview: 870,000 silver yuan spent to lay over 700,000 granite square stones, each valued at one silver yuan.
+- Significance: Created the world's first cold-region stone paving technology standard, with vertical stone insertion technique solving frost heave problems (recorded in "Harbin City Chronicles: Construction Volume").
+
+3. International Architecture Convergence Period (1900-1935)
+- Event Overview: Russian, Jewish, and Polish architects designed and constructed 71 buildings in Renaissance, Baroque, and other styles.
+- Significance: Formed the "Oriental Little Paris" architectural museum, establishing China's most complete European architectural art district.
+
+4. Celebrity Cultural Salon Era (1930s)
+- Event Overview: The balcony of Modern Hotel became a gathering place for literati like Xiao Hong and Zhu Ziqing, with Russian émigré musicians often performing impromptu.
+- Significance: Catalyzed Harbin's early East-West cultural fusion, nurturing the city's musical DNA.
+
+II. Important Historical Figures
+
+1. Joseph Kaspe (1879-?, established 1906)
+- Background: Russian Jewish merchant, early Harbin entrepreneur.
+- Main Achievements: Founded Modern Hotel introducing Art Nouveau style, pioneered the hotel+cinema+Western restaurant integrated business model.
+- Historical Contributions: Created the Far East's first luxury hotel, pioneering modern service industry models.
+- Cultural Impact: "Modern" became a city cultural symbol (ice cream, bread, and other derivative brands continue today).
+
+2. Alexander Leontiev (1880-1956, 1900s)
+- Background: Chief architect of the Chinese Eastern Railway Engineering Bureau.
+- Main Achievements: Designed Baroque buildings like Songpu Foreign Firm, participated in street planning.
+- Historical Contributions: Transplanted European urban aesthetics into cold-region cities.
+- Cultural Impact: Shaped the visual foundation of the "International Architecture Exhibition" (13 of his designed buildings still exist).
+
+3. A. Komtrashok (dates unknown, 1928)
+- Background: Russian paving engineer.
+- Main Achievements: Invented the granite square stone vertical paving technique.
+- Historical Contributions: Solved the technical challenge of cold-region road frost heave.
+- Cultural Impact: Created the "silver yuan paving" legend; the square stone road became a city spiritual symbol.
+
+III. Cultural Landmarks
+
+1. Modern Hotel (1906)
+- Description: Art Nouveau style building, famous for its colored glass dome and wrought iron balconies.
+- Historical Origin: Founded by Jewish merchant Kaspe, once the diplomatic and social center of the Far East.
+- Cultural Value: Birthplace of Harbin's modern hotel industry; balcony concert tradition gave birth to the "City of Music" reputation.
+
+2. Bread Stone Pavement (1928)
+- Description: 700,000 granite square stones, 18cm long, laid vertically in a herringbone pattern.
+- Historical Origin: Each stone cost 1 silver yuan, designed by Russian engineer Komtrashok.
+- Cultural Value: The world's only cold-region stone paving technology heritage, witnessing the heyday of the commercial port.
+
+3. Education Bookstore (Former Songpu Foreign Firm) (1909)
+- Description: Baroque architectural masterpiece, facade decorated with Corinthian columns and figure sculptures.
+- Historical Origin: Work of Polish designer Weissern, once a Japanese department store.
+- Cultural Value: China's most complete Baroque commercial building; dome copper decorations reflect early global trade.
+
+IV. Traditional Cultural Customs
+
+1. Balcony Concerts
+- Content: Impromptu violin performances held on building balconies on summer evenings.
+- Cultural Connotation: Continues Russian émigré street art tradition, embodying the unique outdoor social customs of cold regions.
+
+2. Bread Stone Wedding Vow Ceremony
+- Content: Newlyweds walk hand-in-hand across the entire 1,450-meter square stone road, touching specific buildings.
+- Cultural Connotation: Fuses European "stepping on lucky stones" with Chinese wedding customs, symbolizing love as solid as granite.
+
+3. Russian Sauna and Winter Swimming
+- Content: Breaking ice for winter swimming by the Songhua River, followed by Russian sauna.
+- Cultural Connotation: Embodies cold-region residents' life philosophy of confronting severe cold, originating from Chinese Eastern Railway worker customs.
+
+V. Cultural Spirit Summary
+
+Central Street crystallizes Harbin's cultural DNA as a "cold-region international commercial port." The Chinese Eastern Railway construction catalyzed the convergence of multi-national architecture, forming a spatial carrier with bread stones as the skeleton and European buildings as the texture. Jewish merchants' commercial innovation spirit laid the prosperous foundation of "Oriental Moscow," while Russian émigré artists' balcony concerts nurtured the city's musical soul. Its cultural characteristics are reflected in three aspects: cold-region engineering technical wisdom (such as stone anti-freeze technology), heterogeneous cultural fusion innovation (such as the combination of Russian winter swimming and Chinese wedding customs), and continuous activation of commercial cultural heritage (coexistence of historical buildings and modern commerce). This "internationalization on frozen soil" characteristic makes it a unique specimen for understanding China's modern urbanization.`,
+
+            'Cultural Heritage Research': `## I. Cultural Symbol Extraction and Description
+
+1. Central Street Square Stone Road
+- **Introduction**: The century-old street's square stone pavement, evolved from Russian carriage roads, with 0.87 kilometers paved with nearly one million granite blocks, known as "golden paving."
+- **Historical Origin**: Designed by Russian engineers in 1898, early stone ship ballast was cleverly utilized, surviving historical storms including Chinese Eastern Railway construction and Japanese invasion, remaining unchanged to this day.
+- **Cultural Connotation**: Symbolizes Harbin's "opening through roads" starting point, witnessing East-West trade exchanges, each stone recording the resilience of immigrant pioneers.
+- **Modern Value**: Core carrier of a world-class pedestrian street, physical link for tourists to touch history, reflecting the city's century-old light and shadow under nighttime illumination.
+- **Literary Description**: At sunset's golden hour, the square stones are like amber preserving time; in the crisp echoes of high heels, the copper bell sounds of old-fashioned carriages seem to penetrate a century of wind and snow.
+
+2. Modern Hotel Balcony Music
+- **Introduction**: Impromptu performances on the open-air balcony of Modern Hotel, a temporal symphony of Russian architecture and European classical music.
+- **Historical Origin**: Introduced salon culture when Jewish merchant founded the hotel in 1906; became a site for KMT-CPC negotiations in 1946, where revolutionary memories and artistic traditions converge.
+- **Cultural Connotation**: Living DNA of Harbin as a "City of Music," embodying the immigrant city's tolerance and acceptance of high art.
+- **Modern Value**: Free art classroom for citizens, immersive experience window for tourists; summer night balcony "Katyusha" connects three generations' memories.
+- **Literary Description**: As violin bow strings tremble, Chopin nocturnes flow from Baroque carved corridor columns; the Songhua River evening breeze carries musical notes across visitors' hair, coating the ice city summer night with Slavic moonlight.
+
+3. Ice and Snow Window Paper-cutting
+- **Introduction**: Unique ice-pattern window art of Daoli District, fusing Manchu paper-cutting with Russian ice sculpture techniques into cold-region living aesthetics.
+- **Historical Origin**: Late Qing "Chuang Guandong" immigrants combined Manchu "spring talisman cutting" with Russian ice window painting, using red paper to spiritually warm the long winter.
+- **Cultural Connotation**: Crystallization of cold-region survival wisdom, life philosophy symbol of "resisting cold with beauty."
+- **Modern Value**: Intangible cultural heritage technique derives ice sculpture IP through Ice Lantern Festival; traditional window flowers transform into contemporary art of hundred-acre snow screen projection in Qunli New District.
+- **Literary Description**: In the dawn at minus thirty degrees, ice crystals bloom frost flowers on glass; grandmother's cut red peonies bloom on window frames; warm yellow light halos spread, just like the rouge clouds at Songhua River surface at daybreak.
+
+---
+
+II. Cultural Essence Summary
+
+Daoli District culture is woven from three major characteristics: "ice and snow as bones, commercial routes as veins, exotic as clothing," forming a unique humanistic landscape. The historical context began with the 1898 Chinese Eastern Railway construction, where Russian émigré culture collided with Qilu immigrants to create Central Street's "International Architecture Exhibition." In the 1930s, Jewish merchants brought musical DNA, catalyzing China's earliest open-air symphony concerts. During the Liberation War, revolutionary sparks ignited in European-style buildings, forming revolutionary memorial landmarks like Shangzhi Street.
+
+Regional characteristics manifest as the "Ice Silk Road" — Songhua River winter fishing traditions evolved into modern Ice and Snow Festival; Russian borscht shares tables with Northeast pickled cabbage and pork; Baroque domes echo with Errenzhuan opera. The humanistic spiritual core is cold-region pioneers' wisdom of "融异求存" (融 means "融合" - fusion, 异 means "异质" - heterogeneous, 求 means "追求" - pursue, 存 means "生存" - survival): warming hearts with music at minus forty degrees, paving the way home with foreign bricks and stones. Contemporary value lies in transforming historical DNA into immersive cultural tourism: Flood Control Memorial Tower laser show presents flood control epic; Lao Chu Jia Restaurant restores 1907 railway dining car menu; new business formats continue century-old culture on tongues and fingertips.
+
+---
+
+III. Multi-dimensional In-depth Analysis
+
+1. Historical Context
+- 1898-1917: Chinese Eastern Railway construction period, Central Street formed as Russian-style "Chinese Street," St. Sophia Cathedral foundation laid
+- 1932-1945: Japanese puppet regime period, Modern Hotel became anti-Japanese intelligence base
+- 1946: Liu Shaoqi presided over Northeast Bureau expanded meeting at Modern Hotel
+- 1963: First Ice Lantern Garden Party held at Zhaolin Park
+
+2. Cultural Environment
+Urban layout radiates in a belt shape along the Songhua River, with Central Street as the "fishbone-style" commercial axis. Architectural styles integrate:
+- Renaissance: Education Bookstore Corinthian colonnade
+- Art Nouveau: Modern Hotel cast iron balcony
+- Chinese Baroque: Lao Dingfeng storefront carvings fused with Guandong patterns
+
+Spatial culture embodies "road as epic": the square stone road's longitudinal axis connects Flood Control Memorial Tower (1958 flood fighting spirit) and Sophia Cathedral (1907 religious art), with horizontal alleys extending to Tongjiang Street Old Jewish Synagogue (1909 immigration history).
+
+3. Folk Culture
+- **Winter Customs**: Lunar December "Ice Harvesting Festival" continues Manchu Shaman river worship rituals, ice picks extract "Songhua River's first ice"
+- **Festivals**: Ice and Snow World ice wedding ceremony fuses Russian three-kiss ritual with Northeast "sitting on blessings" custom
+- **Intangible Heritage**: Ice block printing uses special ice ink to print Central Street architecture, -25°C low temperature fixes cultural memory
+
+4. Culinary Culture
+- **Russian Cuisine Localization**: Huamei Western Restaurant's braised lamb uses black fungus for freshness enhancement, bread paired with Harbin red sausage becomes "Oriental sandwich"
+- **Cold-region Wisdom**: Large bread uses beer flower fermentation, naturally preserved for over a month in -30°C environment
+- **Contemporary Innovation**: Modern ice cream develops kvas flavor, Central Street sells 30,000 daily
+
+5. Cultural Inheritance
+- **Dialect**: Russian-origin words like "布拉吉" (dress), "笆篱子" (prison) still used in old city districts
+- **Legends**: Songhua River "unicorn dragon" legend evolved into Flood Control Memorial Tower bronze relief "Water-Suppressing Dragon"
+- **Innovation**: "Donghezhang 1917" transforms century-old granary into immersive script-killing venue, players wear fur coats to perform Chinese Eastern Railway stories
+
+6. Humanistic Spirit
+- **Cold-region Resilience**: Embodied in ice and snow window paper-cutting's "flowers blooming on frozen soil" life aesthetics
+- **Inclusive DNA**: Central Street's 78 protected buildings contain 15 national styles, yet share Chinese pitched roofs for snow resistance
+- **Pioneer Consciousness**: 1985 "balcony music" broke institutional restrictions, pioneering China's street art
+
+The charm of Daoli District is like the undercurrent beneath the Songhua River's frozen period: the surface is a crystalline European-style ice layer, while deep below flows the red bloodline of black soil and immigrant tenacity. When tourists step on Central Street's square stones, fingertips touching Modern Hotel's mottled balcony carvings, the century-old ice city completes its cross-temporal narrative in the symphony of light and shadow — this is a legendary city that writes poetry with ice and snow, composes music with bricks and stones.`,
+
+            'Community Stories Research': `I. Unique Story Elements (Niche Perspective Exploration)
+
+1. Theme: Light and Shadow Codes of Bread Stone Road
+- **Origin**: Laid by Russian émigré craftsmen in 1898 with 870,000 granite blocks, each shaped like Russian bread, vertical insertion forming natural drainage system.
+- **Value**: World-rare artistic paving technology; century-old footprint dust accumulated in stone gaps, becoming dual geological and humanistic heritage.
+- **Description**: At dusk, slanting sunlight penetrates elm branches, casting fish-scale light spots on the uneven stone surface. The crisp sound of heel strikes echoes in the arcade; bending down to examine those stones polished to a glaze by time, edges still bear ice blade scratches and carriage iron rut marks — this is not just a road, but an immigrant epic written in geology.
+
+2. Theme: Secret Language of Wrought Iron Balcony Music
+- **Origin**: Art Nouveau style building's characteristic vine-patterned wrought iron balconies, once aerial stages for Russian émigré musicians' impromptu performances.
+- **Value**: Architectural components transformed into music transmission media, achieving unique acoustic space for East-West artistic fusion.
+- **Description**: On summer evenings, a bayan accordion melody suddenly floats from a wrought iron balcony carved with grapevines. The music flows along the building facade's scroll patterns, colliding and swirling between Baroque pediments and Renaissance arches. Passersby stop and look up, watching a white-haired elder lean against the green railing playing "Katyusha"; musical notes fall on bread stones, splashing old émigrés' nostalgia.
+
+3. Theme: Red Sparks in Door Number Codes
+- **Origin**: West 15th Street No. 33 window frame hides special scratches, once underground party liaison codes.
+- **Value**: Architectural details witness secret revolutionary history, non-verbal communication relics in physical space.
+- **Description**: Touching that faded oak door frame, the third window frame bottom has two scratches deeper than millimeters. On a winter night in 1946, patriotic youth used coins to carve cross marks here; under moonlight, scratches glinting with metallic cold light became a silent radio for transmitting intelligence. Today QR code plaques cover it, but fingertip friction still touches the burning temperature of historical depths.
+
+---
+
+II. Humanistic Scenes (Immersive Experience)
+
+1. Scene: Children's Home Rainbow Gallery
+- **Connotation**: Community children create with ice and snow pigments on century-old building facades, traditional space dialoguing with childlike art.
+- **Description**: At dawn at minus twenty degrees, children wearing wool gloves paint indigo and madder red on Russian-style portico columns. Frozen pigments bloom ice flowers on lime walls, small handprints overlapping century-old craftsmen's fingerprints. When sunrise penetrates Modern Hotel's colored windows, the entire street transforms into flowing children's dreams — gold-rimmed snowmen nestle against Corinthian columns, reindeer tread across painted Byzantine domes.
+
+2. Scene: Balcony Symphony Dawn and Dusk Songs
+- **Connotation**: Residents spontaneously continue Russian émigré music tradition, transforming building balconies into urban theaters.
+- **Description**: At dawn's first light, a peacock-blue wrought iron balcony transmits Chopin nocturnes, piano key sounds startling gray pigeons from the eaves; at dusk, flute and clarinet duet "Jasmine Flower" on a Baroque terrace. Music meanders through the building's three-dimensional folds; passing elders tap canes to waltz rhythms, backpackers pause with kvas in hand, the entire street becoming an immersive concert hall.
+
+---
+
+III. Cultural Imagery (Symbolic Extraction)
+
+1. Imagery: Ice Flower Window Frames
+- **Explanation**: Frost flower patterns condensed on century-old wooden windows, symbiotic art of nature and humanity.
+- **Interpretation**: Russian-style double-layer windows form unique condensation space, ice crystals growing architectural contours on glass.
+- **Poetic Expression**: At minus thirty degrees on winter nights, breath becomes frost / Songhua River water molecules embroider on window frames / Old church spires appear hidden in ice feathers / Commercial relief roses bloom six-petaled crystals / When dawn melts this transparent architectural history / Water traces swim with reflections of girls in布拉吉 dresses
+
+2. Imagery: Badge Warm Light
+- **Explanation**: Light halos from winter night patrol officers' shoulder lamps, warmth symbols.
+- **Interpretation**: Unique humanistic landscape formed by hundred-officer police force guarding the district, temperature symbols in stern environment.
+- **Poetic Expression**: Midnight square stones float orange-yellow light spots / Badge brews warm mist in sable collar / He breathes to wipe lost owner's photo on phone / Shoulder lamp dyes frosted eyelashes into golden tassels / When Russian nesting doll shop's closing bell rings / That moving warm light transforms into / Lost travelers' North Star`,
+
+            'Competitive Hotel Analysis': `I. Individual Competitive Hotel Analysis
+
+1. Harbin Shangri-La Hotel (Five-Star)
+- **Basic Overview**: Prime location (near Songhua River), balancing business and leisure, complete facilities (pool/restaurants). Price ¥900-2200, clientele mainly high-end tourism and business guests.
+- **Distinctive Features**: Full river-view rooms, ice and snow fireworks viewing, Russian afternoon tea, free Central Street guided tours.
+- **Market Performance**: High occupancy (especially winter), positive reviews focus on river views and service; negative reviews mention slightly dated facilities.
+- **Strengths & Weaknesses**:
+  - ✅ **Strengths**: Brand premium, irreplaceable geography and scenery
+  - ❌ **Weaknesses**: Traditional design style, insufficient appeal to young clientele
+
+2. Harbin Ritz-Carlton (Five-Star)
+- **Basic Overview**: Qunli New District (slightly far from core scenic areas), ultra-high-end positioning (¥1500-3500), clientele top-tier business/luxury tourists.
+- **Distinctive Features**: Cloud lobby views, Rolls-Royce transfer, high-privacy service.
+- **Market Performance**: Polarized reputation: business guests praise service, tourists complain about inconvenient location (20-minute drive to Central Street).
+- **Strengths & Weaknesses**:
+  - ✅ **Strengths**: Ultimate luxury experience, brand appeal
+  - ❌ **Weaknesses**: Location away from tourism core area, price threshold too high
+
+3. Harbin AOLUGUYA Hotel (Five-Star)
+- **Basic Overview**: Songbei District (non-traditional tourism area), ethnic cultural theme (Ewenki), ¥1000-2500, attracts curiosity-seeking tourists.
+- **Distinctive Features**: Extreme cold experience hall, forest theme design, immersive cultural experience.
+- **Market Performance**: Fully booked in winter, negative reviews focus on transportation inconvenience (relies on ride-hailing).
+- **Strengths & Weaknesses**:
+  - ✅ **Strengths**: Differentiated theme scarcity
+  - ❌ **Weaknesses**: Location disadvantage, weak appeal in non-winter seasons
+
+4. Harbin Modern Hotel (Four-Star)
+- **Basic Overview**: Central Street core location (No. 89), century-old Russian historical building, ¥600-1500, tourists' first choice.
+- **Distinctive Features**: Celebrity theme rooms, ice cream breakfast, building itself is an attraction.
+- **Market Performance**: Year-round high occupancy, negative reviews focus on poor soundproofing and dated facilities.
+- **Strengths & Weaknesses**:
+  - ✅ **Strengths**: Irreplaceable historical IP, golden location
+  - ❌ **Weaknesses**: Hardware aging, compromised experience
+
+5. Harbin Dagonguan 1903 (Four-Star)
+- **Basic Overview**: Dongfeng Street (near Central Street), Russian official residence renovation, ¥1200-2800, priced higher than some five-stars.
+- **Distinctive Features**: Century-old elevator, vodka welcome, butler-style Russian language service.
+- **Market Performance**: Positive reviews focus on cultural immersion, negative reviews complain about "poor cost-performance" (facilities don't match five-star standards).
+- **Strengths & Weaknesses**:
+  - ✅ **Strengths**: Unique historical symbols, high premium capability
+  - ❌ **Weaknesses**: Price-hardware mismatch, narrowed clientele
+
+6. Central Street Habsburg Hotel (Four-Star)
+- **Basic Overview**: Near Sophia Cathedral, ice and snow river-view rooms, 5-minute walk to Central Street (location advantage).
+- **Distinctive Features**: 180° river-view rooms, ultimate location convenience.
+- **Strengths & Weaknesses**:
+  - ✅ **Strengths**: Core location + high cost-performance
+  - ❌ **Weaknesses**: Lacks unique memorable points (severe homogenization)
+
+---
+
+II. Market Pattern and Opportunity Analysis
+
+1. Market Gaps
+**Demand Gaps:**
+- **Young Clientele Experience Gap**: Competitors focus on traditional luxury/historical themes, lacking trendy design for Gen Z (such as art hotels, social spaces)
+- **Winter Indoor Experience Homogenization**: Except AOLUGUYA, competitors' winter activities rely on outdoor scenery (Ice and Snow World/river views), lacking **innovative indoor entertainment** (such as ice and snow technology interactive halls, spa healing)
+- **Cost-Performance High-End Gap**: ¥800-1800 range lacks **"emerging high-end"** options (Modern Hotel dated, Dagonguan overpriced)
+
+2. Customer Pain Points and Trends
+**Core Pain Points:**
+- Historical hotels with dated facilities vs. new hotels lacking cultural depth
+- Winter transportation inconvenience (like AOLUGUYA, Ritz-Carlton)
+- Insufficient differentiated experiences (except theme hotels, services highly homogenized)
+
+**Consumption Upgrade Directions:**
+- **"Experiential Consumption"**: Tourists willing to pay for cultural immersion, technology interaction (reference AOLUGUYA extreme cold hall)
+- **"Hotel as Destination"**: Avoiding location disadvantage requires building strong content (such as theme exhibitions, night activities)
+- **Green Health Needs**: Competitors lack emphasis on sustainable design (such as low-carbon architecture) or wellness scenarios
+
+3. New Hotel Development Opportunities
+**Strategic Core**: Based on Central Street location, fill "cultural depth + youth experience + winter indoor innovation" gaps.
+
+**Theme Innovation:**
+- Create "Chinese Eastern Railway Modern Art Museum Hotel": Fuse Harbin railway history with contemporary art (such as Russian avant-garde exhibitions), avoid Russian theme involution, attract art enthusiast clientele
+- Differentiation Selling Points: Curated lobby, artist residency programs, vintage train-themed afternoon tea
+
+**Scenario Breakthrough:**
+- Winter Indoor Experience Center: Develop constant-temperature "Ice and Snow Immersion Hall" (-10°C safe environment, ice sculpture DIY/aurora projection), compensate for competitors' outdoor scenery dependency
+- Night Economy Social Space: Rooftop bar (overlooking Central Street snow scenery) + underground jazz live house, targeting young clientele to extend stay time
+
+**Pricing Positioning:**
+- Anchor ¥800-1800 range: Match Dagonguan prices but provide **brand new hardware + experience**, such as smart room control, Dyson equipment, local craft beer bar
+- Tiered Products: Basic rooms (60%) + theme suites (30%, such as "Railway Engineer Study") + top luxury collaboration rooms (10%, such as partnering with Northeast designers)
+
+---
+
+III. Operational Recommendations
+- **Site Selection**: Prioritize Central Street side streets (such as Hongzhuan Street) historical building renovation, balancing location and cost
+- **Cost Control**: Through "micro-renovation" preserve historical shell (such as brick walls/arched windows), implant modern design internally
+- **Partnership Resources**: Local art colleges (exhibition content support), Ice and Snow World (joint tickets for traffic), ride-hailing platforms (solve winter transportation)
+- **Risk Mitigation**: Avoid excessive winter traffic dependency: develop four-season themes (spring railway culture festival/summer beer workshop); hardware investment focuses on **perceptible value points** (such as smart toilets > marble walls)
+
+**Summary**: New hotel needs to center on "localized cultural youth expression," filling the gap market between historical and luxury hotels with high cost-performance experiences, becoming a "cultural new landmark" in the Central Street area.`,
+
+            'Nearby Attractions Research': `
+
+I. Central Street
+**Attraction Introduction**: As Asia's longest century-old European-style pedestrian street, Central Street was built in 1898, spanning 1,450 meters. Its core value lies in the "architectural art museum" composed of 71 protected buildings, encompassing 15 styles including Renaissance, Baroque, and Eclecticism, representing Harbin's "Oriental Moscow" urban character.
+
+**Scenic Features**:
+- **Bread Stone Legend**: Each paving stone valued at 1 silver yuan (1924 cost), unique vertical paving technique keeps the road undamaged for a century
+- **Architectural Art Gallery**: Modern Hotel (Art Nouveau masterpiece), Education Bookstore (Eclectic dome), Women & Children Store (Renaissance relief)
+- **Russian Life Experience**: Old Russian restaurant Huamei Western Restaurant, Modern ice cream stands, Qiulin Lidaosi sausage shop
+- **Seasonal Limited Scenes**: Winter ice sculpture art exhibition, Christmas season snowman light matrix
+
+II. No. 43 Hongzhuan Street Courtyard
+**Attraction Introduction**: Originally a Jewish merchant's private residence (built 1931), now transformed into an immersive nostalgic courtyard. Through scenario-based exhibitions, it restores 1930s Harbin's East-West fusion market life, known by netizens as "Central Street's back garden."
+
+**Scenic Features**:
+- **Internet Celebrity Check-in Installations**: Giant Christmas tree + snowman matrix (winter), vintage rickshaw + gramophone scenes
+- **Hidden Cultural Space**: Second-floor balcony overlooks Central Street architectural skyline
+- **Vintage Market Experience**: Frozen pear coffee stands, old-fashioned popcorn machines, handmade sugar painting
+
+III. Duanjie Museum
+**Attraction Introduction**: China's first micro-museum themed on urban streets, located in a Russian-style townhouse built in 1902. Through over 500 émigré life artifacts, it tells the history of Harbin's earliest commercial street.
+
+**Scenic Features**:
+- **3D Historical Recreation**: Russian émigré bread oven artifacts, vintage film projector experience
+- **Interactive Mystery Game**: Search for surrounding historical buildings based on exhibit clues
+- **Cultural Composite Space**: Museum + Russian-style café + cultural creative design shop three-in-one
+
+IV. Meijin Xiaoke Century Courtyard
+**Attraction Introduction**: Fairy tale courtyard hidden within No. 50 Central Street, originally Russian engineer Meijin Xiaoke's private residence (built 1920). Now themed "Ice and Snow Fairy Tale," fusing Harbin specialty beverage culture display.
+
+**Scenic Features**:
+- **Coca-Cola Fantasy Hall**: Global limited edition polar bear themed collection exhibition
+- **Light and Shadow Art Installation**: Mirror maze + aurora projection (winter night opening)
+- **Local Beverage Experience**: Kvas brewing demonstration, handmade blueberry fruit tea
+
+V. Jewish Historical and Cultural Memorial Hall
+**Attraction Introduction**: Converted from the New Jewish Synagogue built in 1909, as the core of the Far East's largest Jewish heritage complex, it systematically displays the community development history of Jews in Harbin from late 19th century to 1950s.
+
+**Scenic Features**:
+- **Building Intrinsic Value**: Star of David dome, Jewish Ark sanctuary original appearance
+- **Rare Documentary Archives**: Hebrew hospital medical records, Jewish school graduation certificates
+- **Immersive Sound Effects**: Sabbath prayer chanting soundscape restoration
+
+VI. Harbin Flood Control Victory Memorial Tower
+**Attraction Introduction**: Built in 1958 to commemorate the victory over catastrophic floods, this city spiritual landmark forms a "history-culture-nature" triple scenic corridor with Central Street's axis.
+
+**Scenic Features**:
+- **Three-dimensional Relief Narrative**: 24-meter tower body engraved with flood control military and civilian group portraits
+- **Hydrology Science Exhibition Hall**: Underground exhibition hall displays Songhua River's century-long water level changes
+- **City Observation Deck**: Tower top overlooks Songhua River Railway Bridge panorama
+
+VII. Songhua River Railway Bridge
+**Attraction Introduction**: First bridge of Chinese Eastern Railway built by Tsarist Russia in 1898, decommissioned in 2014 and transformed into pedestrian sightseeing bridge, becoming an "aerial corridor" connecting Jiangnan old city and Sun Island.
+
+**Scenic Features**:
+- **Industrial Heritage Activation**: Preserved original railway sleepers, added glass observation deck
+- **Golden Photography Time**: Sunset captures river trains and evening glow in same frame
+- **Bridge Underside Creative Space**: Old truss transformed into art graffiti area
+
+VIII. Sun Island
+**Attraction Introduction**: Urban oasis formed by Songhua River alluvium, famous for Russian-style vacation villa complex (1920s) and ecological wetland landscape, accessible by boat or cable car from Flood Control Memorial Tower.
+
+**Scenic Features**:
+- **Russian Émigré Summer Heritage**: Sanatorium wooden houses, Volga Manor
+- **Ice and Snow Art Permanent Exhibition**: Sun Island Snow Expo Park (winter)
+- **Ecological Bird-watching Path**: Wetland boardwalk observes egret and wild duck populations
+
+IX. Zhongyi Street Historical Building Complex
+**Attraction Introduction**: Parallel side street west of Central Street, preserving Harbin's early opening period Chinese-Western fusion architectural specimens, encompassing Chinese Baroque, Russian wooden carved楞 and other characteristic residences.
+
+**Scenic Features**:
+- **Architectural Detail Decoding**:
+  - No. 34 Zhongyi Street: Peacock blue glazed brick exterior + Chinese hanging flower gate
+  - No. 58 Zhongyi Street: Wooden fish-scale pattern walls + Orthodox cross decoration
+- **Local Life Observation**: Old Daowai barber stalls, Russian-style pickle jar outdoor displays
+
+X. Central Street Red Heritage Sites
+**Attraction Introduction**: Revolutionary historical sites hidden in commercial streets, mainly CPC underground activity locations from 1920-1940s, forming a "red DNA" themed exploration route.
+
+**Scenic Features**:
+- **Tianma Advertising Agency Site**: Manchuria Provincial Committee secret printing point, preserved disguised typesetting table
+- **CPC North Manchuria Special Committee Old Site**: Interlayer wall intelligence transmission system restoration display
+- **Immersive Script Game**: "Code·1929" live-action puzzle based on historical events
+
+---
+
+XI. In-depth Tour Recommendations
+
+1. Time-Travel Route
+Central Street (architectural history) → Duanjie Museum (market history) → Jewish Memorial Hall (immigration history) → Red Heritage Sites (revolutionary history), 4 hours spanning a century
+
+2. Night Scene Essence Belt
+Flood Control Tower light show (19:30) → Railway Bridge star trail photography → Meijin Courtyard aurora projection (reservation required)
+
+3. Winter Limited Experience
+8:00 Hongzhuan Street Courtyard frozen pear coffee → 10:00 Central Street carriage parade → 14:00 Sun Island snow sculpture DIY
+
+**Note**: Please check venue opening hours in advance. Recommend purchasing "Central Street Cultural Tourism Passport" (includes 10 scenic spot stamps + discounts) to enhance experience.`,
+
+            'Summary and Recommendations': `Based on the comprehensive analysis of Central Street area in Daoli District, Harbin, we provide the following strategic recommendations for Hotel Indigo's development:
+
+**I. Core Positioning**
+Position as "Cold-Region International Cultural Heritage Hotel," deeply integrating Central Street's century-old architectural art and multi-cultural fusion characteristics, creating a differentiated experience that fills the market gap between traditional luxury and historical hotels.
+
+**II. Cultural Theme Integration**
+1. Architectural Heritage Activation: Utilize Russian-style historical buildings for micro-renovation, preserving exterior Baroque/Art Nouveau elements while implanting contemporary design internally
+2. Musical DNA Continuation: Establish balcony concert traditions, invite local musicians for regular performances, creating "living cultural heritage" experiences
+3. Ice and Snow Culture Innovation: Develop constant-temperature "Ice and Snow Immersion Hall," providing safe extreme experience spaces, compensating for outdoor景观 dependency
+
+**III. Target Market Segmentation**
+- Primary: Young high-end tourists (25-40 years old) seeking cultural depth and social experiences
+- Secondary: International business travelers valuing authentic local culture
+- Tertiary: Family親子 groups (fill competitive product gaps)
+
+**IV. Differentiation Strategy**
+1. **Experience Innovation**: Curated lobby (rotating exhibitions of Russian avant-garde art), artist residency programs, vintage train-themed afternoon tea
+2. **Night Economy**: Rooftop bar (overlooking Central Street snow scenery) + underground jazz live house, extending guest stay time
+3. **Smart Service**: Smart room control, Dyson equipment, local craft beer bar, enhancing cost-performance perception
+
+**V. Pricing Strategy**
+Anchor ¥800-1800 range, matching Dagonguan prices but providing全新 hardware + experience, achieving "new high-end" market positioning.
+
+**VI. Risk Mitigation**
+1. Avoid excessive winter dependency: Develop four-season themes (spring railway culture festival/summer beer workshop)
+2. Transportation optimization: Cooperate with ride-hailing platforms to solve winter transportation pain points
+3. Hardware investment focus: Prioritize perceptible value points (smart toilets > marble walls)
+
+**Conclusion**: The new hotel should center on "localized cultural youth expression," filling the断层 market between historical and luxury hotels with high cost-performance experiences, becoming a "cultural new landmark" in the Central Street area.`
         }
     }
 };
@@ -2436,33 +2909,54 @@ const designInspirationsDB = {
 
 // ===== 获取分析文档 =====
 function getAnalysisDocument(location) {
-    for (const key in analysisDocumentsDB) {
-        if (location.includes(key)) {
-            return analysisDocumentsDB[key];
-        }
-    }
-    return '未找到相关分析文档';
-}
-function getAnalysisDocument(location) {
-    for (const key in analysisDocumentsDB) {
-        if (location.includes(key)) {
-            return analysisDocumentsDB[key];
+    // 根据当前语言选择对应的数据库
+    const db = currentLanguage === 'zh' ? analysisDocumentsDB : analysisDocumentsDB_EN;
+    
+    // 如果是英文，需要转换地名
+    let searchKey = location;
+    if (currentLanguage === 'en') {
+        if (location.includes('长沙') || location.toLowerCase().includes('changsha')) {
+            searchKey = 'Changsha';
+        } else if (location.includes('哈尔滨') || location.toLowerCase().includes('harbin')) {
+            searchKey = 'Harbin Central Street';
         }
     }
     
-    // 默认文档
-    return {
-        title: `${location}区域分析报告`,
-        summary: `基于${location}的深度分析，涵盖历史背景、文化特色、经济环境、人文氛围及酒店市场分析`,
-        sections: {
-            '历史背景': '该地区历史悠久，承载着深厚的文化底蕴。从古至今，这里见证了历史的变迁，留下了丰富的文化遗产。',
-            '文化特色': '该地区文化特色鲜明，包括传统工艺、民俗文化、艺术形式等，体现了独特的地方文化魅力。',
-            '经济环境': '该地区经济发展良好，商业设施完善，交通便利，为酒店业发展提供了良好的基础条件。',
-            '人文氛围': '该地区人文氛围浓厚，居民文化素质较高，文化包容性强，为酒店营造了良好的文化环境。',
-            '酒店市场': '该地区酒店市场发展潜力大，现有酒店以中端为主，高端酒店市场存在空白，为品牌酒店提供了发展机会。',
-            '竞品分析': '该地区主要竞品酒店以本地品牌为主，缺乏国际品牌，为英迪格酒店提供了差异化竞争的机会。'
+    // 搜索匹配的文档
+    for (const key in db) {
+        if (searchKey.includes(key) || key.includes(searchKey)) {
+            return db[key];
         }
-    };
+    }
+    
+    // 默认文档（根据语言）
+    if (currentLanguage === 'zh') {
+        return {
+            title: `${location}区域分析报告`,
+            summary: `基于${location}的深度分析，涵盖历史背景、文化特色、经济环境、人文氛围及酒店市场分析`,
+            sections: {
+                '历史背景': '该地区历史悠久，承载着深厚的文化底蕴。从古至今，这里见证了历史的变迁，留下了丰富的文化遗产。',
+                '文化特色': '该地区文化特色鲜明，包括传统工艺、民俗文化、艺术形式等，体现了独特的地方文化魅力。',
+                '经济环境': '该地区经济发展良好，商业设施完善，交通便利，为酒店业发展提供了良好的基础条件。',
+                '人文氛围': '该地区人文氛围浓厚，居民文化素质较高，文化包容性强，为酒店营造了良好的文化环境。',
+                '酒店市场': '该地区酒店市场发展潜力大，现有酒店以中端为主，高端酒店市场存在空白，为品牌酒店提供了发展机会。',
+                '竞品分析': '该地区主要竞品酒店以本地品牌为主，缺乏国际品牌，为英迪格酒店提供了差异化竞争的机会。'
+            }
+        };
+    } else {
+        return {
+            title: `${location} Regional Analysis Report`,
+            summary: `In-depth analysis based on ${location}, covering historical background, cultural characteristics, economic environment, cultural atmosphere, and hotel market analysis`,
+            sections: {
+                'Historical Background': 'This area has a long history and carries profound cultural heritage. From ancient times to the present, it has witnessed historical changes and left rich cultural heritage.',
+                'Cultural Characteristics': 'The area has distinctive cultural characteristics, including traditional crafts, folk culture, and art forms, reflecting unique local cultural charm.',
+                'Economic Environment': 'The area has good economic development, complete commercial facilities, and convenient transportation, providing a good foundation for hotel industry development.',
+                'Cultural Atmosphere': 'The area has a strong cultural atmosphere, residents have high cultural quality and strong cultural inclusiveness, creating a good cultural environment for hotels.',
+                'Hotel Market': 'The area has great hotel market development potential, existing hotels are mainly mid-range, high-end hotel market has gaps, providing development opportunities for brand hotels.',
+                'Competitive Analysis': 'The main competitive hotels in the area are mainly local brands, lacking international brands, providing differentiated competition opportunities for Hotel Indigo.'
+            }
+        };
+    }
 }
 
 // ===== 获取故事主题 =====
@@ -5930,4 +6424,5 @@ function testDetailedDesignInspiration() {
     return allThemes;
 }
 
+// 在控制台中可以调用 testDetailedDesignInspiration() 来测试功能
 // 在控制台中可以调用 testDetailedDesignInspiration() 来测试功能
