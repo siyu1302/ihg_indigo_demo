@@ -116,6 +116,47 @@ body {
     letter-spacing: 2px;
 }
 
+/* ===== 语言切换按钮 ===== */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.language-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4px;
+    gap: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans SC', sans-serif;
+}
+
+.lang-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+    background: var(--accent-gold);
+    color: var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
 .status-indicator {
     display: flex;
     align-items: center;

@@ -4,6 +4,198 @@ let currentStep = 'location'; // location, document, confirmation, themes, story
 let analysisDocument = null;
 let generatedThemes = [];
 let userLocation = null; // 保存用户输入的位置信息
+let currentLanguage = 'zh'; // 当前语言，默认中文
+
+// ===== 多语言翻译字典 =====
+const translations = {
+    zh: {
+        // 页面标题和副标题
+        'app-title': '邻间故事AI顾问',
+        'app-subtitle': '匠心挖掘 · 文化传承 · 主题定制',
+        'status-online': '在线',
+        
+        // 欢迎消息
+        'welcome-msg-1': '您好！我是邻间故事AI顾问，专门为英迪格酒店提供文化主题定制服务。',
+        'welcome-msg-2': '请告诉我您希望开设酒店的具体位置，我将为您分析当地的历史、文化、经济、人文等信息，并生成详细的分析文档。',
+        'time-just-now': '刚刚',
+        
+        // 输入框
+        'input-placeholder': '请输入酒店选址地址，例如：哈尔滨中央大街、长沙湘江中路...',
+        
+        // 加载状态
+        'ai-analyzing': 'AI正在分析...',
+        
+        // 文档面板
+        'doc-title': '分析文档',
+        'doc-waiting': '等待分析...',
+        'empty-doc-title': '暂无文档',
+        'empty-doc-desc': '请在左侧输入酒店地址，AI将为您生成详细的分析文档',
+        
+        // AI消息
+        'ai-received-location': '收到您的位置信息：',
+        'ai-analyzing-location': '正在为您分析该区域的历史文化、经济环境和人文特色...',
+        'ai-analysis-complete': '分析完成！我已为您生成详细的区域分析报告。',
+        'ai-view-document': '您可以在右侧查看完整的分析文档。文档包含以下内容：',
+        'ai-next-step': '接下来，我将为您挖掘该区域的文化故事和主题。',
+        'ai-continue-prompt': '请告诉我是否继续？',
+        'ai-mining-themes': '正在为您挖掘文化故事...',
+        'ai-found-themes': '我为您找到了以下文化主题，每个都蕴含着独特的地域故事：',
+        'ai-select-themes': '请从中选择 3 个您最感兴趣的主题，我将为您生成详细的邻间故事设计文档。',
+        'ai-theme-selected': '您已选择：',
+        'ai-select-count': '（已选 {count}/3）',
+        'ai-confirm-selection': '请确认您的选择，我将为您生成邻间故事设计文档。',
+        'ai-generating-story': '正在为您生成邻间故事设计文档...',
+        'ai-story-complete': '邻间故事设计文档已生成！',
+        'ai-view-story': '您可以在右侧查看完整的邻间故事设计文档。',
+        'ai-restart-prompt': '如需重新开始，请点击下方按钮。',
+        
+        // 按钮
+        'btn-continue': '继续',
+        'btn-confirm': '确认选择',
+        'btn-restart': '重新开始',
+        'btn-view-document': '查看文档',
+        
+        // 文档章节标题
+        'section-history': '历史文化调研',
+        'section-economy': '商业经济历史发展调研',
+        'section-culture': '文化底蕴调研',
+        'section-community': '社区人文故事调研',
+        'section-hotels': '周边酒店竞品调研',
+        'section-attractions': '周边景点调研',
+        'section-summary': '总结与建议',
+        
+        // 主题卡片
+        'theme-inspiration': '灵感来源',
+        'theme-select': '选择',
+        'theme-selected': '已选择',
+        
+        // 邻间故事文档
+        'story-main-title': '主线故事',
+        'story-themes-title': '主题故事',
+        'story-design-title': '融合设计灵感',
+        'story-color': '色彩搭配',
+        'story-material': '材质选择',
+        'story-lighting': '照明设计',
+        'story-space': '空间设计',
+        'story-experience': '体验设计'
+    },
+    en: {
+        // Page titles and subtitles
+        'app-title': 'Neighborhood Stories AI Advisor',
+        'app-subtitle': 'Cultural Discovery · Heritage · Theme Customization',
+        'status-online': 'Online',
+        
+        // Welcome messages
+        'welcome-msg-1': 'Hello! I am the Neighborhood Stories AI Advisor, specialized in providing cultural theme customization services for Hotel Indigo.',
+        'welcome-msg-2': 'Please tell me the specific location where you wish to open a hotel, and I will analyze the local history, culture, economy, and humanities, and generate a detailed analysis document for you.',
+        'time-just-now': 'Just now',
+        
+        // Input box
+        'input-placeholder': 'Please enter hotel location, e.g.: Harbin Central Street, Changsha Xiangjiang Middle Road...',
+        
+        // Loading status
+        'ai-analyzing': 'AI is analyzing...',
+        
+        // Document panel
+        'doc-title': 'Analysis Document',
+        'doc-waiting': 'Waiting for analysis...',
+        'empty-doc-title': 'No Document',
+        'empty-doc-desc': 'Please enter a hotel address on the left, and AI will generate a detailed analysis document for you',
+        
+        // AI messages
+        'ai-received-location': 'Received your location:',
+        'ai-analyzing-location': 'Analyzing the historical culture, economic environment, and cultural characteristics of this area for you...',
+        'ai-analysis-complete': 'Analysis complete! I have generated a detailed regional analysis report for you.',
+        'ai-view-document': 'You can view the complete analysis document on the right. The document includes:',
+        'ai-next-step': 'Next, I will explore the cultural stories and themes of this area for you.',
+        'ai-continue-prompt': 'Would you like to continue?',
+        'ai-mining-themes': 'Discovering cultural stories for you...',
+        'ai-found-themes': 'I have found the following cultural themes for you, each containing unique local stories:',
+        'ai-select-themes': 'Please select 3 themes that interest you most, and I will generate a detailed neighborhood story design document for you.',
+        'ai-theme-selected': 'You have selected:',
+        'ai-select-count': '(Selected {count}/3)',
+        'ai-confirm-selection': 'Please confirm your selection, and I will generate the neighborhood story design document for you.',
+        'ai-generating-story': 'Generating neighborhood story design document for you...',
+        'ai-story-complete': 'Neighborhood story design document has been generated!',
+        'ai-view-story': 'You can view the complete neighborhood story design document on the right.',
+        'ai-restart-prompt': 'To start over, please click the button below.',
+        
+        // Buttons
+        'btn-continue': 'Continue',
+        'btn-confirm': 'Confirm Selection',
+        'btn-restart': 'Start Over',
+        'btn-view-document': 'View Document',
+        
+        // Document section titles
+        'section-history': 'Historical and Cultural Research',
+        'section-economy': 'Commercial and Economic Development Research',
+        'section-culture': 'Cultural Heritage Research',
+        'section-community': 'Community Stories Research',
+        'section-hotels': 'Competitive Hotel Analysis',
+        'section-attractions': 'Nearby Attractions Research',
+        'section-summary': 'Summary and Recommendations',
+        
+        // Theme cards
+        'theme-inspiration': 'Inspiration Source',
+        'theme-select': 'Select',
+        'theme-selected': 'Selected',
+        
+        // Neighborhood story document
+        'story-main-title': 'Main Story',
+        'story-themes-title': 'Theme Stories',
+        'story-design-title': 'Integrated Design Inspiration',
+        'story-color': 'Color Palette',
+        'story-material': 'Material Selection',
+        'story-lighting': 'Lighting Design',
+        'story-space': 'Space Design',
+        'story-experience': 'Experience Design'
+    }
+};
+
+// ===== 语言切换功能 =====
+function switchLanguage(lang) {
+    currentLanguage = lang;
+    
+    // 保存语言偏好到本地存储
+    localStorage.setItem('preferredLanguage', lang);
+    
+    // 更新所有带有 data-i18n 属性的元素
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // 更新所有带有 data-i18n-placeholder 属性的元素
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+        }
+    });
+    
+    // 更新语言切换按钮的激活状态
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+// 获取翻译文本的辅助函数
+function t(key, replacements = {}) {
+    let text = translations[currentLanguage][key] || key;
+    
+    // 替换占位符，如 {count}
+    Object.keys(replacements).forEach(placeholder => {
+        text = text.replace(`{${placeholder}}`, replacements[placeholder]);
+    });
+    
+    return text;
+}
 
 // ===== 分析文档数据库 =====
 const analysisDocumentsDB = {
@@ -2345,18 +2537,18 @@ function addMessage(content, isUser = false, type = 'text') {
             </div>
             <div class="message-content">
                 <div class="message-bubble">
-                    <p>我已经为您生成了详细的分析文档，请点击查看：</p>
+                    <p>${currentLanguage === 'zh' ? '我已经为您生成了详细的分析文档，请点击查看：' : 'I have generated a detailed analysis document for you. Please click to view:'}</p>
                     <div class="document-card" data-document="analysis">
                         <div class="document-icon">📄</div>
                         <div class="document-info">
                             <div class="document-title">${content.title}</div>
                             <div class="document-time">${dateString} ${timeStringShort}</div>
                         </div>
-                        <button class="document-open-btn">打开</button>
+                        <button class="document-open-btn">${currentLanguage === 'zh' ? '打开' : 'Open'}</button>
                     </div>
                     <div class="action-buttons">
                         <button class="btn-primary confirm-analysis-btn">
-                            <span>确认通过此文档提炼故事主题</span>
+                            <span>${currentLanguage === 'zh' ? '确认通过此文档提炼故事主题' : 'Confirm and Extract Story Themes'}</span>
                             <span class="btn-icon">→</span>
                         </button>
                     </div>
@@ -2371,9 +2563,9 @@ function addMessage(content, isUser = false, type = 'text') {
             </div>
             <div class="message-content">
                 <div class="message-bubble">
-                    <p>基于分析文档，我为您提炼了以下8个故事主题，请选择您最感兴趣的3个主题：</p>
+                    <p>${currentLanguage === 'zh' ? '基于分析文档，我为您提炼了以下8个故事主题，请选择您最感兴趣的3个主题：' : 'Based on the analysis document, I have extracted the following 8 story themes. Please select the 3 themes that interest you most:'}</p>
                     <div class="theme-selection-counter">
-                        <span class="counter-text">已选择 <span class="selected-count">0</span>/3 个主题</span>
+                        <span class="counter-text">${currentLanguage === 'zh' ? '已选择' : 'Selected'} <span class="selected-count">0</span>/3 ${currentLanguage === 'zh' ? '个主题' : 'themes'}</span>
                     </div>
                     <div class="theme-cards">
                         ${content.map((theme, index) => `
@@ -2381,7 +2573,7 @@ function addMessage(content, isUser = false, type = 'text') {
                                 <div class="theme-main-title">${theme.mainTitle}</div>
                                 <div class="theme-sub-title">${theme.subTitle}</div>
                                 <div class="theme-elements">
-                                    <div class="theme-elements-title">提炼灵感来源的元素：</div>
+                                    <div class="theme-elements-title">${currentLanguage === 'zh' ? '提炼灵感来源的元素：' : 'Inspiration Elements:'}</div>
                                     <div class="theme-elements-list">
                                         ${theme.elements.map(element => `<span class="theme-element">${element}</span>`).join('')}
                                     </div>
@@ -2411,18 +2603,18 @@ function addMessage(content, isUser = false, type = 'text') {
             </div>
             <div class="message-content">
                 <div class="message-bubble">
-                    <p>我已经为您生成了邻间故事设计文档，请点击查看：</p>
+                    <p>${currentLanguage === 'zh' ? '我已经为您生成了邻间故事设计文档，请点击查看：' : 'I have generated the neighborhood story design document for you. Please click to view:'}</p>
                     <div class="document-card" data-document="story">
                         <div class="document-icon">📖</div>
                         <div class="document-info">
                             <div class="document-title">${content.title}</div>
                             <div class="document-time">${dateString} ${timeStringShort}</div>
                         </div>
-                        <button class="document-open-btn">打开</button>
+                        <button class="document-open-btn">${currentLanguage === 'zh' ? '打开' : 'Open'}</button>
                     </div>
                     <div class="action-buttons">
                         <button class="btn-primary confirm-story-btn">
-                            <span>确认通过此文档</span>
+                            <span>${currentLanguage === 'zh' ? '确认通过此文档' : 'Confirm Document'}</span>
                             <span class="btn-icon">→</span>
                         </button>
                     </div>
@@ -2458,7 +2650,7 @@ function showDocumentContent(documentData) {
     documentPanel.style.display = 'flex';
     chatPanel.classList.add('with-document');
     
-    documentStatus.innerHTML = '<span class="status-text">分析完成</span>';
+    documentStatus.innerHTML = `<span class="status-text">${currentLanguage === 'zh' ? '分析完成' : 'Analysis Complete'}</span>`;
     
     // 生成markdown格式的文档内容
     let contentHTML = `
@@ -2831,14 +3023,14 @@ function addThemeListeners(messageDiv) {
                 generateBtn.disabled = false;
                 generateBtn.classList.remove('disabled');
                 generateBtn.innerHTML = `
-                    <span>生成邻间故事文档</span>
+                    <span>${currentLanguage === 'zh' ? '生成邻间故事文档' : 'Generate Story Document'}</span>
                     <span class="btn-icon">→</span>
                 `;
             } else {
                 generateBtn.disabled = true;
                 generateBtn.classList.add('disabled');
                 generateBtn.innerHTML = `
-                    <span>请选择3个主题</span>
+                    <span>${currentLanguage === 'zh' ? '请选择3个主题' : 'Please select 3 themes'}</span>
                     <span class="btn-icon">→</span>
                 `;
             }
@@ -2881,7 +3073,7 @@ function addThemeListeners(messageDiv) {
                 generateBtn.className = 'btn-primary generate-story-btn disabled';
                 generateBtn.disabled = true;
                 generateBtn.innerHTML = `
-                    <span>请选择3个主题</span>
+                    <span>${currentLanguage === 'zh' ? '请选择3个主题' : 'Please select 3 themes'}</span>
                     <span class="btn-icon">→</span>
                 `;
                 messageDiv.querySelector('.action-buttons').appendChild(generateBtn);
@@ -3038,7 +3230,10 @@ function addStoryDocumentListeners(messageDiv) {
     // 确认按钮事件
     confirmBtn.addEventListener('click', () => {
         // 显示完成消息
-        addMessage('感谢您的使用！邻间故事设计文档已生成完成。如需重新开始，请点击"重新开始"按钮。', false);
+        const completeMsg = currentLanguage === 'zh' 
+            ? '感谢您的使用！邻间故事设计文档已生成完成。如需重新开始，请点击"重新开始"按钮。'
+            : 'Thank you for using our service! The neighborhood story design document has been generated. To start over, please click the "Start Over" button.';
+        addMessage(completeMsg, false);
         
         // 添加重新开始按钮
         const chatMessages = document.getElementById('chat-messages');
@@ -3048,7 +3243,7 @@ function addStoryDocumentListeners(messageDiv) {
             const startOverBtn = document.createElement('button');
             startOverBtn.className = 'btn-secondary start-over-btn';
             startOverBtn.innerHTML = `
-                <span>重新开始</span>
+                <span>${currentLanguage === 'zh' ? '重新开始' : 'Start Over'}</span>
                 <span class="btn-icon">↻</span>
             `;
             actionButtons.appendChild(startOverBtn);
@@ -3318,6 +3513,21 @@ document.addEventListener('DOMContentLoaded', () => {
             messageInput.value = '';
         });
     });
+    
+    // 语言切换按钮事件
+    const langBtns = document.querySelectorAll('.lang-btn');
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            switchLanguage(lang);
+        });
+    });
+    
+    // 从本地存储加载语言偏好
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage && (savedLanguage === 'zh' || savedLanguage === 'en')) {
+        switchLanguage(savedLanguage);
+    }
     
     // 输入框聚焦
     messageInput.focus();
